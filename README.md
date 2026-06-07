@@ -2,33 +2,14 @@
 
 This repo teaches practical LLM-based development in existing systems: how to shape the task, supply context, choose the right solution level, verify the work, and preserve what the next session needs.
 
-The main path moves through grounding, framing, delegation, execution, and learning. Review, dissent, and salvage are not end-of-line steps; invoke them whenever evidence, assumptions, or drift demand it.
+Start with one real project slice. The docs help you clarify intent, supply the right context, map the problem before choosing a fix, compare solution levels, define evidence, delegate a bounded slice, and preserve what the next session should remember.
 
-```mermaid
-flowchart TB
-    subgraph main[Main path]
-        intent[Intent] --> model[Model-fit framing]
-        model --> context[Context construction]
-        context --> pspace[Problem space]
-        pspace --> pstatement[Problem statement]
-        pstatement --> solution[Solution search]
-        solution --> evidence[Evidence]
-        evidence --> delegation[Delegation]
-        delegation --> execution[Execution]
-        execution --> extraction[Knowledge extraction]
-    end
+Review, dissent, and salvage are anytime checks. Use review when correctness needs an external check, dissent when the accepted-looking answer rests on fragile assumptions, and salvage when the run starts drifting.
 
-    active[Any active step] -. verify .-> review[Review]
-    active -. stress assumptions .-> dissent[Dissent]
-    active -. drift or lost .-> salvage[Salvage]
-    review -. continue or revise .-> active
-    dissent -. continue or reframe .-> active
-    salvage -. restart smaller .-> intent
-```
+The curriculum has two layers:
 
-The first layer is the skill curriculum: intent engineering, model-fit framing, context construction, Open Horizons phase skills, skill authoring, subagents, evidence, review, dissent, knowledge extraction, and salvage.
-
-The second layer applies the Open Horizons corpus and related writing to those skills: LLM Prompt Types, Alignment Is the Constraint, Intent Engineering, Beyond the Nearest Peak, The Context Stack, Dissent Mode, the Salvage Loop, and strategy-clarity writing.
+- practical LLM-development skills: intent engineering, model-fit framing, context construction, Open Horizons phase skills, skill authoring, subagents, evidence, review, dissent, knowledge extraction, and salvage;
+- Open Horizons source material applied to those skills: LLM Prompt Types, Alignment Is the Constraint, Intent Engineering, Beyond the Nearest Peak, The Context Stack, Dissent Mode, the Salvage Loop, and strategy-clarity writing.
 
 ## What you learn
 
