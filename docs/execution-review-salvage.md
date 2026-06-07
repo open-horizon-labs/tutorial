@@ -2,7 +2,7 @@
 
 Execution is the inner loop. Review closes it. Dissent stress-tests it. Salvage preserves learning when the run drifts.
 
-The point is not to make the agent slower. The point is to keep speed aligned.
+Execution keeps speed aligned: build the selected slice, check it against the brief, and stop when the work drifts.
 
 ## Execute
 

@@ -1,74 +1,79 @@
 # Curriculum
 
-This repo teaches a curriculum of practical skills an LLM developer should know, then applies the Open Horizons philosophy corpus to those skills.
+This curriculum is for builders using LLMs inside existing systems, where there are real constraints, real tests, real maintenance risk, and more than one plausible answer.
 
-The spine is:
+The failure mode is familiar: the model produces a decent-looking patch, the chat summary sounds confident, and nobody can tell whether the work actually served the aim. Intent was vague. Context was dumped instead of selected. Evidence came after implementation, if it came at all. Review became vibes. Dissent arrived too late. The next session has to rediscover everything.
+
+The curriculum teaches the loop and the artifacts that keep that from happening:
 
 ```text
-Intent → Problem framing → Solution search → Evidence → Delegation → Verification → Dissent → Knowledge extraction → Salvage
+Intent → Model-fit framing → Context construction → Problem framing → Solution search → Evidence → Delegation → Verification → Dissent → Knowledge extraction → Salvage
 ```
 
-That spine only becomes real when the learner can operate the tools that preserve it:
+That loop only becomes useful when the learner can preserve the decisions that matter:
 
-- **Intent Engineering** gives the rhythm: clarify intent, burst, pause, structure, iterate.
-- **Open Horizons skills** turn the rhythm into phase gates the agent can follow.
-- **Context packs** turn selective context into a reusable handoff.
-- **Authored skills** turn local know-how into reusable procedures.
-- **Subagents** turn role boundaries into bounded workers with scoped tools and isolated context.
-- **Evidence and evals** keep the work in contact with reality.
-- **Knowledge extraction** turns review, dissent, and salvage into durable `.oh/` artifacts instead of another lost chat.
+- **Intent Engineering** states the behavior change before asking for output, then uses burst/pause/review instead of a single prompt-and-pray pass.
+- **Model-fit framing** turns a vague ask into work the model can actually do: transform supplied context, compare options, critique against criteria, or expose missing context.
+- **Open Horizons skills** make each phase a gate: what is allowed to move forward, what must stop, and what evidence would change the decision.
+- **Context packs** select the project facts a future agent or reviewer needs, with provenance, constraints, landmines, and stop triggers.
+- **Authored skills** capture a repeated local procedure only after the work shows it is worth preserving.
+- **Subagents** create bounded roles when the work needs independent eyes, narrower tools, or isolated context.
+- **Evidence and evals** define the trace, test, reviewer question, or runtime check before implementation starts.
+- **Knowledge extraction** records the metis, signal, guardrail, outcome update, or ADR that a later session can actually consume.
 
 ## How to use this curriculum
 
-Use four passes:
+Use four passes. Do not turn them into homework for its own sake.
 
-1. **Overview pass** — read the table below and understand the skill sequence.
-2. **Deep-dive pass** — read the linked module only when that skill is the bottleneck.
-3. **Reference pass** — follow the module's Go deeper links when you need source material or official mechanics.
-4. **Application pass** — use `docs/tutorial.md` to apply the full loop to a real project slice.
+1. **Overview pass** — read the table below and understand the sequence of decisions.
+2. **Deep-dive pass** — read the linked module when that skill is the active bottleneck.
+3. **Reference pass** — follow Go deeper links when you need source material, official mechanics, or a sharper model.
+4. **Application pass** — use `docs/tutorial.md` to apply the loop to one real project slice.
 
-Each module has an artifact. The artifact is how the learning survives long enough for another skill, subagent, or reviewer to use it.
+A good artifact is not a note-shaped souvenir. It preserves at least one decision, one assumption or evidence check, and the next consumer: another skill, subagent, reviewer, maintainer, or future session. If an artifact cannot do that, shrink it or merge it.
 
 ## Overview curriculum
 
 | Module | Learner can do this | Artifact | Deep dive | Go deeper |
 |---|---|---|---|---|
-| 1. Intent Engineering | State a real intent, use the model for bursts, pause before commitment, and preserve the current understanding. | Intent note. | [`intent-engineering.md`](intent-engineering.md) | [Intent Engineering](https://muness.com/posts/intent-engineering/); [Alignment Is the Constraint](https://muness.com/posts/alignment-is-the-constraint/). |
-| 2. Context construction | Build a selective context pack with provenance, constraints, landmines, and stop triggers. | Context pack. | [`context-construction.md`](context-construction.md) | [The Context Stack](https://muness.com/posts/the-context-stack/). |
-| 3. Open Horizons phase skills | Use `/aim`, `/problem-space`, `/problem-statement`, `/solution-space`, `/execute`, `/review`, `/dissent`, and `/salvage` as gates. | Session artifacts. | [`open-horizons.md`](open-horizons.md) | [Open Horizons](https://muness.com/posts/open-horizons/); [Open Horizons Skills](https://github.com/open-horizon-labs/skills). |
-| 4. Problem framing | Map terrain, separate symptoms from constraints, and choose a problem statement. | Problem-space map and problem statement. | [`problem-space.md`](problem-space.md) | [Documenting Strategy](https://muness.com/posts/documenting-strategy-lessons-from-leading-data-and-eng/); [Real-World Strategic Clarity](https://muness.com/posts/real-world-application-of-strategic-clarity-in-platform-leadership/). |
-| 5. Solution search | Generate multiple solution levels and reject the nearest plausible patch. | Solution-space comparison with selected level. | [`beyond-nearest-peak.md`](beyond-nearest-peak.md) | [Beyond the Nearest Peak](https://muness.com/posts/beyond-the-nearest-peak/). |
-| 6. Evidence | Define checks before implementation. | Evidence checklist. | [`evidence-and-evals.md`](evidence-and-evals.md) | [Phoenix eval workflow](https://arize.com/docs/phoenix/cookbook/ai-engineering-workflows/iterative-evaluation-and-experimentation-workflow-python); [Dissent Mode](https://muness.com/posts/dissent-mode/). |
-| 7. Agent brief | Turn aim, mechanism, feedback, guardrails, and selected level into execution context. | Agent brief. | [`agent-briefs.md`](agent-briefs.md) | [`strategy-clarity.md`](strategy-clarity.md); [Alignment Is the Constraint](https://muness.com/posts/alignment-is-the-constraint/). |
-| 8. Skill authoring | Encode repeated project procedures as `SKILL.md` files. | Project skill. | [`authoring-skills.md`](authoring-skills.md) | [Claude Code Skills](https://code.claude.com/docs/en/skills). |
-| 9. Subagent authoring | Encode specialized roles as subagents with input contracts and tool limits. | Project subagent. | [`subagents.md`](subagents.md) | [Claude Code Subagents](https://code.claude.com/docs/en/sub-agents). |
-| 10. Execution | Delegate one bounded implementation slice and detect drift. | Patch or stopped execution report. | [`execution-review-salvage.md`](execution-review-salvage.md#execute) | [`/execute`](skill://execute); [The Salvage Loop](https://muness.com/posts/the-salvage-loop-keep-learning-drop-the-code/). |
-| 11. Verification and review | Check the work against evidence and aim, not the agent's summary. | Review findings. | [`execution-review-salvage.md`](execution-review-salvage.md#review) | [`/review`](skill://review); [Dissent Mode](https://muness.com/posts/dissent-mode/). |
-| 12. Dissent | Stress the accepted-looking answer before committing. | Dissent memo. | [`execution-review-salvage.md`](execution-review-salvage.md#dissent) | [Dissent Mode](https://muness.com/posts/dissent-mode/). |
-| 13. Knowledge extraction | Record metis, signals, guardrails, outcome updates, or ADRs that should survive the session. | `.oh/` artifact or ADR. | [`knowledge-extraction.md`](knowledge-extraction.md) | [`record` artifact shape](knowledge-extraction.md); [The Context Stack](https://muness.com/posts/the-context-stack/). |
-| 14. Salvage | Keep the learning and restart smaller when the run drifts. | Salvage note and restart plan. | [`execution-review-salvage.md`](execution-review-salvage.md#salvage) | [The Salvage Loop](https://muness.com/posts/the-salvage-loop-keep-learning-drop-the-code/). |
+| 1. Intent Engineering | Name the behavior change, use the model for a short burst, pause before commitment, and preserve the current understanding. | Intent note. | [`intent-engineering.md`](intent-engineering.md) | [Intent Engineering](https://muness.com/posts/intent-engineering/); [Alignment Is the Constraint](https://muness.com/posts/alignment-is-the-constraint/). |
+| 2. Model-fit framing | Reframe the ask so the model transforms supplied context instead of guessing missing facts. | Model-fit note. | [`model-fit.md`](model-fit.md) | [LLM Prompt Types](https://muness.com/posts/llm-prompt-types/); [Anthropic context engineering](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents). |
+| 3. Context construction | Build a selective context pack with provenance, constraints, landmines, and stop triggers instead of dumping the repo. | Context pack. | [`context-construction.md`](context-construction.md) | [The Context Stack](https://muness.com/posts/the-context-stack/). |
+| 4. Open Horizons phase skills | Use `/aim`, `/problem-space`, `/problem-statement`, `/solution-space`, `/execute`, `/review`, `/dissent`, and `/salvage` as gates that decide whether work may continue, stop, narrow, or restart. | Session artifacts. | [`open-horizons.md`](open-horizons.md) | [Open Horizons](https://muness.com/posts/open-horizons/); [Open Horizons Skills](https://github.com/open-horizon-labs/skills). |
+| 5. Problem framing | Map terrain, separate symptoms from constraints, and choose a problem statement with an invalidation signal. | Problem-space map and problem statement. | [`problem-space.md`](problem-space.md) | [Documenting Strategy](https://muness.com/posts/documenting-strategy-lessons-from-leading-data-and-eng/); [Real-World Strategic Clarity](https://muness.com/posts/real-world-application-of-strategic-clarity-in-platform-leadership/). |
+| 6. Solution search | Generate multiple solution levels, score them against the aim, and reject the nearest plausible patch when it does not change the failure mode. | Solution-space comparison with selected level. | [`beyond-nearest-peak.md`](beyond-nearest-peak.md) | [Beyond the Nearest Peak](https://muness.com/posts/beyond-the-nearest-peak/). |
+| 7. Evidence | Define checks before implementation, including the tempting patch that should fail if the problem is deeper. | Evidence checklist. | [`evidence-and-evals.md`](evidence-and-evals.md) | [Phoenix eval workflow](https://arize.com/docs/phoenix/cookbook/ai-engineering-workflows/iterative-evaluation-and-experimentation-workflow-python); [Dissent Mode](https://muness.com/posts/dissent-mode/). |
+| 8. Agent brief | Turn aim, mechanism, feedback, guardrails, and selected solution level into an execution contract. | Agent brief. | [`agent-briefs.md`](agent-briefs.md) | [`strategy-clarity.md`](strategy-clarity.md); [Alignment Is the Constraint](https://muness.com/posts/alignment-is-the-constraint/). |
+| 9. Skill authoring | Author a `SKILL.md` when the current project exposes a repeated procedure worth preserving. | Project skill. | [`authoring-skills.md`](authoring-skills.md) | [Claude Code Skills](https://code.claude.com/docs/en/skills). |
+| 10. Subagent authoring | Author a specialized role when the work needs independent judgment, scoped tools, or isolated context. | Project subagent. | [`subagents.md`](subagents.md) | [Claude Code Subagents](https://code.claude.com/docs/en/sub-agents). |
+| 11. Execution | Delegate one bounded implementation slice, keep the stop triggers visible, and detect drift before it compounds. | Patch or stopped execution report. | [`execution-review-salvage.md`](execution-review-salvage.md#execute) | [`/execute`](skill://execute); [The Salvage Loop](https://muness.com/posts/the-salvage-loop-keep-learning-drop-the-code/). |
+| 12. Verification and review | Check the work against evidence and aim, not the agent's summary or your desire for the patch to be done. | Review findings. | [`execution-review-salvage.md`](execution-review-salvage.md#review) | [`/review`](skill://review); [Dissent Mode](https://muness.com/posts/dissent-mode/). |
+| 13. Dissent | Stress the accepted-looking answer, name the assumption that could break, and decide whether to proceed, adjust, or reconsider. | Dissent memo. | [`execution-review-salvage.md`](execution-review-salvage.md#dissent) | [Dissent Mode](https://muness.com/posts/dissent-mode/). |
+| 14. Knowledge extraction | Record the metis, signal, guardrail, outcome update, or ADR that should constrain the next run. | `.oh/` artifact or ADR. | [`knowledge-extraction.md`](knowledge-extraction.md) | [`record` artifact shape](knowledge-extraction.md); [The Context Stack](https://muness.com/posts/the-context-stack/). |
+| 15. Salvage | Keep the learning and restart smaller when the run drifts, instead of defending the bad patch because it almost works. | Salvage note and restart plan. | [`execution-review-salvage.md`](execution-review-salvage.md#salvage) | [The Salvage Loop](https://muness.com/posts/the-salvage-loop-keep-learning-drop-the-code/). |
 
 ## Open Horizons corpus applied
 
 | Source | Curriculum use |
 |---|---|
-| Intent Engineering | Teaches the operating rhythm: clarify intent, burst, pause, structured pass, iterate. |
-| Open Horizons | Turns the rhythm into Aim / Do / Reflect and nested feedback loops. |
-| Alignment Is the Constraint | Requires every task, skill, subagent, and eval to carry aim, mechanism, feedback, and guardrail. |
-| Documenting Strategy | Treats artifacts as connected strategy/tactics, not notes. Every tactic should be necessary, viable, sufficient, and connected. |
-| Real-World Strategic Clarity | Keeps outcomes, mechanisms, satisfaction criteria, and running logs tied together. |
-| Beyond the Nearest Peak | Teaches solution search: shallow breadth, score, select, deepen. Do not accept the first plausible patch. |
-| The Context Stack | Teaches context governance: task identity, decision logs, provenance, guardrails, promotion paths, and agent-spawn forecasting. |
-| Dissent Mode | Teaches managed contradiction: dissent memos, safe-to-fail probes, stop-the-line triggers, and review that can change the decision. |
-| The Salvage Loop | Teaches that the code draft is disposable and the learning is the asset. |
+| Intent Engineering | Produces an intent note that can survive a burst, pause, structured pass, and review. |
+| LLM Prompt Types | Separates model-suited transformations from brittle retrieval or closed-ended asks, then pairs the ask with context and evaluation criteria. |
+| Open Horizons | Turns Aim / Do / Reflect into nested feedback loops, so every phase knows what signal it is preserving. |
+| Alignment Is the Constraint | Requires every task, skill, subagent, and eval to carry aim, mechanism, feedback, and guardrail before speed can help. |
+| Documenting Strategy | Treats artifacts as connected strategy and tactics, not loose notes. Every tactic should be necessary, viable, sufficient, and connected. |
+| Real-World Strategic Clarity | Keeps outcomes, mechanisms, satisfaction criteria, and running logs tied together so the work can be checked later. |
+| Beyond the Nearest Peak | Makes solution search observable: shallow breadth, score, select, deepen. Do not accept the first plausible patch just because it is close. |
+| The Context Stack | Gives context a governance model: task identity, decision logs, provenance, guardrails, promotion paths, and agent-spawn forecasting. |
+| Dissent Mode | Produces managed contradiction: dissent memos, safe-to-fail probes, stop-the-line triggers, and review that can change the decision. |
+| The Salvage Loop | Treats the code draft as disposable and the learning as the asset. |
 
 ## Why skills, subagents, and extraction are in the curriculum
 
-A phase name is not enough.
+A phase name is cheap. Naming `/review` does not make review happen. Naming `/dissent` does not mean anything got challenged.
 
-`Intent → ... → Salvage` becomes useful only when the learner can preserve behavior across sessions and agents.
+The harness has to carry enough context that another agent, reviewer, or future you can audit the work without trusting the chat summary.
 
-Skills preserve **procedures**:
+Skills preserve **procedures** when there is a procedure worth repeating:
 
 - how to frame a project slice;
 - how to compare solution levels;
@@ -76,7 +81,7 @@ Skills preserve **procedures**:
 - how to run a fragile project-specific check;
 - how to salvage a failed run without keeping the bad patch.
 
-Subagents preserve **roles**:
+Subagents preserve **roles** when the work needs a different set of eyes or a narrower runtime boundary:
 
 - independent reviewer;
 - codebase scout;
@@ -86,7 +91,7 @@ Subagents preserve **roles**:
 - domain-specific validator;
 - knowledge extractor.
 
-Knowledge extraction preserves **learning**:
+Knowledge extraction preserves **learning** when the next session should not have to rediscover it:
 
 - metis: what we learned from doing the work;
 - signal: what measurement tells us the outcome is moving;
@@ -94,23 +99,26 @@ Knowledge extraction preserves **learning**:
 - outcome update: what changed in status, mechanism, or affected files;
 - ADR: what architectural decision now constrains future work.
 
-The skill tells the agent what workflow to follow. The subagent controls whose eyes are on the work, what context they receive, and what tools they are allowed to use. The knowledge artifact decides what should survive after the session ends.
+Skills, subagents, and extraction exist to preserve judgment across sessions: the procedure, the role boundary, the evidence, and the learning that should change the next run. Open Horizons-shaped paperwork is failure in a nicer outfit.
 
 ## Capstone
 
-The learner improves one real project slice and leaves behind:
+Use a real project with enough texture for judgment: tests, more than one subsystem, a known annoyance or recurring failure, and enough history that the debt is not hypothetical. If the project is blank, the exercise has no terrain. Pick a smaller real slice instead.
+
+The learner improves that slice and leaves behind:
 
 - an intent note;
+- a model-fit note;
 - a context pack;
 - problem-space and problem-statement artifacts;
 - a solution-level comparison;
 - evidence checks;
 - an agent brief;
-- a project skill encoding one reusable procedure;
-- a subagent encoding one independent role;
+- a project skill encoding one observed reusable procedure;
+- a subagent encoding one independent role boundary;
 - a patch or stopped execution report;
 - review and dissent findings;
 - one durable knowledge artifact;
 - a salvage note if the run drifted.
 
-The project should be easier to work on next time because the procedure, role boundary, and learning survived the session.
+The next-session test is the standard: a new agent or maintainer should be able to read the artifacts, recover the aim, constraints, chosen framing, evidence checks, role boundaries, and failure modes, then continue the same project slice without rediscovering the whole problem. If the artifacts do not make that possible, the curriculum produced paperwork, not learning.

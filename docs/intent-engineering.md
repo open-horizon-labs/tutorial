@@ -74,7 +74,7 @@ After execution, do not ask only “did it work?” Ask:
 - What did dissent challenge?
 - What should become a skill, subagent, guardrail, metis, signal, or salvage note?
 
-Intent Engineering is not slower work. It is the control system that lets speed stay useful.
+Intent Engineering keeps speed useful by making the control system explicit.
 
 
 ## Exercise
@@ -93,4 +93,5 @@ What would prove this was the wrong task:
 
 - [Intent Engineering](https://muness.com/posts/intent-engineering/) — the source essay for clarify, burst, pause, structure, iterate.
 - [Alignment Is the Constraint](https://muness.com/posts/alignment-is-the-constraint/) — why intent must carry mechanism, feedback, and guardrails.
-- [`docs/context-construction.md`](context-construction.md) — the next skill: turning intent into usable context.
+- [`docs/model-fit.md`](model-fit.md) — the next skill: shape the ask around model strengths before constructing context.
+- [`docs/context-construction.md`](context-construction.md) — turning intent and model-fit into usable context.

@@ -6,6 +6,7 @@ Read these when a module is the bottleneck. The curriculum is overview first, th
 
 - [`docs/curriculum.md`](curriculum.md) — overview map: module, artifact, deep dive, and go-deeper references.
 - [`docs/intent-engineering.md`](intent-engineering.md) — clarify intent, burst, pause, structure, iterate.
+- [`docs/model-fit.md`](model-fit.md) — shape asks around model strengths and supplied context.
 - [`docs/context-construction.md`](context-construction.md) — construct selective context packs with provenance and stop triggers.
 - [`docs/open-horizons.md`](open-horizons.md) — how the full loop applies to LLM development.
 - [`docs/problem-space.md`](problem-space.md) — why problem framing needs real terrain.
@@ -24,6 +25,13 @@ Read these when a module is the bottleneck. The curriculum is overview first, th
 - [Documenting Strategy: Lessons from Leading Data and Engineering Teams](https://muness.com/posts/documenting-strategy-lessons-from-leading-data-and-eng/) — vision, stakeholder needs, context, strategy, tactics, and connected work.
 - [Real-World Application of Strategic Clarity in Platform Leadership](https://muness.com/posts/real-world-application-of-strategic-clarity-in-platform-leadership/) — outcomes, mechanisms, updates, feedback, and ownership in a platform team.
 
+## LLM mechanics
+
+- [LLM Prompt Types](https://muness.com/posts/llm-prompt-types/) — prompt types, suitability, context, and evaluation criteria.
+- [Anthropic: Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — context as a finite attention resource.
+- [Anthropic prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices) — clear instructions, context, examples, structure, and grounding.
+- [OpenAI prompt engineering guide](https://developers.openai.com/api/docs/guides/prompt-engineering) — structured prompts, typed inputs, examples, and evaluation for prompt behavior.
+
 ## Later
 
 - [Claude Code Skills](https://code.claude.com/docs/en/skills) — official mechanics for `SKILL.md`, supporting files, and invocation.
@@ -40,6 +48,7 @@ Read these when a module is the bottleneck. The curriculum is overview first, th
 ## What to read when
 
 If your agent rushes to code, read Intent Engineering and Alignment Is the Constraint.  
+If the model gives fluent but generic output, read Model-Fit Framing.
 If the agent only proposes one fix, read Beyond the Nearest Peak.  
 If the agent ignores needed context, read The Context Stack.  
 If repeated instructions keep getting pasted, write a skill.  

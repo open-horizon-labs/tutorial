@@ -5,10 +5,10 @@ Open Horizons keeps an agent run from becoming “ask for patch, accept patch.�
 For LLM development, the sequence is:
 
 ```text
-Intent Engineering → context pack → /aim → /problem-space → /problem-statement → /solution-space → evidence → brief → skill → subagent → /execute → /review → /dissent → knowledge extraction → /salvage
+Intent Engineering → model-fit note → context pack → /aim → /problem-space → /problem-statement → /solution-space → evidence → brief → skill → subagent → /execute → /review → /dissent → knowledge extraction → /salvage
 ```
 
-The reason is simple: do not assign work until you know what good means, what context the agent should inherit, what role boundary it needs, and what should survive after the session.
+The reason is simple: do not assign work until you know what good means, what language operation the model should perform, what context it should inherit, what role boundary it needs, and what should survive after the session.
 
 ## Evidence first
 
@@ -31,6 +31,7 @@ Evidence is:
 | Tool | Job in this repo |
 |---|---|
 | Intent Engineering | Clarify intent, burst, pause, structure, and iterate. |
+| Model-fit note | Name the model job — extract, compare, classify, rewrite, critique, generate candidates, or translate — and the context it must be supplied rather than asked to guess. |
 | Context pack | Preserve selective context before delegation. |
 | `/aim` | Name the outcome before the agent ranks work. |
 | `/problem-space` | Map terrain: systems, stakeholders, constraints, blast radius, assumptions. |
@@ -93,7 +94,7 @@ Shrink a step if needed. Do not remove the signal.
 Take a planned agent run and mark where each gate happens:
 
 ```text
-intent → context pack → aim → problem framing → solution search → evidence → brief → skill decision → subagent decision → execute → review → dissent → extraction → salvage
+intent → model-fit note → context pack → aim → problem framing → solution search → evidence → brief → skill decision → subagent decision → execute → review → dissent → extraction → salvage
 ```
 
 If a gate has no artifact, decide whether it is unnecessary for this slice or whether the run is relying on implicit judgment.

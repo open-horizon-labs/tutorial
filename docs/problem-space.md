@@ -28,7 +28,7 @@ Map:
 - blast radius if wrong;
 - prior attempts or abandoned fixes.
 
-The goal is not implementation advice. The goal is to understand what the implementation would be for.
+Terrain mapping explains what the implementation is for before the agent starts proposing fixes.
 
 ## Why real terrain matters
 

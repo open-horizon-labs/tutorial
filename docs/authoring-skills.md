@@ -92,7 +92,7 @@ Then a short process:
 | Dissent | Preserve known failure modes. |
 | Salvage | Preserve learning and restart shape. |
 
-The point is not to collect skills. The point is to stop rediscovering the same procedure every session.
+A useful skill stops the next session from rediscovering the same procedure.
 
 
 ## Exercise

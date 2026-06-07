@@ -77,7 +77,7 @@ The repo-native-alignment agents show the shape:
 - `gen-extractor.md` defines a specialized generator for `.oh/extractors/*.toml` with validation steps and report shape.
 - `dev-pipeline.md` defines a gated pipeline where phases spawn specialized agents instead of inlining everything.
 
-The useful pattern is not the exact wording. It is the role contract:
+Copy the role contract, not the exact wording:
 
 ```text
 Input → Tool limits → Process → Gate → Output → Anti-patterns

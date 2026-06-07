@@ -36,7 +36,7 @@ Cheap generation removes the excuse for stopping there.
 | Reframe | Changes the problem statement. | The symptom points to a hidden constraint or ownership issue. | Endless analysis if no testable slice follows. |
 | Redesign | Changes the system so the problem is harder to create. | The class of failure keeps recurring. | Big rewrite with weak feedback. |
 
-The point is not to always choose Redesign. The point is to know what altitude you chose and why.
+Choose the altitude deliberately: Band-Aid, Local Optimum, Reframe, or Redesign. Name why that level fits the aim and evidence.
 
 ## Scoring function
 

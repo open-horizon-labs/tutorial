@@ -5,7 +5,7 @@ This exercise teaches the skills an LLM developer should know, then applies the 
 The spine is:
 
 ```text
-Intent → Problem framing → Solution search → Evidence → Delegation → Verification → Dissent → Knowledge extraction → Salvage
+Intent → Model-fit framing → Context construction → Problem framing → Solution search → Evidence → Delegation → Verification → Dissent → Knowledge extraction → Salvage
 ```
 
 Use a real project with enough texture that there is more than one plausible solution. If all you have is a blank repo, stop. The point is judgment in an existing system.
@@ -67,7 +67,42 @@ Artifact:
 intent note
 ```
 
-### Step 2: Context pack
+### Step 2: Model-fit framing
+
+Read `docs/model-fit.md`, then use `templates/model-fit-note.md`.
+
+Before building the context pack, decide what work the model is actually suited to do.
+
+Weak:
+
+```md
+Summarize this Zoom transcript.
+```
+
+Better:
+
+```md
+Using the transcript and context pack, produce a decision-preserving meeting note for the platform roadmap review. Separate decisions, proposals, risks, action items, and missing context. Quote the transcript line or timestamp for every commitment.
+```
+
+Write down:
+
+- the task you are asking the model to perform;
+- the supplied context it needs;
+- the language operation it should perform;
+- what it must not infer;
+- the output contract;
+- how a reviewer can check the result.
+
+If the answer needs private organizational context, provide it or mark the task not ready.
+
+Artifact:
+
+```text
+model-fit note
+```
+
+### Step 3: Context pack
 
 Read `docs/context-construction.md`, then build a context pack for the agent.
 
@@ -76,6 +111,7 @@ Do not dump the repo. Select context and record provenance.
 Include:
 
 - intent;
+- model-fit note;
 - project shape;
 - relevant files or components;
 - known constraints;
@@ -93,7 +129,7 @@ Artifact:
 context pack
 ```
 
-### Step 3: Aim
+### Step 4: Aim
 
 Run `/aim`.
 
@@ -117,7 +153,7 @@ Artifact:
 aim statement
 ```
 
-### Step 4: Problem space
+### Step 5: Problem space
 
 Run `/problem-space`.
 
@@ -134,7 +170,7 @@ Map:
 - central files or components;
 - prior attempts or abandoned fixes.
 
-The goal is not implementation advice. The goal is terrain.
+This step maps terrain before implementation advice has a chance to narrow the frame.
 
 Artifact:
 
@@ -142,7 +178,7 @@ Artifact:
 problem-space map
 ```
 
-### Step 5: Problem statement
+### Step 6: Problem statement
 
 Run `/problem-statement`.
 
@@ -173,7 +209,7 @@ Artifact:
 selected problem statement
 ```
 
-### Step 6: Solution search
+### Step 7: Solution search
 
 Run `/solution-space`.
 
@@ -213,7 +249,7 @@ Artifact:
 solution-space comparison and selected level
 ```
 
-### Step 7: Evidence before delegation
+### Step 8: Evidence before delegation
 
 Read `docs/evidence-and-evals.md`, then use `templates/eval-checklist.md`.
 
@@ -251,7 +287,7 @@ Artifact:
 evidence checklist
 ```
 
-### Step 8: Agent brief
+### Step 9: Agent brief
 
 Read `docs/agent-briefs.md`, then use `templates/agent-brief.md`.
 
@@ -269,7 +305,7 @@ The brief should include:
 - stop conditions;
 - review criteria.
 
-The brief is not prompt decoration. It is the execution contract.
+The brief is the execution contract.
 
 Artifact:
 
@@ -277,7 +313,7 @@ Artifact:
 agent brief
 ```
 
-### Step 9: Author a project skill
+### Step 10: Author a project skill
 
 Read `docs/authoring-skills.md`.
 
@@ -299,7 +335,7 @@ Artifact:
 .claude/skills/<skill-name>/SKILL.md
 ```
 
-### Step 10: Author a subagent
+### Step 11: Author a subagent
 
 Read `docs/subagents.md`.
 
@@ -332,7 +368,7 @@ Artifact:
 
 ## Part 2: Apply the loop to code
 
-### Step 11: Execute one slice
+### Step 12: Execute one slice
 
 Read `docs/execution-review-salvage.md`, then run `/execute` with the agent brief.
 
@@ -354,7 +390,7 @@ Artifact:
 patch or stopped execution report
 ```
 
-### Step 12: Review
+### Step 13: Review
 
 Use the review section in `docs/execution-review-salvage.md`, then run `/review`.
 
@@ -378,7 +414,7 @@ Artifact:
 review findings
 ```
 
-### Step 13: Dissent
+### Step 14: Dissent
 
 Use the dissent section in `docs/execution-review-salvage.md`, then run `/dissent`.
 
@@ -401,7 +437,7 @@ Artifact:
 dissent memo
 ```
 
-### Step 14: Knowledge extraction
+### Step 15: Knowledge extraction
 
 Read `docs/knowledge-extraction.md`.
 
@@ -425,7 +461,7 @@ Artifact:
 .oh/metis/*, .oh/signals/*, .oh/guardrails/*, .oh/outcomes/*, or docs/ADRs/*
 ```
 
-### Step 15: Salvage if needed
+### Step 16: Salvage if needed
 
 Use the salvage section in `docs/execution-review-salvage.md`, then run `/salvage` if the attempt went sideways.
 
@@ -458,6 +494,7 @@ salvage note and restart plan
 You should finish with:
 
 - intent note;
+- model-fit note;
 - context pack;
 - aim;
 - problem-space map;

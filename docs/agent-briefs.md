@@ -1,8 +1,8 @@
 # Agent Briefs
 
-An agent brief is the bridge from selected solution to bounded execution.
+An agent brief turns a selected solution into bounded execution.
 
-It is not prompt decoration. It is a small strategy document: aim, mechanism, feedback, guardrails, scope, checks, and stop conditions.
+It carries aim, mechanism, feedback, guardrails, scope, checks, and stop conditions in one artifact.
 
 ## Learn
 
