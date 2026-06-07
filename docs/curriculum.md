@@ -4,14 +4,15 @@ This curriculum is for builders using LLMs inside existing systems, where there 
 
 The failure mode is familiar: the model produces a decent-looking patch, the chat summary sounds confident, and nobody can tell whether the work actually served the aim. Intent was vague. Context was dumped instead of selected. Evidence came after implementation, if it came at all. Review became vibes. Dissent arrived too late. The next session has to rediscover everything.
 
-The curriculum teaches the loop and the artifacts that keep that from happening:
+The curriculum teaches the main path and the checks that can interrupt it:
 
-| Arc | Steps |
+| Mode | What happens |
 |---|---|
-| Grounding | Intent → Model-fit framing → Context construction |
-| Framing | Problem space → Problem statement → Solution search |
-| Delegation | Evidence → Delegation → Verification → Dissent |
-| Learning | Knowledge extraction → Salvage |
+| Grounding | State intent, fit the work to the model, and build selected context. |
+| Framing | Map problem space, choose the problem statement, and compare solution levels. |
+| Execution | Write evidence, delegate the slice, and build only what the brief allows. |
+| Learning | Extract durable knowledge after meaningful work. |
+| Anytime checks | Invoke review for correctness, dissent for fragile assumptions, and salvage when drift appears. |
 
 That loop only becomes useful when the learner can preserve the decisions that matter:
 

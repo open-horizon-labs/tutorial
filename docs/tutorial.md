@@ -2,14 +2,15 @@
 
 This exercise teaches the skills an LLM developer should know, then applies the Open Horizons corpus to those skills.
 
-The spine has four arcs:
+The tutorial follows a main path, with checks that can interrupt any step:
 
-| Arc | Steps |
+| Mode | What happens |
 |---|---|
-| Grounding | Intent → Model-fit framing → Context construction |
-| Framing | Problem space → Problem statement → Solution search |
-| Delegation | Evidence → Delegation → Verification → Dissent |
-| Learning | Knowledge extraction → Salvage |
+| Grounding | State intent, fit the work to the model, and build selected context. |
+| Framing | Map problem space, choose the problem statement, and compare solution levels. |
+| Execution | Write evidence, delegate the slice, and build only what the brief allows. |
+| Learning | Extract durable knowledge after meaningful work. |
+| Anytime checks | Invoke review for correctness, dissent for fragile assumptions, and salvage when drift appears. |
 
 Use a real project with enough texture that there is more than one plausible solution. If all you have is a blank repo, stop. The point is judgment in an existing system.
 

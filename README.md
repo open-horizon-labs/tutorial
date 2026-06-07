@@ -2,10 +2,28 @@
 
 This repo teaches practical LLM-based development in existing systems: how to shape the task, supply context, choose the right solution level, verify the work, and preserve what the next session needs.
 
-The shape is:
+The main path moves through grounding, framing, delegation, execution, and learning. Review, dissent, and salvage are not end-of-line steps; invoke them whenever evidence, assumptions, or drift demand it.
 
-```text
-Intent → Model-fit framing → Context construction → Problem space → Problem statement → Solution search → Evidence → Delegation → Verification → Dissent → Knowledge extraction → Salvage
+```mermaid
+flowchart TB
+    subgraph main[Main path]
+        intent[Intent] --> model[Model-fit framing]
+        model --> context[Context construction]
+        context --> pspace[Problem space]
+        pspace --> pstatement[Problem statement]
+        pstatement --> solution[Solution search]
+        solution --> evidence[Evidence]
+        evidence --> delegation[Delegation]
+        delegation --> execution[Execution]
+        execution --> extraction[Knowledge extraction]
+    end
+
+    active[Any active step] -. verify .-> review[Review]
+    active -. stress assumptions .-> dissent[Dissent]
+    active -. drift or lost .-> salvage[Salvage]
+    review -. continue or revise .-> active
+    dissent -. continue or reframe .-> active
+    salvage -. restart smaller .-> intent
 ```
 
 The first layer is the skill curriculum: intent engineering, model-fit framing, context construction, Open Horizons phase skills, skill authoring, subagents, evidence, review, dissent, knowledge extraction, and salvage.
@@ -27,32 +45,22 @@ You will learn how to:
 9. author project skills for repeated procedures;
 10. author subagents for bounded roles;
 11. delegate one implementation slice;
-12. verify and review against the aim;
-13. run dissent before acceptance;
+12. invoke review when correctness needs an external check;
+13. use dissent when an accepted-looking answer rests on fragile assumptions;
 14. extract durable knowledge into `.oh/` artifacts;
-15. salvage learning when the run drifts.
+15. salvage learning as soon as the run drifts.
 
 ## Why skills, subagents, and extraction
 
 A loop written in prose is not enough.
 
-Skills make procedures reusable:
+The curriculum becomes practical through three reusable layers:
 
-```text
-how to frame → how to search → how to check → how to review → how to salvage
-```
-
-Subagents make roles enforceable:
-
-```text
-scout → implementer → reviewer → dissenter → extractor
-```
-
-Knowledge extraction makes learning durable:
-
-```text
-metis → signal → guardrail → outcome update → ADR
-```
+| Layer | What it makes possible | Flow it supports |
+|---|---|---|
+| Skills | Reusable procedures instead of one-off prompting. | Frame, search, check, review, salvage. |
+| Subagents | Enforceable roles with bounded responsibilities. | Scout, implement, review, dissent, extract. |
+| Knowledge extraction | Durable learning across sessions. | Metis, signal, guardrail, outcome update, ADR. |
 
 Those are the tools that make the Open Horizons loop real.
 
