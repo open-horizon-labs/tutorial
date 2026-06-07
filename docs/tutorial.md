@@ -1,12 +1,14 @@
-# Tutorial: Improve a Real Project With an Agent
+# Tutorial: Build the LLM Development Loop
 
-You will use a coding agent to improve an existing project.
+This exercise teaches the skills an LLM developer should know, then applies the Open Horizons corpus to those skills.
 
-Not a one-file exercise. Use a real project with enough mess that the first plausible fix might be the wrong altitude.
+The spine is:
 
-The seed is GitHub's project-improvement tutorial for Copilot cloud agent: give the agent project context, have it surface technical debt, create issues, delegate one slice, and review the PR.
+```text
+Intent → Problem framing → Solution search → Evidence → Delegation → Verification → Dissent → Knowledge extraction → Salvage
+```
 
-The Open Horizons version adds the part that matters before delegation: deciding what problem is worth solving, what level of solution it deserves, and what evidence would let you reject the agent's work.
+Use a real project with enough texture that there is more than one plausible solution. If all you have is a blank repo, stop. The point is judgment in an existing system.
 
 ## Required setup
 
@@ -16,116 +18,133 @@ Install the Open Horizons skills:
 npx skills add open-horizon-labs/skills -g -a claude-code -y
 ```
 
-Use a repo with real texture:
+Use a project with:
 
 - tests, even if incomplete;
 - more than one subsystem;
 - a known annoyance or recurring failure;
 - enough history that technical debt is not hypothetical.
 
-If all you have is a blank project, stop. This exercise is about judgment in an existing system.
+## Part 1: Build the curriculum artifacts
 
-## The run
+### Step 1: Intent Engineering
 
-```text
-/aim
-/problem-space
-/problem-statement
-/solution-space
-evals or acceptance checks
-agent brief
-/execute
-/review
-/dissent
-/salvage if needed
+Read `docs/intent-engineering.md`.
+
+Write one sentence that names the outcome, not the activity.
+
+Weak:
+
+```md
+Use an agent to clean up notifications.
 ```
 
-The sequence matters. A coding agent can generate patches cheaply. That makes weak framing more expensive, not less.
+Better:
 
-## Step 1: Choose the project and aim
+```md
+Make future notification changes safer by moving duplicate prevention to the boundary where sends happen.
+```
 
-Pick one repo. Do not start by asking the agent to find all possible improvements.
+Then do a short model burst:
+
+- likely causes;
+- likely files;
+- possible solution levels;
+- likely checks;
+- ways the patch could look right and still fail.
+
+Pause before committing to any path.
+
+Artifact:
+
+```text
+intent note
+```
+
+### Step 2: Context pack
+
+Build a context pack for the agent.
+
+Do not dump the repo. Select context.
+
+Include:
+
+- intent;
+- project shape;
+- relevant files or components;
+- known constraints;
+- current pain;
+- prior attempts;
+- tests and commands;
+- landmines;
+- what should trigger stop, dissent, or salvage.
+
+This is The Context Stack applied to coding work: context should be inspectable, editable, provenance-backed, and small enough to use.
+
+Artifact:
+
+```text
+context pack
+```
+
+### Step 3: Aim
 
 Run `/aim`.
 
-Give it:
+Give it the intent note and context pack.
 
-```md
-I want to use a coding agent to improve an existing project.
+The output should name:
 
-Project:
-[repo name and short description]
+- aim;
+- current state;
+- desired state;
+- mechanism;
+- assumptions;
+- feedback signal;
+- guardrails.
 
-Current pain:
-[what keeps recurring, slowing us down, confusing users, breaking tests, or making changes risky]
+Do not let “clean up technical debt” pass as an aim. Simplicity is usually a mechanism, not the outcome.
 
-What I want from this run:
-- pick one meaningful improvement slice;
-- compare levels of solution before implementing;
-- write acceptance checks before delegation;
-- review the agent's output against evidence, not confidence.
+Artifact:
+
+```text
+aim statement
 ```
 
-A good aim is a behavior change, not a task list.
-
-Weak aim:
-
-```md
-Clean up technical debt.
-```
-
-Better aim:
-
-```md
-Reduce future change risk in one recurring problem area by selecting the right level of fix, encoding the expected behavior, and reviewing the agent's patch against those checks.
-```
-
-## Step 2: Map the problem space
+### Step 4: Problem space
 
 Run `/problem-space`.
-
-This is where the one-file version failed. There was no real terrain. Here there is.
 
 Map:
 
 - systems involved;
 - users or maintainers affected;
-- blast radius if the fix is wrong;
+- blast radius if wrong;
 - existing tests and missing tests;
 - repeated symptoms;
 - hard constraints;
 - soft constraints;
 - assumed constraints;
-- files or components that look central;
+- central files or components;
 - prior attempts or abandoned fixes.
 
-Useful input:
+The goal is not implementation advice. The goal is terrain.
 
-```md
-Aim:
-[paste aim]
+Artifact:
 
-Known pain:
-[bug reports, flaky areas, slow workflows, confusing code, repeated review comments, recurring support issue]
-
-Repo facts:
-[language, test commands, build commands, architecture notes, relevant files]
-
-Ask:
-Map the problem space before we choose a fix. Separate symptoms from constraints. Identify assumptions that might be false.
+```text
+problem-space map
 ```
 
-Do not let the agent turn this into implementation advice yet. The job is to understand the terrain.
-
-## Step 3: Frame the problem
+### Step 5: Problem statement
 
 Run `/problem-statement`.
 
-Ask for three framings:
+Ask for at least three framings:
 
-1. the obvious symptom framing;
-2. a deeper systems framing;
-3. a user or maintainer outcome framing.
+1. symptom framing;
+2. systems framing;
+3. user or maintainer outcome framing.
 
 For each, require:
 
@@ -142,15 +161,25 @@ Systems framing: Notification ownership is split across multiple trigger paths, 
 Maintainer framing: Engineers cannot safely add notification behavior because the current flow does not make ownership or duplicate prevention obvious.
 ```
 
-Pick the framing you can act on without pretending to solve the whole system.
+Artifact:
 
-## Step 4: Search beyond the nearest peak
+```text
+selected problem statement
+```
+
+### Step 6: Solution search
 
 Run `/solution-space`.
 
-This is the center of the exercise.
+Use the `Beyond the Nearest Peak` pattern:
 
-Ask for options at four levels:
+```text
+Shallow → Score → Select → Deepen
+```
+
+Generate breadth first. Do not evaluate while generating.
+
+Require at least one option at each level:
 
 | Level | Question | Example shape |
 |---|---|---|
@@ -158,14 +187,6 @@ Ask for options at four levels:
 | Local Optimum | What improves the current design? | Consolidate duplicated logic, add focused tests. |
 | Reframe | What changes the problem statement? | Treat this as ownership/idempotency, not a one-off bug. |
 | Redesign | What would make this class of problem harder to create? | Move the invariant to one boundary, change event flow, or add a policy layer. |
-
-Use the Beyond the Nearest Peak pattern:
-
-```text
-Shallow → Score → Select → Deepen
-```
-
-Generate breadth first. Do not evaluate while generating.
 
 Then score each option against the same criteria:
 
@@ -178,17 +199,21 @@ Then score each option against the same criteria:
 - maintenance burden;
 - risk of creating a new local maximum.
 
-Only deepen the option that survives the scoring.
+Only deepen the option that survives scoring.
 
-The answer does not have to be Redesign. A deliberate Band-Aid can be right. The failure is accepting the first plausible patch because it compiled.
+Artifact:
 
-## Step 5: Define evidence before delegation
+```text
+solution-space comparison and selected level
+```
 
-Write acceptance checks before `/execute`.
+### Step 7: Evidence before delegation
 
 Use `templates/eval-checklist.md`.
 
-For project improvement work, evidence may include:
+Define checks before `/execute`.
+
+Evidence may include:
 
 - unit tests;
 - integration tests;
@@ -197,8 +222,8 @@ For project improvement work, evidence may include:
 - build or lint commands;
 - migration checks;
 - docs updated where behavior changed;
-- review checklist tied to the chosen solution level;
-- a manual reproduction step when automation is not practical.
+- manual reproduction when automation is not practical;
+- review criteria tied to the selected solution level.
 
 A useful check is specific enough to fail.
 
@@ -214,7 +239,13 @@ Better:
 Given two identical notification events with the same idempotency key, the system sends one notification and records the duplicate as skipped.
 ```
 
-## Step 6: Write the agent brief
+Artifact:
+
+```text
+evidence checklist
+```
+
+### Step 8: Agent brief
 
 Use `templates/agent-brief.md`.
 
@@ -232,19 +263,76 @@ The brief should include:
 - stop conditions;
 - review criteria.
 
-The brief is not a prompt decoration. It is the contract for the agent run.
+The brief is not prompt decoration. It is the execution contract.
 
-If the brief does not say what would make you reject the patch, it is not ready.
+Artifact:
 
-## Step 7: Execute one slice
+```text
+agent brief
+```
 
-Run `/execute` with the brief.
+### Step 9: Author a project skill
 
-Keep the slice small enough to review.
+Read `docs/authoring-skills.md`.
+
+Use `templates/project-skill.md` to encode one reusable procedure discovered during the run.
+
+Good candidates:
+
+- a fragile test command sequence;
+- a repeated review checklist;
+- a recurring bug-class check;
+- a project-specific release verification;
+- a salvage/restart procedure.
+
+Do not author a skill for generic advice. The skill should preserve local procedure.
+
+Artifact:
+
+```text
+.claude/skills/<skill-name>/SKILL.md
+```
+
+### Step 10: Author a subagent
+
+Read `docs/subagents.md`.
+
+Use `templates/subagent.md` to encode one role boundary.
+
+Good candidates:
+
+- independent reviewer;
+- codebase scout;
+- test-gap hunter;
+- migration planner;
+- release checker;
+- domain validator;
+- knowledge extractor.
+
+The role should have:
+
+- input contract;
+- tool limits;
+- process;
+- stop conditions;
+- output format;
+- anti-patterns.
+
+Artifact:
+
+```text
+.claude/agents/<name>.md
+```
+
+## Part 2: Apply the loop to code
+
+### Step 11: Execute one slice
+
+Run `/execute` with the agent brief.
 
 The agent should:
 
-- read the relevant files before editing;
+- read relevant files before editing;
 - inspect existing tests and patterns;
 - implement the selected approach;
 - add or update checks;
@@ -254,7 +342,13 @@ The agent should:
 
 Do not let execution expand into a rewrite just because the agent can produce one.
 
-## Step 8: Review the patch
+Artifact:
+
+```text
+patch or stopped execution report
+```
+
+### Step 12: Review
 
 Run `/review`.
 
@@ -272,11 +366,17 @@ Check:
 
 If there are no findings, name the residual risk. There is always residual risk.
 
-## Step 9: Dissent before accepting
+Artifact:
+
+```text
+review findings
+```
+
+### Step 13: Dissent
 
 Run `/dissent`.
 
-Ask it to assume the patch passes tests and still causes trouble.
+Assume the patch passes tests and still fails.
 
 Look for:
 
@@ -287,11 +387,41 @@ Look for:
 - a maintainer would misunderstand the boundary;
 - the fix works locally but fails in production conditions.
 
-If dissent finds a real issue, revise the brief or patch. Do not treat dissent as theater.
+Dissent is not theater. If it finds a real issue, revise the brief or patch.
 
-## Step 10: Salvage if the run drifted
+Artifact:
 
-Run `/salvage` if the attempt goes sideways.
+```text
+dissent memo
+```
+
+### Step 14: Knowledge extraction
+
+Read `docs/knowledge-extraction.md`.
+
+Use `templates/knowledge-artifact.md` to record what should survive the session.
+
+Choose the right artifact:
+
+| Artifact | Use when |
+|---|---|
+| Metis | You learned a situated pattern. |
+| Signal | You found a measurement that indicates movement. |
+| Guardrail | Something must not happen again. |
+| Outcome update | Status, mechanism, or affected files changed. |
+| ADR | A decision now constrains future architecture. |
+
+This is where the run becomes future context.
+
+Artifact:
+
+```text
+.oh/metis/*, .oh/signals/*, .oh/guardrails/*, .oh/outcomes/*, or docs/ADRs/*
+```
+
+### Step 15: Salvage if needed
+
+Run `/salvage` if the attempt went sideways.
 
 Use it when:
 
@@ -311,17 +441,30 @@ Keep:
 
 Drop the draft if keeping it would make the system worse.
 
-## What you should have at the end
+Artifact:
 
-- an aim;
-- a problem-space map;
-- a selected problem statement;
-- a solution-space comparison across levels;
-- acceptance checks;
-- an agent brief;
-- a patch or a salvage note;
-- a review result;
-- a dissent result;
-- one thing to carry into the next run.
+```text
+salvage note and restart plan
+```
 
-The output is not just the patch. The output is a better search process for the next patch.
+## Capstone output
+
+You should finish with:
+
+- intent note;
+- context pack;
+- aim;
+- problem-space map;
+- selected problem statement;
+- solution-space comparison;
+- evidence checklist;
+- agent brief;
+- project skill;
+- subagent;
+- patch or stopped execution report;
+- review findings;
+- dissent memo;
+- durable knowledge artifact;
+- salvage note if needed.
+
+The patch is only one output. The larger output is a working development loop that can improve the next run.

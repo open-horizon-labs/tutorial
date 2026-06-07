@@ -120,3 +120,50 @@ Look for:
 - a boundary that maintainers will misunderstand;
 - cases where duplicate suppression hides real send failures.
 ```
+
+
+## Skill candidate
+
+If this pattern repeats, author a project skill:
+
+```text
+.claude/skills/notification-idempotency-review/SKILL.md
+```
+
+Trigger: use when notification send logic, event handlers, or notification tests change.
+
+Procedure: inspect send boundary, inspect caller paths, require duplicate-event regression coverage, reject caller-only duplicate guards unless review proves the caller is the only send path.
+
+## Subagent candidate
+
+If review keeps inheriting the implementer's assumptions, author a subagent:
+
+```text
+.claude/agents/notification-reviewer.md
+```
+
+Role: independent reviewer for notification changes.
+
+Inputs: diff, behavior contract, acceptance checks, relevant guardrails, and test output.
+
+Do not give it the implementer's explanation first. Let it review the patch cold.
+
+## Knowledge artifacts
+
+Possible metis:
+
+```md
+Duplicate-send bugs in this repo usually belong at the notification boundary, not individual caller paths. Caller guards suppress the visible symptom and leave parallel trigger paths exposed.
+```
+
+Possible guardrail:
+
+```md
+Notification duplicate prevention must be enforced at the send boundary or a documented equivalent. Caller-specific duplicate guards are not sufficient unless the caller is the only possible send path and review verifies that boundary.
+```
+
+Possible signal:
+
+```md
+A regression test that sends two events with the same idempotency key to the same recipient should produce one send and one duplicate-skip record.
+```

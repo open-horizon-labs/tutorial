@@ -1,65 +1,69 @@
-# Improving a Real Project With Agents
+# LLM Development Skills, Open Horizons Applied
 
-Most coding-agent tutorials start with a one-file task. That is fine for tool familiarity. It is bad for judgment.
+This repo is a curriculum for practical LLM-based development.
 
-The harder problem is deciding what the agent should work on, what level of solution the problem deserves, and what evidence would let you reject a polished but shallow fix.
+Not prompt trivia. Not a one-file coding demo. The goal is to teach the skills that let a builder use LLMs without handing over judgment.
 
-This repo uses an existing project with real technical debt. The seed is GitHub's Copilot cloud-agent tutorial about improving a mature project. The Open Horizons version adds the missing judgment work: aim, problem space, solution search, evals, review, dissent, and salvage.
-
-## Before you assign work
-
-Do not start by asking the agent to fix the first thing it finds.
-
-First decide:
-
-- what outcome matters;
-- what constraints are real;
-- which problems are symptoms;
-- what levels of solution are available;
-- what signal would prove the fix worked;
-- what kind of agent output you will reject.
-
-The run uses the Open Horizons skills in this order:
+The shape is:
 
 ```text
-/aim → /problem-space → /problem-statement → /solution-space → evals → brief → /execute → /review → /dissent → /salvage
+Intent → Problem framing → Solution search → Evidence → Delegation → Verification → Dissent → Knowledge extraction → Salvage
 ```
 
-The important addition is `/solution-space`. Cheap generation means the first workable fix is no longer good enough. You should fan out, score options, choose what deserves depth, and kill weak paths early.
+The first layer is the skill curriculum: intent engineering, context construction, Open Horizons phase skills, skill authoring, subagents, evidence, review, dissent, knowledge extraction, and salvage.
 
-## Who this is for
+The second layer applies Muness Castle's Open Horizons philosophy corpus to those skills: Alignment Is the Constraint, Intent Engineering, Beyond the Nearest Peak, The Context Stack, Dissent Mode, the Salvage Loop, and strategy-clarity writing.
 
-Builders who work in real codebases.
+## What you learn
 
-Developers, product engineers, founders, operators, platform leads, and anyone else who has to improve software without losing the thread between code, users, risk, and maintenance.
+You will learn how to:
 
-You do not need a perfect repo. You need one with enough texture that there is more than one plausible solution.
+1. state intent before asking for output;
+2. build a context pack instead of dumping context;
+3. use Open Horizons skills as phase gates;
+4. search across solution levels before implementing;
+5. write evidence checks before delegation;
+6. author project skills for repeated procedures;
+7. author subagents for bounded roles;
+8. delegate one implementation slice;
+9. verify and review against the aim;
+10. run dissent before acceptance;
+11. extract durable knowledge into `.oh/` artifacts;
+12. salvage learning when the run drifts.
 
-## What you do
+## Why skills, subagents, and extraction
 
-You will:
+A loop written in prose is not enough.
 
-1. pick an existing project;
-2. install the Open Horizons skills;
-3. use `/aim` to define the improvement outcome;
-4. use `/problem-space` to map constraints, users, systems, blast radius, and assumptions;
-5. use `/problem-statement` to choose the problem framing;
-6. use `/solution-space` to compare Band-Aid, Local Optimum, Reframe, and Redesign paths;
-7. write evals or acceptance checks before implementation;
-8. write an agent brief;
-9. run `/execute` on the selected slice;
-10. run `/review` and `/dissent` before accepting the result;
-11. run `/salvage` if the attempt drifts.
+Skills make procedures reusable:
+
+```text
+how to frame → how to search → how to check → how to review → how to salvage
+```
+
+Subagents make roles enforceable:
+
+```text
+scout → implementer → reviewer → dissenter → extractor
+```
+
+Knowledge extraction makes learning durable:
+
+```text
+metis → signal → guardrail → outcome update → ADR
+```
+
+Those are the tools that make the Open Horizons loop real.
 
 ## Quick start
 
-Install the skills:
+Install the Open Horizons skills:
 
 ```bash
 npx skills add open-horizon-labs/skills -g -a claude-code -y
 ```
 
-Then work through:
+Then start here:
 
 ```text
 docs/tutorial.md
@@ -67,29 +71,38 @@ docs/tutorial.md
 
 ## Repo map
 
-- `docs/tutorial.md` — the exercise.
-- `docs/problem-space.md` — why a one-file task was rejected and what replaces it.
-- `docs/open-horizons.md` — the skill sequence for a real project improvement.
-- `docs/strategy-clarity.md` — how to turn aim, mechanism, feedback, and guardrails into an agent brief.
-- `docs/beyond-nearest-peak.md` — the shallow-breadth / score / select / deepen pattern.
+- `docs/curriculum.md` — the module map: LLM-development skills first, Open Horizons corpus applied second.
+- `docs/tutorial.md` — the hands-on run through the curriculum and capstone.
+- `docs/intent-engineering.md` — intent, burst, pause, structured pass, iterate.
+- `docs/authoring-skills.md` — how and when to write `SKILL.md` procedures.
+- `docs/subagents.md` — how and when to write `.claude/agents/*.md` roles.
+- `docs/knowledge-extraction.md` — metis, signals, guardrails, outcome updates, ADRs.
+- `docs/open-horizons.md` — how the phase skills fit the curriculum.
+- `docs/strategy-clarity.md` — aim, mechanism, feedback, guardrails, and solution level.
+- `docs/beyond-nearest-peak.md` — shallow breadth, score, select, deepen.
+- `docs/problem-space.md` — why the shallow exercise was rejected.
 - `docs/further-reading.md` — source material and follow-up reading.
+- `templates/context-pack.md` — selective context before delegation.
+- `templates/project-skill.md` — starting point for a project skill.
+- `templates/subagent.md` — starting point for a project subagent.
+- `templates/knowledge-artifact.md` — starting point for durable `.oh/` artifacts.
+- `templates/agent-brief.md` — handoff contract for implementation.
+- `templates/eval-checklist.md` — evidence before delegation.
 - `templates/builder-playground.md` — choose a real project slice.
-- `templates/agent-brief.md` — give the agent enough structure to work.
-- `templates/eval-checklist.md` — define evidence before implementation.
-- `examples/technical-debt-agent-brief.md` — a worked duplicate-notification example.
+- `examples/technical-debt-agent-brief.md` — worked duplicate-notification example.
 
 ## What this is not
 
 - Not a prompt cheat sheet.
-- Not a one-file exercise.
 - Not a tour of agent UI buttons.
 - Not a claim that agents can decide what matters for you.
+- Not a reason to let memory silently become policy.
 - Not a reason to hand technical debt ranking to a model and walk away.
 
-The skill is choosing the right work, comparing levels of solution, and rejecting output that does not move the aim.
+The skill is building the loop: intent, context, procedure, role boundary, evidence, review, extraction, salvage.
 
 ## Source material
 
 The project-improvement shape comes from GitHub's [Using GitHub Copilot cloud agent to improve a project](https://docs.github.com/en/copilot/tutorials/cloud-agent/improve-a-project).
 
-The solution-search shape comes from Muness Castle's [Beyond the Nearest Peak](https://muness.com/posts/beyond-the-nearest-peak/).
+The philosophy layer comes from Muness Castle's Open Horizons corpus: [Intent Engineering](https://muness.com/posts/intent-engineering/), [Open Horizons](https://muness.com/posts/open-horizons/), [Alignment Is the Constraint](https://muness.com/posts/alignment-is-the-constraint/), [Beyond the Nearest Peak](https://muness.com/posts/beyond-the-nearest-peak/), [The Context Stack](https://muness.com/posts/the-context-stack/), [Dissent Mode](https://muness.com/posts/dissent-mode/), and the strategy-clarity essays.

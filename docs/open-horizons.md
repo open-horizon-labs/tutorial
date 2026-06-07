@@ -2,13 +2,13 @@
 
 Open Horizons keeps an agent run from becoming “ask for patch, accept patch.”
 
-For real project improvement, the sequence is:
+For LLM development, the sequence is:
 
 ```text
-/aim → /problem-space → /problem-statement → /solution-space → evals → brief → /execute → /review → /dissent → /salvage
+Intent Engineering → context pack → /aim → /problem-space → /problem-statement → /solution-space → evidence → brief → skill → subagent → /execute → /review → /dissent → knowledge extraction → /salvage
 ```
 
-The reason is simple: do not assign work until you know what good means and what level of solution the problem deserves.
+The reason is simple: do not assign work until you know what good means, what context the agent should inherit, what role boundary it needs, and what should survive after the session.
 
 ## Evidence first
 
@@ -26,17 +26,23 @@ Evidence is:
 - a smaller blast radius;
 - a salvage note that prevents repeating the same mistake.
 
-## What each skill does
+## What each tool does
 
-| Skill | Job in this repo |
+| Tool | Job in this repo |
 |---|---|
+| Intent Engineering | Clarify intent, burst, pause, structure, and iterate. |
+| Context pack | Preserve selective context before delegation. |
 | `/aim` | Name the outcome before the agent ranks work. |
 | `/problem-space` | Map terrain: systems, stakeholders, constraints, blast radius, assumptions. |
 | `/problem-statement` | Choose the framing that points to the right class of fix. |
 | `/solution-space` | Compare Band-Aid, Local Optimum, Reframe, and Redesign paths. |
+| Evidence checklist | Define checks before implementation. |
+| Project skill | Preserve a repeated procedure as `SKILL.md`. |
+| Subagent | Preserve a role boundary with scoped tools and isolated context. |
 | `/execute` | Implement one selected slice from a brief. |
 | `/review` | Judge the patch against the aim and checks. |
 | `/dissent` | Look for the way the accepted-looking patch still fails. |
+| Knowledge extraction | Record metis, signals, guardrails, outcome updates, or ADRs. |
 | `/salvage` | Keep learning when the run drifted and restart smaller. |
 
 ## Strategy for one slice
@@ -73,7 +79,10 @@ If you choose a Band-Aid, say why speed or risk makes that acceptable. If you ch
 |---|---|
 | Code | Regression tests, integration tests, static checks, deleted duplicate paths. |
 | Agent run | Did it read the right files, follow the brief, run checks, and stop on drift? |
+| Skill | Did the repeated procedure become easier to invoke correctly? |
+| Subagent | Did the role boundary produce better evidence or lower context load? |
+| Knowledge artifact | Did a future run inherit a verified learning instead of rediscovering it? |
 | Review | Did the patch move the aim at the selected solution level? |
-| Practice | Which rejected path, check, or guardrail should survive into the next run? |
+| Practice | Which rejected path, check, guardrail, or metis should survive into the next run? |
 
 Shrink a step if needed. Do not remove the signal.
