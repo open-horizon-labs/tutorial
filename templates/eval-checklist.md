@@ -1,76 +1,78 @@
-# Eval Checklist
+# Evidence Checklist
 
-Define good before asking for code.
+Define the evidence before asking the agent to implement.
 
 ## Aim
 
 > 
 
-## Behavior contract
+## Selected problem statement
 
-The code must:
+> 
+
+## Selected solution level
+
+- [ ] Band-Aid
+- [ ] Local Optimum
+- [ ] Reframe
+- [ ] Redesign
+
+## Behavior or invariant
+
+The system must:
 
 - 
 - 
 - 
 
-The code must reject or avoid:
+The system must reject, prevent, or avoid:
 
 - 
 - 
 - 
 
-## Known good examples
+## Regression case
+
+What old behavior should fail after this change?
 
 ```text
 
 ```
 
-Why these matter:
+Why this matters:
 
 - 
 - 
 
-## Known bad examples
+## Checks to add or update
 
-```text
-
-```
-
-Why these should fail:
-
-- 
-- 
+- [ ] Unit test:
+- [ ] Integration test:
+- [ ] End-to-end or manual reproduction:
+- [ ] Static check / lint / typecheck:
+- [ ] Build or migration check:
+- [ ] Documentation or runbook update:
 
 ## Failure modes
 
 The output fails if it:
 
-- passes only happy-path examples;
-- silently accepts invalid input;
-- invents behavior not in the contract;
-- changes unrelated files;
-- weakens tests to pass;
-- looks polished but is not correct.
-
-## Agent checks
-
-The agent can check:
-
-- [ ] required files are present;
-- [ ] tests cover examples and bad inputs;
-- [ ] property or round-trip tests exist where useful;
-- [ ] the relevant test command passes;
-- [ ] failures are fixed at the root cause.
+- suppresses the symptom without addressing the selected problem;
+- changes unrelated behavior;
+- adds a second way to do the same thing;
+- weakens existing tests;
+- relies on mocks where production behavior matters;
+- hides errors behind broad fallbacks;
+- cannot explain what would prove the patch wrong.
 
 ## Human checks
 
 I still have to check:
 
-- [ ] whether the behavior contract is the right one;
-- [ ] whether tests would catch a bad implementation;
-- [ ] whether the implementation is simpler than the problem;
-- [ ] whether the agent added unrelated work;
+- [ ] whether the selected solution level was right;
+- [ ] whether tests prove behavior, not implementation details;
+- [ ] whether the patch reduces future change risk;
+- [ ] whether a maintainer would understand the boundary;
 - [ ] whether I am accepting confidence instead of evidence.
 
 ## Fast feedback signal

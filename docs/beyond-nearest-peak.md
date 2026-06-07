@@ -1,0 +1,83 @@
+# Beyond the Nearest Peak, Applied to Coding Agents
+
+Agents make it cheap to generate patches. They do not make it cheap to know which patch deserves to survive.
+
+That is the shift from `Beyond the Nearest Peak`:
+
+```text
+Shallow → Score → Select → Deepen
+```
+
+Use the model for shallow breadth. Use human judgment for scoring. Only then spend depth.
+
+## The bad pattern
+
+```text
+Prompt → first plausible patch → tests pass → merge
+```
+
+That can work for tiny tasks. It is a bad default for real project improvement.
+
+The first workable patch is often the nearest peak:
+
+- it compiles;
+- it suppresses the symptom;
+- it looks reviewable;
+- it leaves the underlying problem intact.
+
+Cheap generation removes the excuse for stopping there.
+
+## The levels
+
+| Level | What it does | When it is right | Failure mode |
+|---|---|---|---|
+| Band-Aid | Suppresses the symptom. | Incident, deadline, small blast radius. | Becomes the fourth patch on the same wound. |
+| Local Optimum | Improves the current design. | The framing is right; the implementation is messy. | Cleaner version of the wrong shape. |
+| Reframe | Changes the problem statement. | The symptom points to a hidden constraint or ownership issue. | Endless analysis if no testable slice follows. |
+| Redesign | Changes the system so the problem is harder to create. | The class of failure keeps recurring. | Big rewrite with weak feedback. |
+
+The point is not to always choose Redesign. The point is to know what altitude you chose and why.
+
+## Scoring function
+
+Before deepening a path, score it against the same criteria:
+
+- Does it move the aim?
+- Can we test it?
+- Can a reviewer understand it?
+- Is it reversible?
+- What is the blast radius?
+- What maintenance burden does it add?
+- Does it remove a class of failure or only hide one instance?
+- What would prove this path was wrong?
+
+Breadth without a scoring function is noise.
+
+## How this shows up in the tutorial
+
+When `/solution-space` runs, require at least one option at each level:
+
+1. Band-Aid;
+2. Local Optimum;
+3. Reframe;
+4. Redesign.
+
+Then prune.
+
+Do not ask the agent to deepen all four. That creates option debt. Pick one path, write checks for it, and run a bounded implementation.
+
+## Good signs
+
+- You reject at least one plausible option.
+- The selected option names its level.
+- The brief says why other levels were rejected.
+- The acceptance checks match the selected level.
+- Dissent can challenge whether the chosen level was too low or too high.
+
+## Bad signs
+
+- The first suggested patch becomes the plan.
+- Every option is just a different implementation of the same idea.
+- The agent compares syntax instead of problem framing.
+- The scoring criteria change per option.
+- Redesign is chosen because it sounds serious, not because the recurrence justifies it.

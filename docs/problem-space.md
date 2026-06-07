@@ -3,91 +3,123 @@
 **Date:** 2026-06-06  
 **Scope:** `open-horizon-labs/tutorial`
 
-## What I am trying to do
+## What changed
 
-Build a tutorial for someone who wants to get better at coding with agents, not collect prompt tricks.
+The one-file version was too shallow.
 
-The behavior change:
+There was not enough terrain for `/aim` or `/problem-space` to earn their place. The obvious task was the correct task. The only real move was “define behavior before code.” Useful, but not enough for Open Horizons.
 
-> A builder can take a small coding task, name the aim and constraints, define checks before code, direct an agent through the work, and review the result without confusing confidence for correctness.
+The repo now uses a real project-improvement task: take an existing repo with technical debt, choose one improvement slice, compare levels of solution, and delegate the selected slice to an agent.
 
-The repo is the vehicle. The skill is the judgment loop.
+## Behavior change
+
+A builder can use an agent to improve an existing project without accepting the first plausible patch.
+
+They can:
+
+- name the outcome;
+- map constraints and blast radius;
+- separate symptoms from problems;
+- compare Band-Aid, Local Optimum, Reframe, and Redesign options;
+- define evidence before implementation;
+- review and dissent before accepting the patch;
+- salvage learning when the attempt drifts.
 
 ## Constraints
 
 | Constraint | Why it matters |
 |---|---|
-| Use an existing tutorial as the seed | The ask was to find a tutorial we can use, not invent another toy from scratch. |
-| No customer names or private transcript details | The public version should not leak context. |
-| No unrelated warm-up scenario | That direction was rejected. Keep the work tied to coding. |
-| No domain workflow example | This version should be about prompts, evals, code, review, and recovery. |
-| Coding task must be small but checkable | The learner needs edge cases without fighting a whole app. |
-| Open Horizons first; skills optional | The method should work in Claude Code, Cursor, Copilot, Codex, or another tool. |
-| Evals before code | Otherwise this becomes “ask the agent and hope.” |
-| MVP, not curriculum | A giant course is an easy way to produce nothing useful. |
-| Voice must be human | No generated polish. No consultant fog. |
+| Use a real existing project | Problem-space exploration needs actual terrain. |
+| Use the Open Horizons skills | The tutorial should demonstrate the skills, not provide a parallel prompt-only path. |
+| Keep the slice reviewable | “Real” cannot become “rewrite the whole product.” |
+| Include multiple solution levels | This is where `Beyond the Nearest Peak` belongs. |
+| Require evidence before implementation | Otherwise the agent can produce polished wrong work. |
+| No customer or private data | Public tutorial must be safe to run. |
+| Voice must stay concrete | No generated tutorial gloss. |
 
 ## What can go wrong
 
-- It becomes another prompt guide.
-- It confuses Open Horizons with the skill pack.
-- It treats the agent brief as a prompt instead of a strategy artifact.
-- It explains the philosophy but gives nobody anything to run.
-- It picks a task too trivial to teach judgment.
-- It picks a task so large that setup becomes the lesson.
-- It treats evals like decoration.
-- It sounds generated.
+- The agent ranks technical debt and the human rubber-stamps it.
+- The first plausible fix becomes the plan.
+- `/problem-space` becomes ceremony instead of terrain mapping.
+- `/solution-space` compares syntax choices instead of levels of solution.
+- The selected slice is too large to review.
+- Tests prove implementation details instead of behavior.
+- Dissent becomes theater after the decision is already made.
+- Salvage keeps bad code because time was spent on it.
 
-## Why base62
+## Source seed
 
-The Microsoft tutorial uses this prompt:
+GitHub's project-improvement tutorial has the right shape:
 
-```text
-Using Python 3.13 and uv, implement a base62 encoder/decoder.
-```
+1. give the agent repo context;
+2. check setup and instructions;
+3. ask it to surface technical debt;
+4. create issues;
+5. delegate one issue;
+6. review the resulting PR.
 
-That is a good seed. It is small, code-shaped, and easy to check. It has edge cases:
+That is a better seed than a one-file exercise because the choice of work is itself part of the work.
 
-- zero;
-- negative numbers;
-- invalid characters;
-- empty input;
-- round trips;
-- canonical output.
+## Why this merits problem-space exploration
 
-A bad implementation can look plausible. That is exactly why it works as the exercise.
+A real project has constraints that may be hard, soft, or assumed:
 
-## What problem inversion misses
+- test coverage;
+- CI speed;
+- release pressure;
+- migration risk;
+- downstream users;
+- architecture boundaries;
+- ownership;
+- prior failed fixes;
+- reviewer capacity;
+- data or security risk.
 
-Problem inversion helps. When someone hands you a solution, recover the problem underneath.
+Those constraints change the right solution level.
 
-That is one move. It is not the whole operating system for coding with agents.
+A duplicate notification bug might be:
 
-This repo needs the full loop:
+- a one-line guard;
+- a missing regression test;
+- unclear ownership of event emission;
+- lack of idempotency at the boundary;
+- a design that allows multiple paths to send the same notification.
 
-```text
-Aim → Problem Space → Problem Statement → Solution Space → Execute → Review → Dissent → Salvage
-```
+Those are not the same problem.
 
-For agent work, the missing pieces are execution discipline, evals, review, dissent, and salvage. Without those, a learner can avoid the wrong problem and still accept wrong code.
+## Why this merits solution-space exploration
 
-## Assumptions
+`Beyond the Nearest Peak` applies directly.
 
-1. The learner wants to contribute faster, not learn vocabulary.
-2. A small coding task beats an abstract prompt lesson.
-3. Base62 is boring enough to avoid distraction and sharp enough to need tests.
-4. The first lesson should teach one loop through one task.
-5. Open Horizons can be useful without installing the skills.
+Agents make it cheap to generate possible fixes. That means the human should not settle for the first path that compiles.
 
-## X-Y check
+The tutorial should force a fan-out:
 
-- **Asked for:** find a coding-agent tutorial we can use and apply the frame to it.
-- **Actually needed:** a practical starting point for learning how to direct agents through coding work with prompts, evals, review, and salvage.
+- Band-Aid;
+- Local Optimum;
+- Reframe;
+- Redesign.
 
-These line up.
+Then it should force scoring:
+
+- impact;
+- cost;
+- testability;
+- reviewability;
+- reversibility;
+- blast radius;
+- maintenance burden.
+
+Then deepen one path.
 
 ## First version
 
-Build one tutorial, a few templates, one worked base62 example, and a short reading list.
+Build one tutorial around improving an existing project, plus:
 
-Do not add videos, tracks, automation, or a big curriculum yet. Put this in front of someone and see where they get stuck.
+- a solution-level guide;
+- an agent brief template;
+- an eval/acceptance-check template;
+- one worked technical-debt example.
+
+Do not add a full sample app yet. The first review question is whether the reasoning shape lands.

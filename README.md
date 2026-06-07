@@ -1,68 +1,59 @@
-# Working With Agents Without Losing the Plot
+# Improving a Real Project With Agents
 
-Most coding-agent tutorials begin at the prompt. That is already downstream of the real problem.
+Most coding-agent tutorials start with a one-file task. That is fine for tool familiarity. It is bad for judgment.
 
-The real problem is judgment. What are we trying to change? What does good look like before code exists? What signal tells us the agent is wrong? What do we do when the first pass sounds confident and fails the contract?
+The harder problem is deciding what the agent should work on, what level of solution the problem deserves, and what evidence would let you reject a polished but shallow fix.
 
-This repo uses a small task from Microsoft's agent-first tutorial: build a Python base62 encoder/decoder. Small is useful here. You can finish it, inspect it, and still hit enough edge cases to catch plausible nonsense.
+This repo uses an existing project with real technical debt. The seed is GitHub's Copilot cloud-agent tutorial about improving a mature project. The Open Horizons version adds the missing judgment work: aim, problem space, solution search, evals, review, dissent, and salvage.
 
-## Open Horizons here
+## Before you assign work
 
-Open Horizons is the frame. The skills are one way to run parts of it.
+Do not start by asking the agent to fix the first thing it finds.
 
-If you have the skills, use them. If you do not, copy the prompts. The command is not the signal. The step should leave evidence behind.
+First decide:
+
+- what outcome matters;
+- what constraints are real;
+- which problems are symptoms;
+- what levels of solution are available;
+- what signal would prove the fix worked;
+- what kind of agent output you will reject.
+
+The run uses the Open Horizons skills in this order:
 
 ```text
-Aim → Do → Reflect
+/aim → /problem-space → /problem-statement → /solution-space → evals → brief → /execute → /review → /dissent → /salvage
 ```
 
-For this repo:
-
-1. name the aim;
-2. map the problem;
-3. state the behavior contract;
-4. write checks before code;
-5. brief the agent;
-6. run the work;
-7. review the output;
-8. look for the failure you missed;
-9. save what improves the next run.
-
-See `docs/open-horizons.md` for the Open Horizons piece. See `docs/strategy-clarity.md` for the strategy piece.
+The important addition is `/solution-space`. Cheap generation means the first workable fix is no longer good enough. You should fan out, score options, choose what deserves depth, and kill weak paths early.
 
 ## Who this is for
 
-Builders.
+Builders who work in real codebases.
 
-Developers, product engineers, founders, operators, data people, platform leads, and anyone else who has to shape work and stay close enough to judge it.
+Developers, product engineers, founders, operators, platform leads, and anyone else who has to improve software without losing the thread between code, users, risk, and maintenance.
 
-You do not need to be a full-time software engineer. You do need taste and responsibility. You need to know what matters, what should be ignored, and what would make the result useful.
+You do not need a perfect repo. You need one with enough texture that there is more than one plausible solution.
 
-## What we build
+## What you do
 
-We ask an agent to build:
+You will:
 
-> A Python base62 encoder/decoder with tests.
-
-The repo produces:
-
-1. a small Python project;
-2. a one-sentence aim;
-3. a small strategy: aim, mechanism, feedback, guardrail;
-4. a problem map;
-5. a problem statement;
-6. a few possible approaches;
-7. eval rules before code;
-8. a brief for the agent;
-9. implementation code;
-10. a review result;
-11. at least one dissent finding or an explicit residual risk.
-
-Base62 is the workbench. The reusable thing is the loop.
+1. pick an existing project;
+2. install the Open Horizons skills;
+3. use `/aim` to define the improvement outcome;
+4. use `/problem-space` to map constraints, users, systems, blast radius, and assumptions;
+5. use `/problem-statement` to choose the problem framing;
+6. use `/solution-space` to compare Band-Aid, Local Optimum, Reframe, and Redesign paths;
+7. write evals or acceptance checks before implementation;
+8. write an agent brief;
+9. run `/execute` on the selected slice;
+10. run `/review` and `/dissent` before accepting the result;
+11. run `/salvage` if the attempt drifts.
 
 ## Quick start
 
-If you use Open Horizons Skills:
+Install the skills:
 
 ```bash
 npx skills add open-horizon-labs/skills -g -a claude-code -y
@@ -74,32 +65,31 @@ Then work through:
 docs/tutorial.md
 ```
 
-If you do not use the skills, the tutorial still works. Copy the prompts into Claude Code, Cursor, Copilot, Codex, ChatGPT, or whatever you use. Treat the slash commands as section names.
-
 ## Repo map
 
-- `docs/tutorial.md` — the runbook.
-- `docs/problem-space.md` — what this repo is trying to do, and what it is refusing to become.
-- `docs/open-horizons.md` — how Open Horizons shows up here.
-- `docs/strategy-clarity.md` — how to turn strategy into an agent brief.
+- `docs/tutorial.md` — the exercise.
+- `docs/problem-space.md` — why a one-file task was rejected and what replaces it.
+- `docs/open-horizons.md` — the skill sequence for a real project improvement.
+- `docs/strategy-clarity.md` — how to turn aim, mechanism, feedback, and guardrails into an agent brief.
+- `docs/beyond-nearest-peak.md` — the shallow-breadth / score / select / deepen pattern.
 - `docs/further-reading.md` — source material and follow-up reading.
-- `templates/builder-playground.md` — choose a small task worth practicing on.
+- `templates/builder-playground.md` — choose a real project slice.
 - `templates/agent-brief.md` — give the agent enough structure to work.
-- `templates/eval-checklist.md` — define good and bad before code.
-- `examples/base62-agent-brief.md` — the worked base62 brief and eval set.
+- `templates/eval-checklist.md` — define evidence before implementation.
+- `examples/technical-debt-agent-brief.md` — a worked duplicate-notification example.
 
 ## What this is not
 
 - Not a prompt cheat sheet.
-- Not a course about agents in general.
-- Not a product-management guide hiding inside a coding exercise.
-- Not a vendor tutorial for one tool.
-- Not a claim that agents replace judgment.
+- Not a one-file exercise.
+- Not a tour of agent UI buttons.
+- Not a claim that agents can decide what matters for you.
+- Not a reason to hand technical debt ranking to a model and walk away.
 
-The skill is not writing perfect prompts. The skill is getting clear about the work, giving the agent the right context, and rejecting polished crap when the checks do not support it.
+The skill is choosing the right work, comparing levels of solution, and rejecting output that does not move the aim.
 
-## Source tutorial
+## Source material
 
-The seed task comes from Microsoft's [Introduction to agent-first development](https://code.visualstudio.com/learn/foundations/introduction-to-agent-first-development), which uses a Python/uv base62 encoder/decoder as a first agent task.
+The project-improvement shape comes from GitHub's [Using GitHub Copilot cloud agent to improve a project](https://docs.github.com/en/copilot/tutorials/cloud-agent/improve-a-project).
 
-This repo keeps the small coding task and changes the operating model around it.
+The solution-search shape comes from Muness Castle's [Beyond the Nearest Peak](https://muness.com/posts/beyond-the-nearest-peak/).

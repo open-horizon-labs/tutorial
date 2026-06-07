@@ -2,23 +2,49 @@
 
 ## Purpose
 
-What should the agent build or change?
+What project improvement should this run make?
 
 > 
 
 ## Aim
 
-What behavior change or learning does this serve?
+What outcome or behavior change does this serve?
 
 > 
+
+## Problem statement
+
+What problem framing did we select?
+
+> 
+
+## Selected solution level
+
+Choose one:
+
+- [ ] Band-Aid
+- [ ] Local Optimum
+- [ ] Reframe
+- [ ] Redesign
+
+Why this level?
+
+> 
+
+Why not the other levels?
+
+- Band-Aid:
+- Local Optimum:
+- Reframe:
+- Redesign:
 
 ## Small strategy
 
-**Mechanism:** Why should this approach work?
+**Mechanism:** Why should this approach move the aim?
 
 > 
 
-**Feedback:** What signal will show quickly whether it is working?
+**Feedback:** What signal will show quickly whether it worked?
 
 > 
 
@@ -28,14 +54,7 @@ What behavior change or learning does this serve?
 - 
 - 
 
-**Alignment check:**
-
-- Necessity: why is this needed?
-- Viability: why should this work?
-- Sufficiency: what is still missing?
-- Connectedness: how do the files and tests below connect back to the aim?
-
-## Files
+## Context
 
 The agent should inspect:
 
@@ -43,7 +62,13 @@ The agent should inspect:
 - 
 - 
 
-The agent may create or edit:
+Relevant constraints:
+
+- 
+- 
+- 
+
+Prior attempts, symptoms, or review comments:
 
 - 
 - 
@@ -51,71 +76,58 @@ The agent may create or edit:
 
 ## Behavior contract
 
-The code must:
+The change must:
 
 - 
 - 
 - 
 
-The code must reject or avoid:
+The change must not:
 
 - 
 - 
 - 
 
-## Tests and evals
+## Checks
 
-Required checks:
+Commands to run:
+
+```bash
+
+```
+
+Acceptance checks:
 
 - 
 - 
 - 
 
-Bad outputs these checks should catch:
+Old behavior these checks should catch:
 
 - 
 - 
 - 
 
-## Constraints
+## Stop conditions
 
-The agent must:
+The agent should stop and report instead of guessing if:
 
-- read relevant files before editing;
-- keep the change small;
-- reuse existing patterns;
-- run the relevant tests;
-- explain any blocker instead of guessing.
-
-The agent must not:
-
-- add unrelated features;
-- weaken tests to pass;
-- hide errors behind broad fallbacks;
-- claim correctness without evidence.
-
-## Failure modes
-
-Watch for:
-
-- plausible but wrong code;
-- missing edge cases;
-- tests that only check happy paths;
-- behavior that is not documented;
-- extra abstractions the task did not earn;
-- review summaries that skip findings.
+- the selected problem framing is wrong;
+- required files or commands are missing;
+- the patch requires a broader redesign than this slice allows;
+- tests cannot be made meaningful without changing the brief;
+- implementation would touch unrelated systems.
 
 ## Review checklist
 
 Before accepting output, check:
 
 - [ ] Does it serve the aim?
-- [ ] Is the mechanism clear?
-- [ ] Are feedback signals explicit?
-- [ ] Are guardrails explicit?
-- [ ] Does it implement the behavior contract?
-- [ ] Do tests catch known bad implementations?
-- [ ] Did the agent run the right checks?
+- [ ] Did it stay at the selected solution level?
+- [ ] Is the mechanism visible in the code or tests?
+- [ ] Do checks fail on the old behavior?
+- [ ] Did the agent run the right commands?
 - [ ] Are edge cases named and tested?
-- [ ] Are there unrelated changes?
-- [ ] Is the result simple enough to maintain?
+- [ ] Did it avoid parallel paths or compatibility shims?
+- [ ] Are unrelated changes absent?
+- [ ] Is the result easier for the next maintainer to edit?

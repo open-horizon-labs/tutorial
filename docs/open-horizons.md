@@ -1,116 +1,79 @@
-# Open Horizons in This Repo
+# What Open Horizons Adds
 
-Open Horizons is not the command pack. The commands are wrappers around signals.
+Open Horizons keeps an agent run from becoming “ask for patch, accept patch.”
 
-The full frame is:
-
-> Clarify direction, nurture strengths, and maintain momentum through nested feedback loops.
-
-For coding with agents, I use it this way:
-
-> Know what the work is for. Run the smallest useful pass. Reflect hard enough that the next pass is better.
-
-Short version:
+For real project improvement, the sequence is:
 
 ```text
-Aim → Do → Reflect
+/aim → /problem-space → /problem-statement → /solution-space → evals → brief → /execute → /review → /dissent → /salvage
 ```
 
-## Frame, ritual, skill
+The reason is simple: do not assign work until you know what good means and what level of solution the problem deserves.
 
-| Layer | Meaning here |
+## Evidence first
+
+Here, evidence is not the agent's confidence.
+
+Evidence is:
+
+- failing behavior reproduced;
+- tests that fail before the fix and pass after;
+- static checks;
+- build output;
+- review findings;
+- deleted duplicate paths;
+- clarified ownership;
+- a smaller blast radius;
+- a salvage note that prevents repeating the same mistake.
+
+## What each skill does
+
+| Skill | Job in this repo |
 |---|---|
-| Frame | The judgment loop that keeps work aligned. |
-| Ritual | A repeatable move that leaves a signal. |
-| Skill | A command wrapper around the ritual. |
+| `/aim` | Name the outcome before the agent ranks work. |
+| `/problem-space` | Map terrain: systems, stakeholders, constraints, blast radius, assumptions. |
+| `/problem-statement` | Choose the framing that points to the right class of fix. |
+| `/solution-space` | Compare Band-Aid, Local Optimum, Reframe, and Redesign paths. |
+| `/execute` | Implement one selected slice from a brief. |
+| `/review` | Judge the patch against the aim and checks. |
+| `/dissent` | Look for the way the accepted-looking patch still fails. |
+| `/salvage` | Keep learning when the run drifted and restart smaller. |
 
-The distinction matters.
+## Strategy for one slice
 
-If `/review` goes away, you still need review. If `/salvage` goes away, you still need to stop dragging bad code forward. Do not confuse the wrapper for the work.
-
-## What we keep
-
-### Reality first
-
-Open Horizons starts from evidence, not aspiration.
-
-Here, the evidence is code and tests. The agent either implements the contract or it does not. The tests either catch bad work or they do not. A confident summary is not evidence.
-
-### A model worth copying
-
-The Microsoft tutorial gives us a small coding task. We keep that.
-
-Then we add the parts that make the work safer: aim, constraints, evals, review, dissent, salvage.
-
-### A real horizon
-
-The goal is not to learn base62.
-
-The goal is to become the kind of builder who can direct agents without handing over judgment.
-
-### Plans that can change
-
-The plan is small:
-
-1. define behavior;
-2. write checks;
-3. brief the agent;
-4. run the work;
-5. review;
-6. adjust.
-
-If a step is too heavy for your setting, shrink it. Do not remove the signal.
-
-### Loops at different scales
-
-| Scale | Signal |
-|---|---|
-| Code | Examples, invalid inputs, round trips. |
-| Agent run | Did it read files, follow constraints, and run checks? |
-| Session | What did review, dissent, and salvage find? |
-| Practice | What brief or eval should survive into the next task? |
-
-## Strategy for one task
-
-Alignment is the constraint. Speed just makes misalignment louder.
-
-For a small coding task, strategy can fit in four fields:
+The agent brief should carry four fields:
 
 | Field | Question |
 |---|---|
 | Aim | What outcome are we trying to create? |
-| Mechanism | Why should this approach work? |
+| Mechanism | Why should this approach move that outcome? |
 | Feedback | What signal tells us quickly if it is wrong? |
 | Guardrail | What must not break while we move? |
 
-The agent brief should carry those answers. Otherwise the agent has a task, but not enough context to make tradeoffs.
+If the brief only says what to change, it is missing the strategy.
 
-When reviewing the brief, ask:
+## Solution levels
 
-- Is this necessary for the aim?
-- Is this a plausible way to move the aim?
-- Is a key piece missing?
-- Does each file, test, and instruction connect back to the mechanism?
+This is where Open Horizons meets `Beyond the Nearest Peak`.
 
-See `docs/strategy-clarity.md` for the strategy piece.
+A real project problem usually has more than one altitude:
 
-## What this does not include
+- Band-Aid: suppress the symptom;
+- Local Optimum: improve the current design;
+- Reframe: change the problem statement;
+- Redesign: make the class of failure harder to create.
 
-This is not the full Open Horizons personal worksheet. It does not ask you to reflect on years of achievements, name your strengths, affirm a mission, or set quarterly aims.
+The selected level should show up in the brief and in review.
 
-Those belong in the full frame. This repo uses the part needed for coding with agents: aim, do, reflect, and preserve the signals that keep the work honest.
+If you choose a Band-Aid, say why speed or risk makes that acceptable. If you choose Redesign, say why the recurrence justifies the blast radius.
 
-## Translation table
+## Signals at different scales
 
-| Open Horizons idea | Coding translation |
+| Scale | Signal |
 |---|---|
-| Aim with clarity | Say what behavior change the work should create. |
-| Planning over plans | Explore a few paths, then choose the smallest useful one. |
-| Sustain momentum | Run a bounded pass; stop when the work drifts. |
-| Growth mindset | Treat bad agent output as evidence. Fix the loop. |
-| Use strengths | Keep human taste, context, and standards in the work. |
-| Reflect | Review, dissent, salvage, and save what improves the next run. |
+| Code | Regression tests, integration tests, static checks, deleted duplicate paths. |
+| Agent run | Did it read the right files, follow the brief, run checks, and stop on drift? |
+| Review | Did the patch move the aim at the selected solution level? |
+| Practice | Which rejected path, check, or guardrail should survive into the next run? |
 
-Skills make the loop easier to run. They are not the loop.
-
-The rule to keep: do not ask the agent to write code until you know what signal will tell you whether the code is good.
+Shrink a step if needed. Do not remove the signal.
