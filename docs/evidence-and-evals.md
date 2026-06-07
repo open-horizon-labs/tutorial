@@ -77,5 +77,5 @@ Reject evidence if:
 ## Navigation
 
 - Previous: [Beyond the Nearest Peak](beyond-nearest-peak.md)
-- Up: [Tutorial](tutorial.md) / [Curriculum](curriculum.md)
+- Up: [Docs Home](index.md) / [Curriculum](curriculum.md)
 - Next: [Agent Briefs](agent-briefs.md)

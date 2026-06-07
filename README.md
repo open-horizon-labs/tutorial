@@ -66,14 +66,14 @@ npx skills add open-horizon-labs/skills -g -a claude-code -y
 
 Then use the study path:
 
-- [`docs/curriculum.md`](docs/curriculum.md) — start with the overview table.
-- [`docs/model-fit.md`](docs/model-fit.md) — learn how to shape asks around model strengths and supplied context.
-- Use the named deep-dive links in [`docs/curriculum.md`](docs/curriculum.md#overview-curriculum) when a skill becomes the bottleneck.
+- [`docs/index.md`](docs/index.md) — start here when you need the route through the repo.
+- [`docs/curriculum.md`](docs/curriculum.md) — understand the full sequence.
+- [`docs/tutorial.md`](docs/tutorial.md) — apply the loop to one real project slice.
 - [`docs/further-reading.md`](docs/further-reading.md) — follow source references when the deep dive is not enough.
-- [`docs/tutorial.md`](docs/tutorial.md) — apply the full loop to a real project slice.
 
 ## Repo map
 
+- [`docs/index.md`](docs/index.md) — docs home: start path, learner routes, curriculum map, templates map, and stuck routing.
 - [`docs/curriculum.md`](docs/curriculum.md) — overview curriculum: skills, artifacts, deep dives, and go-deeper references.
 - [`docs/tutorial.md`](docs/tutorial.md) — the hands-on run through the curriculum and capstone.
 - [`docs/intent-engineering.md`](docs/intent-engineering.md) — intent, burst, pause, structured pass, iterate.

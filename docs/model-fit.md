@@ -130,5 +130,5 @@ Reject a model-fit note if:
 ## Navigation
 
 - Previous: [Intent Engineering](intent-engineering.md)
-- Up: [Tutorial](tutorial.md) / [Curriculum](curriculum.md)
+- Up: [Docs Home](index.md) / [Curriculum](curriculum.md)
 - Next: [Context Construction](context-construction.md)

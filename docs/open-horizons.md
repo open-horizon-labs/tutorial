@@ -111,5 +111,5 @@ If a gate has no artifact, decide whether it is unnecessary for this slice or wh
 ## Navigation
 
 - Previous: [Context Construction](context-construction.md)
-- Up: [Tutorial](tutorial.md) / [Curriculum](curriculum.md)
+- Up: [Docs Home](index.md) / [Curriculum](curriculum.md)
 - Next: [Problem Space](problem-space.md)

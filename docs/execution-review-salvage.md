@@ -109,5 +109,5 @@ Reject the execution run if:
 ## Navigation
 
 - Previous: [Authoring Subagents](subagents.md)
-- Up: [Tutorial](tutorial.md) / [Curriculum](curriculum.md)
+- Up: [Docs Home](index.md) / [Curriculum](curriculum.md)
 - Next: [Knowledge Extraction](knowledge-extraction.md)

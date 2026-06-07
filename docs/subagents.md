@@ -127,5 +127,5 @@ Give it only the input it needs. If it needs the whole chat to function, the rol
 ## Navigation
 
 - Previous: [Authoring Skills](authoring-skills.md)
-- Up: [Tutorial](tutorial.md) / [Curriculum](curriculum.md)
+- Up: [Docs Home](index.md) / [Curriculum](curriculum.md)
 - Next: [Execution, Review, Dissent, and Salvage](execution-review-salvage.md)

@@ -109,5 +109,5 @@ Reject the problem statement if:
 ## Navigation
 
 - Previous: [Problem Space](problem-space.md)
-- Up: [Tutorial](tutorial.md) / [Curriculum](curriculum.md)
+- Up: [Docs Home](index.md) / [Curriculum](curriculum.md)
 - Next: [Beyond the Nearest Peak](beyond-nearest-peak.md)

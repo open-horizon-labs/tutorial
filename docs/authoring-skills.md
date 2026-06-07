@@ -118,5 +118,5 @@ Turn one repeated instruction from your project into a skill:
 ## Navigation
 
 - Previous: [Strategy Clarity](strategy-clarity.md)
-- Up: [Tutorial](tutorial.md) / [Curriculum](curriculum.md)
+- Up: [Docs Home](index.md) / [Curriculum](curriculum.md)
 - Next: [Authoring Subagents](subagents.md)

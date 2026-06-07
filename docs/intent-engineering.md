@@ -102,5 +102,5 @@ What would prove this was the wrong task:
 ## Navigation
 
 - Previous: [Tutorial](tutorial.md)
-- Up: [Tutorial](tutorial.md) / [Curriculum](curriculum.md)
+- Up: [Docs Home](index.md) / [Curriculum](curriculum.md)
 - Next: [Model-Fit Framing](model-fit.md)

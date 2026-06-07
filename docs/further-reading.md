@@ -65,5 +65,5 @@ If the run goes sideways, read The Salvage Loop.
 ## Navigation
 
 - Previous: [Knowledge Extraction](knowledge-extraction.md)
-- Up: [Tutorial](tutorial.md) / [Curriculum](curriculum.md)
+- Up: [Docs Home](index.md) / [Curriculum](curriculum.md)
 - Next: [README](../README.md)

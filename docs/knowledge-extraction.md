@@ -156,5 +156,5 @@ Then ask whether a future agent should actually inherit it. When the answer is n
 ## Navigation
 
 - Previous: [Execution, Review, Dissent, and Salvage](execution-review-salvage.md)
-- Up: [Tutorial](tutorial.md) / [Curriculum](curriculum.md)
+- Up: [Docs Home](index.md) / [Curriculum](curriculum.md)
 - Next: [Further Reading](further-reading.md)

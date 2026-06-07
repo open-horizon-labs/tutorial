@@ -130,6 +130,6 @@ The next-session test is the standard: a new agent or maintainer should be able 
 
 ## Navigation
 
-- Previous: [README](../README.md)
-- Up: [README](../README.md)
+- Previous: [Docs Home](index.md)
+- Up: [Docs Home](index.md)
 - Next: [Tutorial](tutorial.md)

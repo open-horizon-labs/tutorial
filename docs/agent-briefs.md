@@ -82,5 +82,5 @@ Reject a brief if:
 ## Navigation
 
 - Previous: [Evidence and Evals](evidence-and-evals.md)
-- Up: [Tutorial](tutorial.md) / [Curriculum](curriculum.md)
+- Up: [Docs Home](index.md) / [Curriculum](curriculum.md)
 - Next: [Strategy Clarity](strategy-clarity.md)

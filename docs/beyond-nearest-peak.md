@@ -107,5 +107,5 @@ Score them with the same criteria, select one, and write why the other three wer
 ## Navigation
 
 - Previous: [Problem Statement](problem-statement.md)
-- Up: [Tutorial](tutorial.md) / [Curriculum](curriculum.md)
+- Up: [Docs Home](index.md) / [Curriculum](curriculum.md)
 - Next: [Evidence and Evals](evidence-and-evals.md)

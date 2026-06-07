@@ -71,5 +71,5 @@ Reject a context pack if:
 ## Navigation
 
 - Previous: [Model-Fit Framing](model-fit.md)
-- Up: [Tutorial](tutorial.md) / [Curriculum](curriculum.md)
+- Up: [Docs Home](index.md) / [Curriculum](curriculum.md)
 - Next: [Open Horizons Phase Skills](open-horizons.md)

@@ -116,5 +116,5 @@ Reject the map if:
 ## Navigation
 
 - Previous: [Open Horizons Phase Skills](open-horizons.md)
-- Up: [Tutorial](tutorial.md) / [Curriculum](curriculum.md)
+- Up: [Docs Home](index.md) / [Curriculum](curriculum.md)
 - Next: [Problem Statement](problem-statement.md)
