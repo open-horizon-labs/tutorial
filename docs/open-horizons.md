@@ -2,11 +2,14 @@
 
 Open Horizons keeps an agent run from becoming “ask for patch, accept patch.”
 
-For LLM development, the sequence is:
+For LLM development, the sequence has four arcs:
 
-```text
-Intent Engineering → model-fit note → context pack → /aim → /problem-space → /problem-statement → /solution-space → evidence → brief → skill → subagent → /execute → /review → /dissent → knowledge extraction → /salvage
-```
+| Arc | Steps |
+|---|---|
+| Grounding | Intent Engineering → model-fit note → context pack |
+| Framing | `/aim` → `/problem-space` → `/problem-statement` → `/solution-space` |
+| Delegation | evidence → brief → skill decision → subagent decision → `/execute` |
+| Reflection | `/review` → `/dissent` → knowledge extraction → `/salvage` |
 
 The reason is simple: do not assign work until you know what good means, what language operation the model should perform, what context it should inherit, what role boundary it needs, and what should survive after the session.
 
@@ -93,9 +96,22 @@ Shrink a step if needed. Do not remove the signal.
 
 Take a planned agent run and mark where each gate happens:
 
-```text
-intent → model-fit note → context pack → aim → problem space → problem statement → solution search → evidence → brief → skill decision → subagent decision → execute → review → dissent → extraction → salvage
-```
+1. intent;
+2. model-fit note;
+3. context pack;
+4. aim;
+5. problem space;
+6. problem statement;
+7. solution search;
+8. evidence;
+9. brief;
+10. skill decision;
+11. subagent decision;
+12. execute;
+13. review;
+14. dissent;
+15. extraction;
+16. salvage.
 
 If a gate has no artifact, decide whether it is unnecessary for this slice or whether the run is relying on implicit judgment.
 

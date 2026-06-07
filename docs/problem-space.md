@@ -2,6 +2,13 @@
 
 Problem space maps the terrain before the agent chooses a fix.
 
+| Framework position | Value |
+|---|---|
+| Skill | `/problem-space` |
+| Run after | `/aim` and context construction |
+| Produces | problem-space map |
+| Feeds | `/problem-statement` |
+
 The same symptom can point to different terrain:
 
 - a one-line bug;
@@ -11,6 +18,14 @@ The same symptom can point to different terrain:
 - a system design that keeps producing the same failure.
 
 Those are different maps. A problem statement comes next and chooses the slice.
+
+```mermaid
+flowchart LR
+    aim[Aim + context pack] --> skill["/problem-space"]
+    skill --> terrain[Terrain map]
+    terrain --> statement["/problem-statement"]
+    statement --> solution["/solution-space"]
+```
 
 ## Learn
 
@@ -67,30 +82,16 @@ Then hand the map to [`problem-statement.md`](problem-statement.md), where you c
 
 ## Artifact
 
-```text
-problem-space map
-```
+Produce a problem-space map. It should be readable enough that a reviewer can see why the chosen problem statement follows from the terrain.
 
 ## What Good Looks Like
 
-```md
-Systems involved:
-- notification event ingestion
-- reminder scheduler
-- send boundary
-- duplicate-skip recording
-
-Repeated symptom:
-- duplicate reminders can reach the same recipient when trigger paths overlap.
-
-Constraints:
-- do not change notification copy or timing policy in this slice;
-- the fix must be reviewable with a same-recipient, same-idempotency-key regression check.
-
-Assumptions to test:
-- more than one trigger path can reach the send boundary;
-- duplicate prevention belongs at the send boundary, not each caller.
-```
+| Map section | Example |
+|---|---|
+| Systems involved | notification event ingestion; reminder scheduler; send boundary; duplicate-skip recording |
+| Repeated symptom | duplicate reminders can reach the same recipient when trigger paths overlap |
+| Constraints | do not change notification copy or timing policy in this slice; the fix must be reviewable with a same-recipient, same-idempotency-key regression check |
+| Assumptions to test | more than one trigger path can reach the send boundary; duplicate prevention belongs at the send boundary, not each caller |
 
 ## Review check
 

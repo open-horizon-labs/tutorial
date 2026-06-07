@@ -4,27 +4,16 @@ Intent Engineering is the first lesson because it names the failure mode.
 
 Fast AI iteration feels productive. Without checkpoints, it becomes motion without steering: unvetted advice, local hacks, hidden assumptions, and fixes that make the next fix harder.
 
-The rhythm is:
-
-```text
-Clarify intent → Burst → Pause and reflect → Structured pass → Iterate
-```
+The rhythm is: clarify intent, burst for breadth, pause and reflect, structure the work, then iterate.
 
 ## Clarify intent
 
 Write one sentence before touching code.
 
-Weak:
-
-```md
-Use an agent to clean up notifications.
-```
-
-Better:
-
-```md
-Make future notification changes safer by moving duplicate prevention to the boundary where sends happen.
-```
+| Version | Intent |
+|---|---|
+| Weak | Use an agent to clean up notifications. |
+| Better | Make future notification changes safer by moving duplicate prevention to the boundary where sends happen. |
 
 The sentence should name the outcome, not the activity.
 
@@ -79,15 +68,7 @@ Intent Engineering keeps speed useful by making the control system explicit.
 
 ## Exercise
 
-Before opening the codebase, write:
-
-```md
-Intent:
-Burst topics:
-Pause questions:
-Structured artifacts to produce:
-What would prove this was the wrong task:
-```
+Before opening the codebase, write down: intent, burst topics, pause questions, structured artifacts to produce, and what would prove this was the wrong task.
 
 ## Go deeper
 

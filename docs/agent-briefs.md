@@ -39,22 +39,20 @@ Before giving it to `/execute`, ask:
 
 ## Artifact
 
-Use `templates/agent-brief.md` and produce a brief with this shape:
+Use [`templates/agent-brief.md`](../templates/agent-brief.md) and produce a brief with this shape:
 
-```text
-Purpose
-Aim
-Problem statement
-Selected solution level
-Rejected solution levels
-Mechanism / feedback / guardrails
-Context to inspect first
-Behavior contract
-Commands and acceptance checks
-Old behavior the checks should catch
-Stop conditions
-Review checklist
-```
+| Section | Purpose |
+|---|---|
+| Purpose and aim | why this slice matters |
+| Problem statement | the selected framing |
+| Selected and rejected solution levels | what level to build and what not to build |
+| Mechanism, feedback, guardrails | why it should work, how to check it, what must not break |
+| Context to inspect first | where the agent should start reading |
+| Behavior contract | required behavior and non-goals |
+| Commands and acceptance checks | external verification |
+| Old behavior the checks should catch | the regression that prevents shallow success |
+| Stop conditions | when to stop instead of guessing |
+| Review checklist | how a reviewer can reject the work |
 
 The brief is consumed by `/execute`, `/review`, `/dissent`, and knowledge extraction. A reviewer should be able to reject the work using only this artifact plus the diff.
 

@@ -2,11 +2,14 @@
 
 This exercise teaches the skills an LLM developer should know, then applies the Open Horizons corpus to those skills.
 
-The spine is:
+The spine has four arcs:
 
-```text
-Intent → Model-fit framing → Context construction → Problem space → Problem statement → Solution search → Evidence → Delegation → Verification → Dissent → Knowledge extraction → Salvage
-```
+| Arc | Steps |
+|---|---|
+| Grounding | Intent → Model-fit framing → Context construction |
+| Framing | Problem space → Problem statement → Solution search |
+| Delegation | Evidence → Delegation → Verification → Dissent |
+| Learning | Knowledge extraction → Salvage |
 
 Use a real project with enough texture that there is more than one plausible solution. If all you have is a blank repo, stop. The point is judgment in an existing system.
 
@@ -39,17 +42,10 @@ Read [Intent Engineering](intent-engineering.md).
 
 Write one sentence that names the outcome, not the activity.
 
-Weak:
-
-```md
-Use an agent to clean up notifications.
-```
-
-Better:
-
-```md
-Make future notification changes safer by moving duplicate prevention to the boundary where sends happen.
-```
+| Version | Intent |
+|---|---|
+| Weak | Use an agent to clean up notifications. |
+| Better | Make future notification changes safer by moving duplicate prevention to the boundary where sends happen. |
 
 Then do a short model burst:
 
@@ -73,17 +69,10 @@ Read [Model-Fit Framing](model-fit.md), then use the [model-fit note template](.
 
 Before building the context pack, decide what work the model is actually suited to do.
 
-Weak:
-
-```md
-Summarize this Zoom transcript.
-```
-
-Better:
-
-```md
-Using the transcript and context pack, produce a decision-preserving meeting note for the platform roadmap review. Separate decisions, proposals, risks, action items, and missing context. Quote the transcript line or timestamp for every commitment.
-```
+| Version | Prompt |
+|---|---|
+| Weak | Summarize this Zoom transcript. |
+| Better | Using the transcript and context pack, produce a decision-preserving meeting note for the platform roadmap review. Separate decisions, proposals, risks, action items, and missing context. Quote the transcript line or timestamp for every commitment. |
 
 Write down:
 
@@ -197,11 +186,11 @@ For each, require:
 
 Example:
 
-```md
-Symptom framing: Notifications sometimes send twice.
-Systems framing: Notification ownership is split across multiple trigger paths, so no single layer enforces idempotency.
-Maintainer framing: Engineers cannot safely add notification behavior because the current flow does not make ownership or duplicate prevention obvious.
-```
+| Framing | Example |
+|---|---|
+| Symptom | Notifications sometimes send twice. |
+| Systems | Notification ownership is split across multiple trigger paths, so no single layer enforces idempotency. |
+| Maintainer | Engineers cannot safely add notification behavior because the current flow does not make ownership or duplicate prevention obvious. |
 
 Artifact:
 
@@ -213,11 +202,7 @@ selected problem statement
 
 Read [Beyond the Nearest Peak](beyond-nearest-peak.md), then run `/solution-space`.
 
-Use the `Beyond the Nearest Peak` pattern:
-
-```text
-Shallow → Score → Select → Deepen
-```
+Use the `Beyond the Nearest Peak` pattern: shallow breadth, score, select, then deepen.
 
 Generate breadth first. Do not evaluate while generating.
 
@@ -269,17 +254,10 @@ Evidence may include:
 
 A useful check is specific enough to fail.
 
-Weak:
-
-```md
-The notification system should be cleaner.
-```
-
-Better:
-
-```md
-Given two identical notification events with the same idempotency key, the system sends one notification and records the duplicate as skipped.
-```
+| Version | Check |
+|---|---|
+| Weak | The notification system should be cleaner. |
+| Better | Given two identical notification events with the same idempotency key, the system sends one notification and records the duplicate as skipped. |
 
 Artifact:
 

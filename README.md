@@ -89,9 +89,9 @@ Then use the study path:
 
 ### Framing and solution choice
 
-- [`docs/problem-space.md`](docs/problem-space.md) — why problem framing needs real terrain.
-- [`docs/problem-statement.md`](docs/problem-statement.md) — narrow terrain into a selected framing.
-- [`docs/beyond-nearest-peak.md`](docs/beyond-nearest-peak.md) — shallow breadth, score, select, deepen.
+- [`docs/problem-space.md`](docs/problem-space.md) — Open Horizons skill deep dive for `/problem-space`: map terrain before choosing the slice.
+- [`docs/problem-statement.md`](docs/problem-statement.md) — Open Horizons skill deep dive for `/problem-statement`: narrow terrain into a selected framing.
+- [`docs/beyond-nearest-peak.md`](docs/beyond-nearest-peak.md) — Open Horizons skill deep dive for `/solution-space`: shallow breadth, score, select, deepen.
 - [`docs/evidence-and-evals.md`](docs/evidence-and-evals.md) — checks before delegation and evals that can fail.
 
 ### Delegation and execution
@@ -100,7 +100,7 @@ Then use the study path:
 - [`docs/strategy-clarity.md`](docs/strategy-clarity.md) — aim, mechanism, feedback, guardrails, and solution level.
 - [`docs/authoring-skills.md`](docs/authoring-skills.md) — how and when to write `SKILL.md` procedures.
 - [`docs/subagents.md`](docs/subagents.md) — how and when to write `.claude/agents/*.md` roles.
-- [`docs/execution-review-salvage.md`](docs/execution-review-salvage.md) — execute, review, dissent, drift detection, and salvage.
+- [`docs/execution-review-salvage.md`](docs/execution-review-salvage.md) — Open Horizons skill deep dive for `/execute`, `/review`, `/dissent`, drift detection, and `/salvage`.
 
 ### Durable learning
 

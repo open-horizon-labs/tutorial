@@ -6,10 +6,9 @@ A generic summary can look useful because it is fluent. Fluency is not grounding
 
 The boundary:
 
-```text
-Weak: ask the model to supply missing reality.
-Strong: ask the model to transform supplied reality.
-```
+| Weak | Strong |
+|---|---|
+| Ask the model to supply missing reality. | Ask the model to transform supplied reality. |
 
 ## What models are good at
 
@@ -49,27 +48,17 @@ A Zoom-style auto-summary gets the transcript and produces a topic summary. That
 
 A useful meeting note is grounded in the organization:
 
-```text
-transcript
-+ attendees and roles
-+ active aims, projects, programs, and customer commitments
-+ company vocabulary
-+ prior decisions
-+ known guardrails and risks
-+ desired output artifact
-```
+| Input | Why it matters |
+|---|---|
+| Transcript | The raw conversation. |
+| Attendees and roles | Who can commit, decide, or own follow-up. |
+| Active aims, projects, programs, and customer commitments | The big picture the note must tie back to. |
+| Company vocabulary | Names and concepts the model should not invent or blur. |
+| Prior decisions | Context for what is settled versus reopened. |
+| Known guardrails and risks | Constraints the note should surface conflicts against. |
+| Desired output artifact | The shape reviewers need. |
 
-Then the model can do a better-shaped task:
-
-```text
-Using the transcript and context pack, produce meeting notes that:
-- map discussion to active aims, projects, and programs;
-- separate decisions from proposals, guesses, and background;
-- list action items with owner, due date if stated, and transcript evidence;
-- identify risks, unresolved questions, and missing context;
-- flag conflicts with known guardrails or prior decisions;
-- end with what a future agent or reviewer would need to continue.
-```
+Then the model can do a better-shaped task: produce meeting notes that map discussion to active aims, separate decisions from proposals, list action items with evidence, identify risks and missing context, flag guardrail conflicts, and end with what a future agent or reviewer would need to continue.
 
 Supplied context makes the transcript checkable against roles, aims, projects, guardrails, and evidence. The model turns that context into an artifact a person can audit.
 
@@ -90,17 +79,10 @@ A model-fit note should answer:
 
 Take the next thing you want to ask an LLM to do and write both versions.
 
-Weak:
-
-```md
-Summarize this meeting.
-```
-
-Better:
-
-```md
-Using the transcript and context pack, produce a decision-preserving meeting note for the platform roadmap review. Separate decisions, proposals, risks, action items, and missing context. Quote the transcript line or timestamp for every commitment.
-```
+| Version | Prompt |
+|---|---|
+| Weak | Summarize this meeting. |
+| Better | Using the transcript and context pack, produce a decision-preserving meeting note for the platform roadmap review. Separate decisions, proposals, risks, action items, and missing context. Quote the transcript line or timestamp for every commitment. |
 
 If the better version requires context you do not have, the task is not ready. Build the context pack before you ask for output.
 

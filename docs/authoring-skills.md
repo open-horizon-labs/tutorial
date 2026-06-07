@@ -58,15 +58,11 @@ description: Reviews notification changes for idempotency boundaries and duplica
 
 Then a short process:
 
-```md
-## Process
-
 1. Inspect notification send boundaries and caller paths.
 2. Check whether duplicate prevention belongs at the boundary or caller.
 3. Require a regression check that fails on duplicate sends.
 4. Reject patches that add another caller-specific guard while leaving the boundary unprotected.
 5. Report findings with file references and command evidence.
-```
 
 ## Authoring rules
 

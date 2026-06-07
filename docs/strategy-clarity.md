@@ -30,15 +30,12 @@ It should also say why the other levels were rejected.
 
 Example:
 
-```md
-Selected level: Reframe.
-
-We are not treating this as a one-off duplicate-send bug. The repeated symptom suggests notification ownership is unclear. The slice is to enforce idempotency at the notification boundary and add regression coverage there.
-
-Rejected:
-- Band-Aid: another guard in the caller would leave other trigger paths exposed.
-- Full Redesign: replacing the event flow is too large for this review slice.
-```
+| Field | Content |
+|---|---|
+| Selected level | Reframe |
+| Reasoning | We are not treating this as a one-off duplicate-send bug. The repeated symptom suggests notification ownership is unclear. The slice is to enforce idempotency at the notification boundary and add regression coverage there. |
+| Rejected: Band-Aid | Another guard in the caller would leave other trigger paths exposed. |
+| Rejected: Full Redesign | Replacing the event flow is too large for this review slice. |
 
 ## Compose before execution
 
@@ -52,12 +49,12 @@ Before handing work to an agent, write down:
 
 For a technical-debt slice:
 
-```text
-Purpose: reduce repeated duplicate notifications without changing notification content.
-Context: duplicate sends have appeared in multiple caller paths; tests only cover happy-path send behavior.
-Approach: enforce idempotency at the notification boundary, not in each caller.
-Tactics: map send paths, add regression test, update boundary logic, run notification test suite, review for parallel paths.
-```
+| Field | Example |
+|---|---|
+| Purpose | Reduce repeated duplicate notifications without changing notification content. |
+| Context | Duplicate sends have appeared in multiple caller paths; tests only cover happy-path send behavior. |
+| Approach | Enforce idempotency at the notification boundary, not in each caller. |
+| Tactics | Map send paths, add regression test, update boundary logic, run notification test suite, review for parallel paths. |
 
 ## Make it reviewable
 
@@ -96,17 +93,7 @@ The brief is the alignment mechanism. Treat it that way.
 
 ## Exercise
 
-Rewrite a vague task as a one-slice strategy doc:
-
-```md
-Aim:
-Mechanism:
-Feedback:
-Guardrails:
-Selected solution level:
-Rejected levels:
-Tactics:
-```
+Rewrite a vague task as a one-slice strategy doc with these fields: aim, mechanism, feedback, guardrails, selected solution level, rejected levels, and tactics.
 
 Then remove any tactic that does not connect back to aim and mechanism.
 

@@ -2,19 +2,25 @@
 
 Agents make it cheap to generate patches. They do not make it cheap to know which patch deserves to survive.
 
-That is the shift from `Beyond the Nearest Peak`:
+| Framework position | Value |
+|---|---|
+| Skill | `/solution-space` |
+| Run after | `/problem-statement` |
+| Produces | solution-level comparison and selected level |
+| Feeds | `/execute`, evidence, and the agent brief |
 
-```text
-Shallow → Score → Select → Deepen
+That is the shift from `Beyond the Nearest Peak`: use the model for shallow breadth, score options with human judgment, select the level, then spend depth.
+
+```mermaid
+flowchart LR
+    shallow[Shallow breadth] --> score[Score]
+    score --> select[Select]
+    select --> deepen[Deepen]
 ```
-
-Use the model for shallow breadth. Use human judgment for scoring. Only then spend depth.
 
 ## The bad pattern
 
-```text
-Prompt → first plausible patch → tests pass → merge
-```
+> Bad pattern: prompt → first plausible patch → tests pass → merge.
 
 That can work for tiny tasks. It is a bad default for real project improvement.
 

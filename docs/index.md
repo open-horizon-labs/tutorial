@@ -39,18 +39,18 @@ If you are new, use this order:
 | 2. Model-fit framing | [Model-Fit Framing](model-fit.md) | [model-fit note](../templates/model-fit-note.md) |
 | 3. Context construction | [Context Construction](context-construction.md) | [context pack](../templates/context-pack.md) |
 | 4. Open Horizons phase skills | [Open Horizons Phase Skills](open-horizons.md) | session artifacts |
-| 5. Problem space | [Problem Space](problem-space.md) | problem-space map |
-| 6. Problem statement | [Problem Statement](problem-statement.md) | [problem statement](../templates/problem-statement.md) |
-| 7. Solution search | [Beyond the Nearest Peak](beyond-nearest-peak.md) | solution-space comparison |
+| 5. Problem space (`/problem-space`) | [Problem Space](problem-space.md) | problem-space map |
+| 6. Problem statement (`/problem-statement`) | [Problem Statement](problem-statement.md) | [problem statement](../templates/problem-statement.md) |
+| 7. Solution search (`/solution-space`) | [Beyond the Nearest Peak](beyond-nearest-peak.md) | solution-space comparison |
 | 8. Evidence | [Evidence and Evals](evidence-and-evals.md) | [eval checklist](../templates/eval-checklist.md) |
 | 9. Agent brief | [Agent Briefs](agent-briefs.md) | [agent brief](../templates/agent-brief.md) |
 | 10. Skill authoring | [Authoring Skills](authoring-skills.md) | [project skill](../templates/project-skill.md) |
 | 11. Subagent authoring | [Authoring Subagents](subagents.md) | [subagent](../templates/subagent.md) |
-| 12. Execution | [Execution, Review, Dissent, and Salvage](execution-review-salvage.md#execute) | patch or stopped execution report |
-| 13. Verification and review | [Execution, Review, Dissent, and Salvage](execution-review-salvage.md#review) | review findings |
-| 14. Dissent | [Execution, Review, Dissent, and Salvage](execution-review-salvage.md#dissent) | dissent memo |
+| 12. Execution (`/execute`) | [Execution, Review, Dissent, and Salvage](execution-review-salvage.md#execute) | patch or stopped execution report |
+| 13. Verification and review (`/review`) | [Execution, Review, Dissent, and Salvage](execution-review-salvage.md#review) | review findings |
+| 14. Dissent (`/dissent`) | [Execution, Review, Dissent, and Salvage](execution-review-salvage.md#dissent) | dissent memo |
 | 15. Knowledge extraction | [Knowledge Extraction](knowledge-extraction.md) | [knowledge artifact](../templates/knowledge-artifact.md) |
-| 16. Salvage | [Execution, Review, Dissent, and Salvage](execution-review-salvage.md#salvage) | salvage note and restart plan |
+| 16. Salvage (`/salvage`) | [Execution, Review, Dissent, and Salvage](execution-review-salvage.md#salvage) | salvage note and restart plan |
 
 ## Templates map
 

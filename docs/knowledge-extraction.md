@@ -28,15 +28,15 @@ Model-fit framing gets the notes grounded. Knowledge extraction decides what sur
 
 Start with the grounded note from [`docs/model-fit.md`](model-fit.md):
 
-```text
-transcript
-attendees and roles
-active aims, projects, programs, and customer commitments
-company vocabulary
-prior decisions
-known guardrails and risks
-desired output artifact
-```
+| Context | Why it matters |
+|---|---|
+| transcript | raw meeting evidence |
+| attendees and roles | authority, ownership, and follow-up context |
+| active aims, projects, programs, and customer commitments | the big picture the note must tie back to |
+| company vocabulary | names and concepts the note should preserve |
+| prior decisions | what is settled versus reopened |
+| known guardrails and risks | constraints the note should check against |
+| desired output artifact | the shape reviewers need |
 
 Then extract only the pieces that should affect future work:
 
@@ -78,11 +78,7 @@ After review, dissent, or salvage, ask:
 
 ## Candidate to promoted artifact
 
-Treat extraction as a promotion path:
-
-```text
-raw observation → candidate learning → reviewed artifact → future context
-```
+Treat extraction as a promotion path: raw observation becomes candidate learning, candidate learning becomes a reviewed artifact, and reviewed artifacts become future context.
 
 Not every observation deserves promotion.
 
@@ -90,29 +86,12 @@ A good metis artifact changes how a future agent acts. A good guardrail prevents
 
 ## Example: code review learning
 
-Raw observation:
-
-```md
-The agent fixed duplicate notifications by adding a guard in the failing caller. Review found two other caller paths that could still send duplicates.
-```
-
-Metis candidate:
-
-```md
-Duplicate-send bugs in this repo usually belong at the notification boundary, not individual caller paths. Caller guards suppress the visible symptom and leave parallel trigger paths exposed.
-```
-
-Guardrail candidate:
-
-```md
-Notification duplicate prevention must be enforced at the send boundary or a documented equivalent. Caller-specific duplicate guards are not sufficient unless the caller is the only possible send path and review verifies that boundary.
-```
-
-Signal candidate:
-
-```md
-A regression test that sends two events with the same idempotency key to the same recipient should produce one send and one duplicate-skip record.
-```
+| Artifact | Example |
+|---|---|
+| Raw observation | The agent fixed duplicate notifications by adding a guard in the failing caller. Review found two other caller paths that could still send duplicates. |
+| Metis candidate | Duplicate-send bugs in this repo usually belong at the notification boundary, not individual caller paths. Caller guards suppress the visible symptom and leave parallel trigger paths exposed. |
+| Guardrail candidate | Notification duplicate prevention must be enforced at the send boundary or a documented equivalent. Caller-specific duplicate guards are not sufficient unless the caller is the only possible send path and review verifies that boundary. |
+| Signal candidate | A regression test that sends two events with the same idempotency key to the same recipient should produce one send and one duplicate-skip record. |
 
 ## How this connects to the loop
 

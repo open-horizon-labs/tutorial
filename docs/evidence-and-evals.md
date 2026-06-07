@@ -20,17 +20,10 @@ Evidence can be:
 
 A useful check is specific enough to fail on the old behavior.
 
-Weak:
-
-```md
-The notification system should be cleaner.
-```
-
-Better:
-
-```md
-Given two identical notification events with the same idempotency key, the system sends one notification and records the duplicate as skipped.
-```
+| Version | Check |
+|---|---|
+| Weak | The notification system should be cleaner. |
+| Better | Given two identical notification events with the same idempotency key, the system sends one notification and records the duplicate as skipped. |
 
 ## Practice
 

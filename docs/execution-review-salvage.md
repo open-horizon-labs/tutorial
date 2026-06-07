@@ -2,19 +2,24 @@
 
 Execution is the inner loop. Review closes it. Dissent stress-tests it. Salvage preserves learning when the run drifts.
 
+| Framework position | Value |
+|---|---|
+| Skills | `/execute`, `/review`, `/dissent`, `/salvage` |
+| Run after | `/solution-space` and the agent brief |
+| Produces | execution report, review findings, dissent memo, or salvage note |
+| Feeds | durable knowledge extraction or a smaller restart |
+
 Execution keeps speed aligned: build the selected slice, check it against the brief, and stop when the work drifts.
 
 ## Execute
 
 Before editing, run a pre-flight check:
 
-```text
-Aim clear?
-Constraints known?
-Context loaded?
-Scope bounded?
-Success criteria defined?
-```
+- [ ] Aim is clear.
+- [ ] Constraints are known.
+- [ ] Context is loaded.
+- [ ] Scope is bounded.
+- [ ] Success criteria are defined.
 
 During execution:
 
@@ -81,9 +86,14 @@ Drop the draft if keeping it makes the system worse.
 
 ## Artifact
 
-```text
-execution report → review findings → dissent memo → salvage note if needed
-```
+Produce the artifact that matches where the run stopped:
+
+| Stop point | Artifact |
+|---|---|
+| Execution completes | execution report |
+| Review finds issues | review findings |
+| Acceptance needs stress-testing | dissent memo |
+| Run stops converging | salvage note and restart plan |
 
 ## Review check
 

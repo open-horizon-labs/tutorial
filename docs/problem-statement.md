@@ -2,6 +2,13 @@
 
 A problem statement narrows mapped terrain into the slice the agent is allowed to solve.
 
+| Framework position | Value |
+|---|---|
+| Skill | `/problem-statement` |
+| Run after | `/problem-space` |
+| Produces | selected slice, rejected framings, scope boundary, invalidation signal |
+| Feeds | `/solution-space`, evidence, and the agent brief |
+
 Problem space asks, “What is going on?”
 Problem statement asks, “Which part are we going to treat as the problem for this run, and what would prove that framing wrong?”
 
@@ -17,17 +24,29 @@ A useful problem statement carries five things:
 - the boundary of the current run;
 - an invalidation signal.
 
-Good shape:
+A readable statement does three jobs:
 
-```text
-Because [mechanism], [actor/system] cannot [needed behavior] without [risk/friction]. This run will address [slice/boundary]. If [evidence], the framing is wrong and we should revisit problem space.
-```
+| Part | What it names |
+|---|---|
+| Because | the mechanism causing the pain |
+| This run | the slice and boundary for the current attempt |
+| If | the evidence that would prove the framing wrong |
 
-Use that as a check, not a template to paste blindly.
+Write it as a sentence a maintainer can read. Use the parts as a check, not as a template to paste blindly.
 
 ## From terrain to slice
 
 Start from the problem-space map and write three candidate framings:
+
+```mermaid
+flowchart LR
+    map[Problem-space map] --> candidates[Candidate framings]
+    candidates --> selected[Selected slice]
+    selected --> rejected[Rejected framings]
+    selected --> boundary[Scope boundary]
+    selected --> invalidation[Invalidation signal]
+    selected --> solution[Solution-space]
+```
 
 1. **Symptom framing** — the visible bug, friction, or complaint.
 2. **Systems framing** — the ownership, boundary, data flow, or invariant behind the symptom.
@@ -35,11 +54,11 @@ Start from the problem-space map and write three candidate framings:
 
 Example:
 
-```md
-Symptom: Notifications sometimes send twice.
-Systems: Notification ownership is split across trigger paths, so no layer enforces idempotency.
-Maintainer: Engineers cannot safely add notification behavior because ownership and duplicate prevention are not visible at the send boundary.
-```
+| Framing | What it says |
+|---|---|
+| Symptom | Notifications sometimes send twice. |
+| Systems | Notification ownership is split across trigger paths, so no layer enforces idempotency. |
+| Maintainer | Engineers cannot safely add notification behavior because ownership and duplicate prevention are not visible at the send boundary. |
 
 Then choose one framing for the run.
 
@@ -53,34 +72,24 @@ Use [`templates/problem-statement.md`](../templates/problem-statement.md).
 
 Produce:
 
-```text
-selected problem statement
-rejected framings
-invalidation signal
-scope boundary
-handoff to solution-space
-```
+- selected problem statement;
+- rejected framings;
+- invalidation signal;
+- scope boundary;
+- handoff to solution-space.
 
 ## What Good Looks Like
 
-```md
-Selected statement:
-Notification ownership is split across multiple trigger paths, so duplicate prevention depends on each caller remembering the same rule. This run will move duplicate prevention to the send boundary for the reminder-notification path and add a regression check for same-recipient, same-idempotency-key sends.
-
-Rejected framings:
-- Symptom-only duplicate-send fix: too narrow; it leaves the ownership boundary untouched.
-- Full notification platform redesign: too broad for this slice; use dissent if the boundary fix exposes deeper recurrence.
-
-Invalidation signal:
-If review finds only one trigger path can reach this send boundary, the systems framing is too broad and the fix should shrink.
-```
+| Part | Example |
+|---|---|
+| Selected statement | Notification ownership is split across multiple trigger paths, so duplicate prevention depends on each caller remembering the same rule. This run will move duplicate prevention to the send boundary for the reminder-notification path and add a regression check for same-recipient, same-idempotency-key sends. |
+| Rejected framing | Symptom-only duplicate-send fix: too narrow; it leaves the ownership boundary untouched. |
+| Rejected framing | Full notification platform redesign: too broad for this slice; use dissent if the boundary fix exposes deeper recurrence. |
+| Invalidation signal | If review finds only one trigger path can reach this send boundary, the systems framing is too broad and the fix should shrink. |
 
 ## What Good Does Not Look Like
 
-```md
-Problem statement:
-Fix duplicate notifications.
-```
+> Problem statement: fix duplicate notifications.
 
 That statement gives `/solution-space` no boundary, gives `/execute` permission to patch anywhere, and gives `/review` no way to tell whether the selected framing survived implementation.
 
