@@ -73,33 +73,53 @@ Then use the study path:
 
 ## Repo map
 
+### Start here
+
 - [`docs/index.md`](docs/index.md) — docs home: start path, learner routes, curriculum map, templates map, and stuck routing.
 - [`docs/curriculum.md`](docs/curriculum.md) — overview curriculum: skills, artifacts, deep dives, and go-deeper references.
 - [`docs/tutorial.md`](docs/tutorial.md) — the hands-on run through the curriculum and capstone.
+- [`docs/further-reading.md`](docs/further-reading.md) — source material and follow-up reading.
+
+### Foundations
+
 - [`docs/intent-engineering.md`](docs/intent-engineering.md) — intent, burst, pause, structured pass, iterate.
 - [`docs/model-fit.md`](docs/model-fit.md) — shape asks around model strengths and supplied context.
 - [`docs/context-construction.md`](docs/context-construction.md) — selective context packs, provenance, constraints, and stop triggers.
 - [`docs/open-horizons.md`](docs/open-horizons.md) — how the phase skills fit the curriculum.
+
+### Framing and solution choice
+
 - [`docs/problem-space.md`](docs/problem-space.md) — why problem framing needs real terrain.
 - [`docs/problem-statement.md`](docs/problem-statement.md) — narrow terrain into a selected framing.
 - [`docs/beyond-nearest-peak.md`](docs/beyond-nearest-peak.md) — shallow breadth, score, select, deepen.
 - [`docs/evidence-and-evals.md`](docs/evidence-and-evals.md) — checks before delegation and evals that can fail.
+
+### Delegation and execution
+
 - [`docs/agent-briefs.md`](docs/agent-briefs.md) — turning selected solution into execution contract.
+- [`docs/strategy-clarity.md`](docs/strategy-clarity.md) — aim, mechanism, feedback, guardrails, and solution level.
 - [`docs/authoring-skills.md`](docs/authoring-skills.md) — how and when to write `SKILL.md` procedures.
 - [`docs/subagents.md`](docs/subagents.md) — how and when to write `.claude/agents/*.md` roles.
 - [`docs/execution-review-salvage.md`](docs/execution-review-salvage.md) — execute, review, dissent, drift detection, and salvage.
+
+### Durable learning
+
 - [`docs/knowledge-extraction.md`](docs/knowledge-extraction.md) — metis, signals, guardrails, outcome updates, ADRs.
-- [`docs/strategy-clarity.md`](docs/strategy-clarity.md) — aim, mechanism, feedback, guardrails, and solution level.
-- [`docs/further-reading.md`](docs/further-reading.md) — source material and follow-up reading.
-- [`templates/context-pack.md`](templates/context-pack.md) — selective context before delegation.
+
+### Templates
+
+- [`templates/builder-playground.md`](templates/builder-playground.md) — choose a real project slice.
 - [`templates/model-fit-note.md`](templates/model-fit-note.md) — starting point for a model-fit note.
+- [`templates/context-pack.md`](templates/context-pack.md) — selective context before delegation.
 - [`templates/problem-statement.md`](templates/problem-statement.md) — selected statement, rejected framings, scope boundary, and invalidation signal.
+- [`templates/eval-checklist.md`](templates/eval-checklist.md) — evidence before delegation.
+- [`templates/agent-brief.md`](templates/agent-brief.md) — handoff contract for implementation.
 - [`templates/project-skill.md`](templates/project-skill.md) — starting point for a project skill.
 - [`templates/subagent.md`](templates/subagent.md) — starting point for a project subagent.
 - [`templates/knowledge-artifact.md`](templates/knowledge-artifact.md) — starting point for durable `.oh/` artifacts.
-- [`templates/agent-brief.md`](templates/agent-brief.md) — handoff contract for implementation.
-- [`templates/eval-checklist.md`](templates/eval-checklist.md) — evidence before delegation.
-- [`templates/builder-playground.md`](templates/builder-playground.md) — choose a real project slice.
+
+### Examples
+
 - [`examples/technical-debt-agent-brief.md`](examples/technical-debt-agent-brief.md) — worked duplicate-notification example.
 
 ## What Good Looks Like
