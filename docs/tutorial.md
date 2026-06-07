@@ -505,3 +505,12 @@ You should finish with:
 - salvage note if needed.
 
 The patch is only one output. The larger output is a working development loop that can improve the next run.
+
+
+---
+
+## Navigation
+
+- Previous: [Curriculum](curriculum.md)
+- Up: [README](../README.md) / [Curriculum](curriculum.md)
+- Next: [Intent Engineering](intent-engineering.md)

@@ -104,3 +104,12 @@ If a gate has no artifact, decide whether it is unnecessary for this slice or wh
 - [Open Horizons](https://muness.com/posts/open-horizons/) — the source framing for aim, do, reflect, and nested feedback.
 - [`docs/curriculum.md`](curriculum.md) — overview map of modules, artifacts, deep dives, and references.
 - [`docs/execution-review-salvage.md`](execution-review-salvage.md) — the inner execution loop.
+
+
+---
+
+## Navigation
+
+- Previous: [Context Construction](context-construction.md)
+- Up: [Tutorial](tutorial.md) / [Curriculum](curriculum.md)
+- Next: [Problem Space](problem-space.md)

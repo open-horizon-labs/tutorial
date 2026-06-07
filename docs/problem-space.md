@@ -109,3 +109,12 @@ Reject the map if:
 - [`docs/beyond-nearest-peak.md`](beyond-nearest-peak.md) — how the selected statement changes the solution altitude.
 - [Documenting Strategy](https://muness.com/posts/documenting-strategy-lessons-from-leading-data-and-eng/) — keeping context, needs, strategy, and tactics connected.
 - [Real-World Application of Strategic Clarity in Platform Leadership](https://muness.com/posts/real-world-application-of-strategic-clarity-in-platform-leadership/) — outcomes, ownership, updates, and feedback loops.
+
+
+---
+
+## Navigation
+
+- Previous: [Open Horizons Phase Skills](open-horizons.md)
+- Up: [Tutorial](tutorial.md) / [Curriculum](curriculum.md)
+- Next: [Problem Statement](problem-statement.md)

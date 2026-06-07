@@ -58,3 +58,12 @@ If role boundaries keep blurring, write a subagent.
 If the same lesson keeps being rediscovered, record metis, a signal, a guardrail, an outcome update, or an ADR.  
 If you accept the first plausible implementation, read Dissent Mode.  
 If the run goes sideways, read The Salvage Loop.
+
+
+---
+
+## Navigation
+
+- Previous: [Knowledge Extraction](knowledge-extraction.md)
+- Up: [Tutorial](tutorial.md) / [Curriculum](curriculum.md)
+- Next: [README](../README.md)

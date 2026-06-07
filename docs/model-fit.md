@@ -123,3 +123,12 @@ Reject a model-fit note if:
 - [OpenAI prompt engineering guide](https://developers.openai.com/api/docs/guides/prompt-engineering) — structured prompts, typed inputs, examples, and evaluation for prompt behavior.
 - [`docs/context-construction.md`](context-construction.md) — the next step: supplying the context the model-fit note requires.
 - [`docs/knowledge-extraction.md`](knowledge-extraction.md) — deciding which grounded meeting-note findings become metis, signals, guardrails, outcome updates, or ADRs.
+
+
+---
+
+## Navigation
+
+- Previous: [Intent Engineering](intent-engineering.md)
+- Up: [Tutorial](tutorial.md) / [Curriculum](curriculum.md)
+- Next: [Context Construction](context-construction.md)

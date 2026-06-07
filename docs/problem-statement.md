@@ -102,3 +102,12 @@ Reject the problem statement if:
 - [`docs/beyond-nearest-peak.md`](beyond-nearest-peak.md) — how the selected statement changes the solution level.
 - [`docs/agent-briefs.md`](agent-briefs.md) — where the selected statement becomes execution context.
 - [Documenting Strategy](https://muness.com/posts/documenting-strategy-lessons-from-leading-data-and-eng/) — connected needs, strategy, tactics, and evidence.
+
+
+---
+
+## Navigation
+
+- Previous: [Problem Space](problem-space.md)
+- Up: [Tutorial](tutorial.md) / [Curriculum](curriculum.md)
+- Next: [Beyond the Nearest Peak](beyond-nearest-peak.md)

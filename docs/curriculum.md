@@ -124,3 +124,12 @@ The learner improves that slice and leaves behind:
 - a salvage note if the run drifted.
 
 The next-session test is the standard: a new agent or maintainer should be able to read the artifacts, recover the aim, constraints, chosen framing, evidence checks, role boundaries, and failure modes, then continue the same project slice without rediscovering the whole problem. If the artifacts do not make that possible, the curriculum produced paperwork, not learning.
+
+
+---
+
+## Navigation
+
+- Previous: [README](../README.md)
+- Up: [README](../README.md)
+- Next: [Tutorial](tutorial.md)

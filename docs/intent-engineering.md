@@ -95,3 +95,12 @@ What would prove this was the wrong task:
 - [Alignment Is the Constraint](https://muness.com/posts/alignment-is-the-constraint/) — why intent must carry mechanism, feedback, and guardrails.
 - [`docs/model-fit.md`](model-fit.md) — the next skill: shape the ask around model strengths before constructing context.
 - [`docs/context-construction.md`](context-construction.md) — turning intent and model-fit into usable context.
+
+
+---
+
+## Navigation
+
+- Previous: [Tutorial](tutorial.md)
+- Up: [Tutorial](tutorial.md) / [Curriculum](curriculum.md)
+- Next: [Model-Fit Framing](model-fit.md)

@@ -120,3 +120,12 @@ Give it only the input it needs. If it needs the whole chat to function, the rol
 - [`templates/subagent.md`](../templates/subagent.md) — project subagent template used by this tutorial.
 - [`docs/knowledge-extraction.md`](knowledge-extraction.md) — the extractor role as a concrete subagent use case.
 - [Dissent Mode](https://muness.com/posts/dissent-mode/) — why independent review must be allowed to contradict the main run.
+
+
+---
+
+## Navigation
+
+- Previous: [Authoring Skills](authoring-skills.md)
+- Up: [Tutorial](tutorial.md) / [Curriculum](curriculum.md)
+- Next: [Execution, Review, Dissent, and Salvage](execution-review-salvage.md)

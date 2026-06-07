@@ -116,3 +116,12 @@ Then remove any tactic that does not connect back to aim and mechanism.
 - [Documenting Strategy](https://muness.com/posts/documenting-strategy-lessons-from-leading-data-and-eng/) — connected strategy artifacts and tactics.
 - [Real-World Application of Strategic Clarity in Platform Leadership](https://muness.com/posts/real-world-application-of-strategic-clarity-in-platform-leadership/) — outcomes, updates, feedback, and ownership.
 - [`docs/agent-briefs.md`](agent-briefs.md) — applying strategy clarity to an agent brief.
+
+
+---
+
+## Navigation
+
+- Previous: [Agent Briefs](agent-briefs.md)
+- Up: [Tutorial](tutorial.md) / [Curriculum](curriculum.md)
+- Next: [Authoring Skills](authoring-skills.md)

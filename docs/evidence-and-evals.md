@@ -70,3 +70,12 @@ Reject evidence if:
 - [`templates/eval-checklist.md`](../templates/eval-checklist.md) — evidence template used by the tutorial.
 - [Phoenix Iterative Evaluation & Experimentation Workflow](https://arize.com/docs/phoenix/cookbook/ai-engineering-workflows/iterative-evaluation-and-experimentation-workflow-python) — deeper eval workflow when software tests are not enough.
 - [Dissent Mode](https://muness.com/posts/dissent-mode/) — why passing checks still deserves adversarial review.
+
+
+---
+
+## Navigation
+
+- Previous: [Beyond the Nearest Peak](beyond-nearest-peak.md)
+- Up: [Tutorial](tutorial.md) / [Curriculum](curriculum.md)
+- Next: [Agent Briefs](agent-briefs.md)

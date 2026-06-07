@@ -149,3 +149,12 @@ Then ask whether a future agent should actually inherit it. When the answer is n
 - [The Salvage Loop](https://muness.com/posts/the-salvage-loop-keep-learning-drop-the-code/) — why the learning can survive even when the code draft should not.
 - [`docs/model-fit.md`](model-fit.md) — how to ground meeting notes before deciding what should become durable knowledge.
 - [`docs/subagents.md`](subagents.md) — the knowledge extractor as a role boundary.
+
+
+---
+
+## Navigation
+
+- Previous: [Execution, Review, Dissent, and Salvage](execution-review-salvage.md)
+- Up: [Tutorial](tutorial.md) / [Curriculum](curriculum.md)
+- Next: [Further Reading](further-reading.md)

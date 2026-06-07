@@ -111,3 +111,12 @@ Turn one repeated instruction from your project into a skill:
 - [Anthropic skill authoring guide](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices) — progressive disclosure, concise descriptions, and testing.
 - [`templates/project-skill.md`](../templates/project-skill.md) — project skill template used by this tutorial.
 - [`docs/subagents.md`](subagents.md) — when the repeated need is a role boundary rather than a workflow.
+
+
+---
+
+## Navigation
+
+- Previous: [Strategy Clarity](strategy-clarity.md)
+- Up: [Tutorial](tutorial.md) / [Curriculum](curriculum.md)
+- Next: [Authoring Subagents](subagents.md)

@@ -75,3 +75,12 @@ Reject a brief if:
 - [`docs/strategy-clarity.md`](strategy-clarity.md) — aim, mechanism, feedback, guardrail, and solution level.
 - [Alignment Is the Constraint](https://muness.com/posts/alignment-is-the-constraint/) — why speed without alignment creates more wrong work faster.
 - [Documenting Strategy](https://muness.com/posts/documenting-strategy-lessons-from-leading-data-and-eng/) — why artifacts should connect vision, needs, strategy, tactics, and evidence.
+
+
+---
+
+## Navigation
+
+- Previous: [Evidence and Evals](evidence-and-evals.md)
+- Up: [Tutorial](tutorial.md) / [Curriculum](curriculum.md)
+- Next: [Strategy Clarity](strategy-clarity.md)

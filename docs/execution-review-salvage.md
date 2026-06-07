@@ -102,3 +102,12 @@ Reject the execution run if:
 - [`skill://review`](skill://review) — alignment checks and drift decision.
 - [Dissent Mode](https://muness.com/posts/dissent-mode/) — managed contradiction before acceptance.
 - [The Salvage Loop](https://muness.com/posts/the-salvage-loop-keep-learning-drop-the-code/) — keep the learning, drop the bad draft.
+
+
+---
+
+## Navigation
+
+- Previous: [Authoring Subagents](subagents.md)
+- Up: [Tutorial](tutorial.md) / [Curriculum](curriculum.md)
+- Next: [Knowledge Extraction](knowledge-extraction.md)

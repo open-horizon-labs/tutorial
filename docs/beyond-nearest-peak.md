@@ -100,3 +100,12 @@ Score them with the same criteria, select one, and write why the other three wer
 - [`docs/problem-statement.md`](problem-statement.md) — the selected framing that solution search must respect.
 - [`docs/evidence-and-evals.md`](evidence-and-evals.md) — how to make the selected solution testable.
 - [`docs/agent-briefs.md`](agent-briefs.md) — where the selected level becomes execution context.
+
+
+---
+
+## Navigation
+
+- Previous: [Problem Statement](problem-statement.md)
+- Up: [Tutorial](tutorial.md) / [Curriculum](curriculum.md)
+- Next: [Evidence and Evals](evidence-and-evals.md)
