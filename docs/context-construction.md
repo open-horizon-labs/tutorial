@@ -43,6 +43,7 @@ The context pack should be reusable by:
 
 - `/aim` to clarify outcome;
 - `/problem-space` to map terrain;
+- `/problem-statement` to choose the slice;
 - `/solution-space` to compare solution levels;
 - `/execute` to avoid guessing;
 - `/review` and `/dissent` to check drift.

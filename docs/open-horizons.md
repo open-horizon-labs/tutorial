@@ -94,7 +94,7 @@ Shrink a step if needed. Do not remove the signal.
 Take a planned agent run and mark where each gate happens:
 
 ```text
-intent → model-fit note → context pack → aim → problem framing → solution search → evidence → brief → skill decision → subagent decision → execute → review → dissent → extraction → salvage
+intent → model-fit note → context pack → aim → problem space → problem statement → solution search → evidence → brief → skill decision → subagent decision → execute → review → dissent → extraction → salvage
 ```
 
 If a gate has no artifact, decide whether it is unnecessary for this slice or whether the run is relying on implicit judgment.

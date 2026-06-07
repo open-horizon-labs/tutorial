@@ -122,3 +122,4 @@ Reject a model-fit note if:
 - [Anthropic prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices) — clear instructions, context, examples, structure, and grounding.
 - [OpenAI prompt engineering guide](https://developers.openai.com/api/docs/guides/prompt-engineering) — structured prompts, typed inputs, examples, and evaluation for prompt behavior.
 - [`docs/context-construction.md`](context-construction.md) — the next step: supplying the context the model-fit note requires.
+- [`docs/knowledge-extraction.md`](knowledge-extraction.md) — deciding which grounded meeting-note findings become metis, signals, guardrails, outcome updates, or ADRs.

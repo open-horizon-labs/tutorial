@@ -1,8 +1,8 @@
-# Problem Framing
+# Problem Space
 
-Problem framing is the skill of choosing what problem the agent is allowed to solve.
+Problem space maps the terrain before the agent chooses a fix.
 
-The same symptom can point to different problems:
+The same symptom can point to different terrain:
 
 - a one-line bug;
 - a missing regression test;
@@ -10,11 +10,11 @@ The same symptom can point to different problems:
 - a boundary that lacks an invariant;
 - a system design that keeps producing the same failure.
 
-Those are not the same task.
+Those are different maps. A problem statement comes next and chooses the slice.
 
 ## Learn
 
-Problem-space work maps terrain before choosing a solution.
+Problem-space work answers, “What is going on?”
 
 Map:
 
@@ -51,49 +51,61 @@ Those constraints determine whether the right next move is Band-Aid, Local Optim
 
 ## Practice
 
-Create a problem-space map before selecting a solution.
+Create a problem-space map before selecting a problem statement.
 
-Then write three problem statements:
+Include:
 
-1. symptom framing;
-2. systems framing;
-3. user or maintainer outcome framing.
+- relevant systems and interfaces;
+- affected users, maintainers, operators, and reviewers;
+- repeated symptoms and known triggers;
+- constraints and assumptions;
+- existing evidence and missing evidence;
+- prior attempts;
+- blast radius if the map is wrong.
 
-Example:
-
-```md
-Symptom framing: Notifications sometimes send twice.
-Systems framing: Notification ownership is split across multiple trigger paths, so no single layer enforces idempotency.
-Maintainer framing: Engineers cannot safely add notification behavior because the current flow does not make ownership or duplicate prevention obvious.
-```
-
-For each framing, name:
-
-- what it improves;
-- what it hides;
-- what solution shapes it makes likely;
-- what evidence would show the framing is wrong.
+Then hand the map to [`problem-statement.md`](problem-statement.md), where you choose the slice for this run.
 
 ## Artifact
 
 ```text
 problem-space map
-selected problem statement
+```
+
+## What Good Looks Like
+
+```md
+Systems involved:
+- notification event ingestion
+- reminder scheduler
+- send boundary
+- duplicate-skip recording
+
+Repeated symptom:
+- duplicate reminders can reach the same recipient when trigger paths overlap.
+
+Constraints:
+- do not change notification copy or timing policy in this slice;
+- the fix must be reviewable with a same-recipient, same-idempotency-key regression check.
+
+Assumptions to test:
+- more than one trigger path can reach the send boundary;
+- duplicate prevention belongs at the send boundary, not each caller.
 ```
 
 ## Review check
 
-Reject the framing if:
+Reject the map if:
 
 - it only restates the symptom;
 - it hides affected maintainers or users;
 - it treats assumed constraints as facts;
-- it points to only one solution level before `/solution-space`;
-- it does not name evidence that could prove the framing wrong.
+- it omits blast radius;
+- it gives [`problem-statement.md`](problem-statement.md) no basis for choosing a slice.
 
 ## Go deeper
 
-- [`docs/context-construction.md`](context-construction.md) — what context must exist before problem framing is useful.
-- [`docs/beyond-nearest-peak.md`](beyond-nearest-peak.md) — how problem framing changes the solution altitude.
+- [`docs/context-construction.md`](context-construction.md) — what context must exist before problem-space mapping is useful.
+- [`docs/problem-statement.md`](problem-statement.md) — narrowing terrain into one selected framing.
+- [`docs/beyond-nearest-peak.md`](beyond-nearest-peak.md) — how the selected statement changes the solution altitude.
 - [Documenting Strategy](https://muness.com/posts/documenting-strategy-lessons-from-leading-data-and-eng/) — keeping context, needs, strategy, and tactics connected.
 - [Real-World Application of Strategic Clarity in Platform Leadership](https://muness.com/posts/real-world-application-of-strategic-clarity-in-platform-leadership/) — outcomes, ownership, updates, and feedback loops.

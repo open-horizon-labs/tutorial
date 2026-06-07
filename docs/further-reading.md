@@ -10,6 +10,7 @@ Read these when a module is the bottleneck. The curriculum is overview first, th
 - [`docs/context-construction.md`](context-construction.md) — construct selective context packs with provenance and stop triggers.
 - [`docs/open-horizons.md`](open-horizons.md) — how the full loop applies to LLM development.
 - [`docs/problem-space.md`](problem-space.md) — why problem framing needs real terrain.
+- [`docs/problem-statement.md`](problem-statement.md) — narrow terrain into one selected framing.
 - [`docs/beyond-nearest-peak.md`](beyond-nearest-peak.md) — why cheap generation should change solution search.
 - [`docs/evidence-and-evals.md`](evidence-and-evals.md) — checks before delegation and evals that can fail.
 - [`docs/agent-briefs.md`](agent-briefs.md) — turn the selected solution into execution context.
@@ -49,6 +50,7 @@ Read these when a module is the bottleneck. The curriculum is overview first, th
 
 If your agent rushes to code, read Intent Engineering and Alignment Is the Constraint.  
 If the model gives fluent but generic output, read Model-Fit Framing.
+If problem-space produced a map but not a slice, read Problem Statement.
 If the agent only proposes one fix, read Beyond the Nearest Peak.  
 If the agent ignores needed context, read The Context Stack.  
 If repeated instructions keep getting pasted, write a skill.  

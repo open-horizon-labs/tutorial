@@ -97,5 +97,6 @@ Score them with the same criteria, select one, and write why the other three wer
 ## Go deeper
 
 - [Beyond the Nearest Peak](https://muness.com/posts/beyond-the-nearest-peak/) — the source essay for shallow breadth, score, select, deepen.
+- [`docs/problem-statement.md`](problem-statement.md) — the selected framing that solution search must respect.
 - [`docs/evidence-and-evals.md`](evidence-and-evals.md) — how to make the selected solution testable.
 - [`docs/agent-briefs.md`](agent-briefs.md) — where the selected level becomes execution context.

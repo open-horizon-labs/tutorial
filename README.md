@@ -5,12 +5,12 @@ This repo teaches practical LLM-based development in existing systems: how to sh
 The shape is:
 
 ```text
-Intent → Model-fit framing → Context construction → Problem framing → Solution search → Evidence → Delegation → Verification → Dissent → Knowledge extraction → Salvage
+Intent → Model-fit framing → Context construction → Problem space → Problem statement → Solution search → Evidence → Delegation → Verification → Dissent → Knowledge extraction → Salvage
 ```
 
 The first layer is the skill curriculum: intent engineering, model-fit framing, context construction, Open Horizons phase skills, skill authoring, subagents, evidence, review, dissent, knowledge extraction, and salvage.
 
-The second layer applies Muness Castle's Open Horizons philosophy corpus to those skills: LLM Prompt Types, Alignment Is the Constraint, Intent Engineering, Beyond the Nearest Peak, The Context Stack, Dissent Mode, the Salvage Loop, and strategy-clarity writing.
+The second layer applies the Open Horizons corpus and related writing to those skills: LLM Prompt Types, Alignment Is the Constraint, Intent Engineering, Beyond the Nearest Peak, The Context Stack, Dissent Mode, the Salvage Loop, and strategy-clarity writing.
 
 ## What you learn
 
@@ -20,15 +20,17 @@ You will learn how to:
 2. reframe tasks so the model transforms supplied context instead of guessing missing facts;
 3. build a context pack instead of dumping context;
 4. use Open Horizons skills as phase gates;
-5. search across solution levels before implementing;
-6. write evidence checks before delegation;
-7. author project skills for repeated procedures;
-8. author subagents for bounded roles;
-9. delegate one implementation slice;
-10. verify and review against the aim;
-11. run dissent before acceptance;
-12. extract durable knowledge into `.oh/` artifacts;
-13. salvage learning when the run drifts.
+5. map problem space before choosing a fix;
+6. narrow the map to a selected problem statement;
+7. search across solution levels before implementing;
+8. write evidence checks before delegation;
+9. author project skills for repeated procedures;
+10. author subagents for bounded roles;
+11. delegate one implementation slice;
+12. verify and review against the aim;
+13. run dissent before acceptance;
+14. extract durable knowledge into `.oh/` artifacts;
+15. salvage learning when the run drifts.
 
 ## Why skills, subagents, and extraction
 
@@ -79,6 +81,7 @@ Then use the study path:
 - [`docs/context-construction.md`](docs/context-construction.md) — selective context packs, provenance, constraints, and stop triggers.
 - [`docs/open-horizons.md`](docs/open-horizons.md) — how the phase skills fit the curriculum.
 - [`docs/problem-space.md`](docs/problem-space.md) — why problem framing needs real terrain.
+- [`docs/problem-statement.md`](docs/problem-statement.md) — narrow terrain into a selected framing.
 - [`docs/beyond-nearest-peak.md`](docs/beyond-nearest-peak.md) — shallow breadth, score, select, deepen.
 - [`docs/evidence-and-evals.md`](docs/evidence-and-evals.md) — checks before delegation and evals that can fail.
 - [`docs/agent-briefs.md`](docs/agent-briefs.md) — turning selected solution into execution contract.
@@ -90,6 +93,7 @@ Then use the study path:
 - [`docs/further-reading.md`](docs/further-reading.md) — source material and follow-up reading.
 - [`templates/context-pack.md`](templates/context-pack.md) — selective context before delegation.
 - [`templates/model-fit-note.md`](templates/model-fit-note.md) — starting point for a model-fit note.
+- [`templates/problem-statement.md`](templates/problem-statement.md) — selected statement, rejected framings, scope boundary, and invalidation signal.
 - [`templates/project-skill.md`](templates/project-skill.md) — starting point for a project skill.
 - [`templates/subagent.md`](templates/subagent.md) — starting point for a project subagent.
 - [`templates/knowledge-artifact.md`](templates/knowledge-artifact.md) — starting point for durable `.oh/` artifacts.
@@ -114,4 +118,4 @@ The work produces a loop a maintainer can inspect: intent, model fit, context, p
 
 The project-improvement shape comes from GitHub's [Using GitHub Copilot cloud agent to improve a project](https://docs.github.com/en/copilot/tutorials/cloud-agent/improve-a-project).
 
-The philosophy layer comes from Muness Castle's Open Horizons corpus: [LLM Prompt Types](https://muness.com/posts/llm-prompt-types/), [Intent Engineering](https://muness.com/posts/intent-engineering/), [Open Horizons](https://muness.com/posts/open-horizons/), [Alignment Is the Constraint](https://muness.com/posts/alignment-is-the-constraint/), [Beyond the Nearest Peak](https://muness.com/posts/beyond-the-nearest-peak/), [The Context Stack](https://muness.com/posts/the-context-stack/), [Dissent Mode](https://muness.com/posts/dissent-mode/), and the strategy-clarity essays.
+The philosophy layer comes from the Open Horizons corpus and related essays: [LLM Prompt Types](https://muness.com/posts/llm-prompt-types/), [Intent Engineering](https://muness.com/posts/intent-engineering/), [Open Horizons](https://muness.com/posts/open-horizons/), [Alignment Is the Constraint](https://muness.com/posts/alignment-is-the-constraint/), [Beyond the Nearest Peak](https://muness.com/posts/beyond-the-nearest-peak/), [The Context Stack](https://muness.com/posts/the-context-stack/), [Dissent Mode](https://muness.com/posts/dissent-mode/), and the strategy-clarity essays.

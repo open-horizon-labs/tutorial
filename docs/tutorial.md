@@ -5,7 +5,7 @@ This exercise teaches the skills an LLM developer should know, then applies the 
 The spine is:
 
 ```text
-Intent → Model-fit framing → Context construction → Problem framing → Solution search → Evidence → Delegation → Verification → Dissent → Knowledge extraction → Salvage
+Intent → Model-fit framing → Context construction → Problem space → Problem statement → Solution search → Evidence → Delegation → Verification → Dissent → Knowledge extraction → Salvage
 ```
 
 Use a real project with enough texture that there is more than one plausible solution. If all you have is a blank repo, stop. The point is judgment in an existing system.
@@ -35,7 +35,7 @@ During the tutorial, read the deep dive when that skill becomes active. Do not r
 
 ### Step 1: Intent Engineering
 
-Read `docs/intent-engineering.md`.
+Read [Intent Engineering](intent-engineering.md).
 
 Write one sentence that names the outcome, not the activity.
 
@@ -69,7 +69,7 @@ intent note
 
 ### Step 2: Model-fit framing
 
-Read `docs/model-fit.md`, then use `templates/model-fit-note.md`.
+Read [Model-Fit Framing](model-fit.md), then use the [model-fit note template](../templates/model-fit-note.md).
 
 Before building the context pack, decide what work the model is actually suited to do.
 
@@ -104,7 +104,7 @@ model-fit note
 
 ### Step 3: Context pack
 
-Read `docs/context-construction.md`, then build a context pack for the agent.
+Read [Context Construction](context-construction.md), then build a context pack for the agent.
 
 Do not dump the repo. Select context and record provenance.
 
@@ -180,7 +180,7 @@ problem-space map
 
 ### Step 6: Problem statement
 
-Run `/problem-statement`.
+Read [Problem Statement](problem-statement.md), then run `/problem-statement` and use the [problem statement template](../templates/problem-statement.md).
 
 Ask for at least three framings:
 
@@ -211,7 +211,7 @@ selected problem statement
 
 ### Step 7: Solution search
 
-Run `/solution-space`.
+Read [Beyond the Nearest Peak](beyond-nearest-peak.md), then run `/solution-space`.
 
 Use the `Beyond the Nearest Peak` pattern:
 
@@ -251,7 +251,7 @@ solution-space comparison and selected level
 
 ### Step 8: Evidence before delegation
 
-Read `docs/evidence-and-evals.md`, then use `templates/eval-checklist.md`.
+Read [Evidence and Evals](evidence-and-evals.md), then use the [eval checklist template](../templates/eval-checklist.md).
 
 Define checks before `/execute`.
 
@@ -289,7 +289,7 @@ evidence checklist
 
 ### Step 9: Agent brief
 
-Read `docs/agent-briefs.md`, then use `templates/agent-brief.md`.
+Read [Agent Briefs](agent-briefs.md), then use the [agent brief template](../templates/agent-brief.md).
 
 The brief should include:
 
@@ -315,9 +315,7 @@ agent brief
 
 ### Step 10: Author a project skill
 
-Read `docs/authoring-skills.md`.
-
-Use `templates/project-skill.md` to encode one reusable procedure discovered during the run.
+Read [Authoring Skills](authoring-skills.md), then use the [project skill template](../templates/project-skill.md) to encode one reusable procedure discovered during the run.
 
 Good candidates:
 
@@ -337,9 +335,7 @@ Artifact:
 
 ### Step 11: Author a subagent
 
-Read `docs/subagents.md`.
-
-Use `templates/subagent.md` to encode one role boundary.
+Read [Authoring Subagents](subagents.md), then use the [subagent template](../templates/subagent.md) to encode one role boundary.
 
 Good candidates:
 
@@ -370,7 +366,7 @@ Artifact:
 
 ### Step 12: Execute one slice
 
-Read `docs/execution-review-salvage.md`, then run `/execute` with the agent brief.
+Read [Execution, Review, Dissent, and Salvage](execution-review-salvage.md), then run `/execute` with the agent brief.
 
 The agent should:
 
@@ -392,7 +388,7 @@ patch or stopped execution report
 
 ### Step 13: Review
 
-Use the review section in `docs/execution-review-salvage.md`, then run `/review`.
+Use the review section in [Execution, Review, Dissent, and Salvage](execution-review-salvage.md#review), then run `/review`.
 
 Review against the aim, not against the agent's summary.
 
@@ -416,7 +412,7 @@ review findings
 
 ### Step 14: Dissent
 
-Use the dissent section in `docs/execution-review-salvage.md`, then run `/dissent`.
+Use the dissent section in [Execution, Review, Dissent, and Salvage](execution-review-salvage.md#dissent), then run `/dissent`.
 
 Assume the patch passes tests and still fails.
 
@@ -439,9 +435,7 @@ dissent memo
 
 ### Step 15: Knowledge extraction
 
-Read `docs/knowledge-extraction.md`.
-
-Use `templates/knowledge-artifact.md` to record what should survive the session.
+Read [Knowledge Extraction](knowledge-extraction.md), then use the [knowledge artifact template](../templates/knowledge-artifact.md) to record what should survive the session.
 
 Choose the right artifact:
 
@@ -463,7 +457,7 @@ Artifact:
 
 ### Step 16: Salvage if needed
 
-Use the salvage section in `docs/execution-review-salvage.md`, then run `/salvage` if the attempt went sideways.
+Use the salvage section in [Execution, Review, Dissent, and Salvage](execution-review-salvage.md#salvage), then run `/salvage` if the attempt went sideways.
 
 Use it when:
 
