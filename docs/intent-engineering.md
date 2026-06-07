@@ -75,3 +75,22 @@ After execution, do not ask only “did it work?” Ask:
 - What should become a skill, subagent, guardrail, metis, signal, or salvage note?
 
 Intent Engineering is not slower work. It is the control system that lets speed stay useful.
+
+
+## Exercise
+
+Before opening the codebase, write:
+
+```md
+Intent:
+Burst topics:
+Pause questions:
+Structured artifacts to produce:
+What would prove this was the wrong task:
+```
+
+## Go deeper
+
+- [Intent Engineering](https://muness.com/posts/intent-engineering/) — the source essay for clarify, burst, pause, structure, iterate.
+- [Alignment Is the Constraint](https://muness.com/posts/alignment-is-the-constraint/) — why intent must carry mechanism, feedback, and guardrails.
+- [`docs/context-construction.md`](context-construction.md) — the next skill: turning intent into usable context.

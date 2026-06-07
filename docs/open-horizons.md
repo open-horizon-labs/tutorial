@@ -86,3 +86,20 @@ If you choose a Band-Aid, say why speed or risk makes that acceptable. If you ch
 | Practice | Which rejected path, check, guardrail, or metis should survive into the next run? |
 
 Shrink a step if needed. Do not remove the signal.
+
+
+## Exercise
+
+Take a planned agent run and mark where each gate happens:
+
+```text
+intent → context pack → aim → problem framing → solution search → evidence → brief → skill decision → subagent decision → execute → review → dissent → extraction → salvage
+```
+
+If a gate has no artifact, decide whether it is unnecessary for this slice or whether the run is relying on implicit judgment.
+
+## Go deeper
+
+- [Open Horizons](https://muness.com/posts/open-horizons/) — the source framing for aim, do, reflect, and nested feedback.
+- [`docs/curriculum.md`](curriculum.md) — overview map of modules, artifacts, deep dives, and references.
+- [`docs/execution-review-salvage.md`](execution-review-salvage.md) — the inner execution loop.

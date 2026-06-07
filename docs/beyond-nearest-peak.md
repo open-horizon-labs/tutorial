@@ -81,3 +81,21 @@ Do not ask the agent to deepen all four. That creates option debt. Pick one path
 - The agent compares syntax instead of problem framing.
 - The scoring criteria change per option.
 - Redesign is chosen because it sounds serious, not because the recurrence justifies it.
+
+
+## Exercise
+
+Before `/execute`, produce four options:
+
+1. Band-Aid.
+2. Local Optimum.
+3. Reframe.
+4. Redesign.
+
+Score them with the same criteria, select one, and write why the other three were rejected. If every option is just a different implementation of the same framing, you have not searched the solution space yet.
+
+## Go deeper
+
+- [Beyond the Nearest Peak](https://muness.com/posts/beyond-the-nearest-peak/) — the source essay for shallow breadth, score, select, deepen.
+- [`docs/evidence-and-evals.md`](evidence-and-evals.md) — how to make the selected solution testable.
+- [`docs/agent-briefs.md`](agent-briefs.md) — where the selected level becomes execution context.

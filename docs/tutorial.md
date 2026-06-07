@@ -25,6 +25,12 @@ Use a project with:
 - a known annoyance or recurring failure;
 - enough history that technical debt is not hypothetical.
 
+## How to use the deep dives
+
+Start with [`curriculum.md`](curriculum.md). It is the overview map: module, artifact, deep dive, and go-deeper path.
+
+During the tutorial, read the deep dive when that skill becomes active. Do not read everything as homework first; use the references when the work needs them.
+
 ## Part 1: Build the curriculum artifacts
 
 ### Step 1: Intent Engineering
@@ -63,9 +69,9 @@ intent note
 
 ### Step 2: Context pack
 
-Build a context pack for the agent.
+Read `docs/context-construction.md`, then build a context pack for the agent.
 
-Do not dump the repo. Select context.
+Do not dump the repo. Select context and record provenance.
 
 Include:
 
@@ -209,7 +215,7 @@ solution-space comparison and selected level
 
 ### Step 7: Evidence before delegation
 
-Use `templates/eval-checklist.md`.
+Read `docs/evidence-and-evals.md`, then use `templates/eval-checklist.md`.
 
 Define checks before `/execute`.
 
@@ -247,7 +253,7 @@ evidence checklist
 
 ### Step 8: Agent brief
 
-Use `templates/agent-brief.md`.
+Read `docs/agent-briefs.md`, then use `templates/agent-brief.md`.
 
 The brief should include:
 
@@ -328,7 +334,7 @@ Artifact:
 
 ### Step 11: Execute one slice
 
-Run `/execute` with the agent brief.
+Read `docs/execution-review-salvage.md`, then run `/execute` with the agent brief.
 
 The agent should:
 
@@ -350,7 +356,7 @@ patch or stopped execution report
 
 ### Step 12: Review
 
-Run `/review`.
+Use the review section in `docs/execution-review-salvage.md`, then run `/review`.
 
 Review against the aim, not against the agent's summary.
 
@@ -374,7 +380,7 @@ review findings
 
 ### Step 13: Dissent
 
-Run `/dissent`.
+Use the dissent section in `docs/execution-review-salvage.md`, then run `/dissent`.
 
 Assume the patch passes tests and still fails.
 
@@ -421,7 +427,7 @@ Artifact:
 
 ### Step 15: Salvage if needed
 
-Run `/salvage` if the attempt went sideways.
+Use the salvage section in `docs/execution-review-salvage.md`, then run `/salvage` if the attempt went sideways.
 
 Use it when:
 

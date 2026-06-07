@@ -92,3 +92,27 @@ Agents make execution cheap. Cheap execution makes misalignment expensive.
 If the aim, mechanism, feedback, guardrails, and selected solution level are explicit, speed helps. If they are implicit, the agent can produce a lot of polished wrong work quickly.
 
 The brief is the alignment mechanism. Treat it that way.
+
+
+## Exercise
+
+Rewrite a vague task as a one-slice strategy doc:
+
+```md
+Aim:
+Mechanism:
+Feedback:
+Guardrails:
+Selected solution level:
+Rejected levels:
+Tactics:
+```
+
+Then remove any tactic that does not connect back to aim and mechanism.
+
+## Go deeper
+
+- [Alignment Is the Constraint](https://muness.com/posts/alignment-is-the-constraint/) — aim, mechanism, feedback, and guardrails before speed.
+- [Documenting Strategy](https://muness.com/posts/documenting-strategy-lessons-from-leading-data-and-eng/) — connected strategy artifacts and tactics.
+- [Real-World Application of Strategic Clarity in Platform Leadership](https://muness.com/posts/real-world-application-of-strategic-clarity-in-platform-leadership/) — outcomes, updates, feedback, and ownership.
+- [`docs/agent-briefs.md`](agent-briefs.md) — applying strategy clarity to an agent brief.

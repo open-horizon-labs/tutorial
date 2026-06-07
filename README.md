@@ -63,24 +63,31 @@ Install the Open Horizons skills:
 npx skills add open-horizon-labs/skills -g -a claude-code -y
 ```
 
-Then start here:
+Then use the study path:
 
 ```text
-docs/tutorial.md
+docs/curriculum.md          # overview curriculum
+docs/<module>.md            # deep dive when that skill is the bottleneck
+docs/further-reading.md     # references and go-deeper paths
+docs/tutorial.md            # apply the full loop to a real project slice
 ```
 
 ## Repo map
 
-- `docs/curriculum.md` — the module map: LLM-development skills first, Open Horizons corpus applied second.
+- `docs/curriculum.md` — overview curriculum: skills, artifacts, deep dives, and go-deeper references.
 - `docs/tutorial.md` — the hands-on run through the curriculum and capstone.
 - `docs/intent-engineering.md` — intent, burst, pause, structured pass, iterate.
+- `docs/context-construction.md` — selective context packs, provenance, constraints, and stop triggers.
+- `docs/open-horizons.md` — how the phase skills fit the curriculum.
+- `docs/problem-space.md` — why problem framing needs real terrain.
+- `docs/beyond-nearest-peak.md` — shallow breadth, score, select, deepen.
+- `docs/evidence-and-evals.md` — checks before delegation and evals that can fail.
+- `docs/agent-briefs.md` — turning selected solution into execution contract.
 - `docs/authoring-skills.md` — how and when to write `SKILL.md` procedures.
 - `docs/subagents.md` — how and when to write `.claude/agents/*.md` roles.
+- `docs/execution-review-salvage.md` — execute, review, dissent, drift detection, and salvage.
 - `docs/knowledge-extraction.md` — metis, signals, guardrails, outcome updates, ADRs.
-- `docs/open-horizons.md` — how the phase skills fit the curriculum.
 - `docs/strategy-clarity.md` — aim, mechanism, feedback, guardrails, and solution level.
-- `docs/beyond-nearest-peak.md` — shallow breadth, score, select, deepen.
-- `docs/problem-space.md` — why the shallow exercise was rejected.
 - `docs/further-reading.md` — source material and follow-up reading.
 - `templates/context-pack.md` — selective context before delegation.
 - `templates/project-skill.md` — starting point for a project skill.

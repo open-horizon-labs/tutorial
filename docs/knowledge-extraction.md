@@ -98,3 +98,23 @@ A regression test that sends two events with the same idempotency key to the sam
 | Salvage | What learning survives after dropping the draft? |
 
 The learning is the asset. The artifact is how it survives.
+
+
+## Exercise
+
+After a review or salvage pass, write one candidate artifact:
+
+1. Metis if the learning is a situated pattern.
+2. Signal if the learning is a measurement.
+3. Guardrail if the learning is a constraint.
+4. Outcome update if status, mechanism, or affected files changed.
+5. ADR if the learning constrains architecture.
+
+Then ask whether a future agent should actually inherit it. When the answer is no, leave it as a note, not memory.
+
+## Go deeper
+
+- [`templates/knowledge-artifact.md`](../templates/knowledge-artifact.md) — templates for metis, signal, guardrail, outcome update, and ADR.
+- [The Context Stack](https://muness.com/posts/the-context-stack/) — promotion paths, provenance, and context governance.
+- [The Salvage Loop](https://muness.com/posts/the-salvage-loop-keep-learning-drop-the-code/) — why the learning can survive even when the code draft should not.
+- [`docs/subagents.md`](subagents.md) — the knowledge extractor as a role boundary.

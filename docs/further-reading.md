@@ -1,17 +1,22 @@
 # Further Reading
 
-Do the tutorial first. Read these when you hit a specific problem.
+Read these when a module is the bottleneck. The curriculum is overview first, then deep dive, then references.
 
 ## Core
 
-- [`docs/curriculum.md`](curriculum.md) — the module map: LLM-development skills first, Open Horizons corpus applied second.
+- [`docs/curriculum.md`](curriculum.md) — overview map: module, artifact, deep dive, and go-deeper references.
 - [`docs/intent-engineering.md`](intent-engineering.md) — clarify intent, burst, pause, structure, iterate.
+- [`docs/context-construction.md`](context-construction.md) — construct selective context packs with provenance and stop triggers.
+- [`docs/open-horizons.md`](open-horizons.md) — how the full loop applies to LLM development.
+- [`docs/problem-space.md`](problem-space.md) — why problem framing needs real terrain.
+- [`docs/beyond-nearest-peak.md`](beyond-nearest-peak.md) — why cheap generation should change solution search.
+- [`docs/evidence-and-evals.md`](evidence-and-evals.md) — checks before delegation and evals that can fail.
+- [`docs/agent-briefs.md`](agent-briefs.md) — turn the selected solution into execution context.
 - [`docs/authoring-skills.md`](authoring-skills.md) — write reusable `SKILL.md` procedures.
 - [`docs/subagents.md`](subagents.md) — write bounded role agents with scoped tools.
+- [`docs/execution-review-salvage.md`](execution-review-salvage.md) — execute, review, dissent, drift detection, and salvage.
 - [`docs/knowledge-extraction.md`](knowledge-extraction.md) — record metis, signals, guardrails, outcome updates, and ADRs.
-- [`docs/open-horizons.md`](open-horizons.md) — how the full loop applies to LLM development.
-- [`docs/strategy-clarity.md`](strategy-clarity.md) — how aim, mechanism, feedback, guardrails, and solution level become an agent brief.
-- [`docs/beyond-nearest-peak.md`](beyond-nearest-peak.md) — why cheap generation should change how you search for solutions.
+- [`docs/strategy-clarity.md`](strategy-clarity.md) — aim, mechanism, feedback, guardrails, and solution level.
 
 ## Strategy background
 

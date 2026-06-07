@@ -99,3 +99,24 @@ Input → Tool limits → Process → Gate → Output → Anti-patterns
 A subagent should make the work safer, not just more elaborate.
 
 If the subagent cannot say what context it should receive, what tools it needs, and what output proves it did its job, do not create it yet.
+
+
+## Exercise
+
+Author one subagent that should not inherit the implementer's reasoning.
+
+Good first choices:
+
+- cold code reviewer;
+- test-gap hunter;
+- migration planner;
+- knowledge extractor.
+
+Give it only the input it needs. If it needs the whole chat to function, the role boundary is not clear enough.
+
+## Go deeper
+
+- [Claude Code Subagents](https://code.claude.com/docs/en/sub-agents) — official mechanics for `.claude/agents/*.md`, tool scopes, and role isolation.
+- [`templates/subagent.md`](../templates/subagent.md) — project subagent template used by this tutorial.
+- [`docs/knowledge-extraction.md`](knowledge-extraction.md) — the extractor role as a concrete subagent use case.
+- [Dissent Mode](https://muness.com/posts/dissent-mode/) — why independent review must be allowed to contradict the main run.

@@ -93,3 +93,21 @@ Then a short process:
 | Salvage | Preserve learning and restart shape. |
 
 The point is not to collect skills. The point is to stop rediscovering the same procedure every session.
+
+
+## Exercise
+
+Turn one repeated instruction from your project into a skill:
+
+1. Name the trigger.
+2. Write the shortest process that changes agent behavior.
+3. Add stop conditions.
+4. Add evidence requirements.
+5. Test whether the skill would reject the tempting wrong output.
+
+## Go deeper
+
+- [Claude Code Skills](https://code.claude.com/docs/en/skills) — official mechanics for `SKILL.md`, supporting files, and invocation.
+- [Anthropic skill authoring guide](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices) — progressive disclosure, concise descriptions, and testing.
+- [`templates/project-skill.md`](../templates/project-skill.md) — project skill template used by this tutorial.
+- [`docs/subagents.md`](subagents.md) — when the repeated need is a role boundary rather than a workflow.

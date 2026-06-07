@@ -1,76 +1,40 @@
-# Problem Space
+# Problem Framing
 
-**Date:** 2026-06-06  
-**Scope:** `open-horizon-labs/tutorial`
+Problem framing is the skill of choosing what problem the agent is allowed to solve.
 
-## What changed
+The same symptom can point to different problems:
 
-The one-file version was too shallow.
+- a one-line bug;
+- a missing regression test;
+- unclear ownership;
+- a boundary that lacks an invariant;
+- a system design that keeps producing the same failure.
 
-There was not enough terrain for `/aim` or `/problem-space` to earn their place. The obvious task was the correct task. The only real move was “define behavior before code.” Useful, but not enough for Open Horizons.
+Those are not the same task.
 
-The repo now teaches a curriculum of practical LLM-development skills, then applies the Open Horizons philosophy corpus to those skills in a real project-improvement capstone.
+## Learn
 
-## Behavior change
+Problem-space work maps terrain before choosing a solution.
 
-A builder can use LLM tools to improve an existing project without accepting the first plausible patch or losing the learning after the session.
+Map:
 
-They can:
+- systems involved;
+- users, maintainers, operators, or reviewers affected;
+- repeated symptoms;
+- hard constraints;
+- soft constraints;
+- assumed constraints to test;
+- existing evidence and missing evidence;
+- blast radius if wrong;
+- prior attempts or abandoned fixes.
 
-- state intent before asking for output;
-- construct selective context;
-- use Open Horizons skills as phase gates;
-- compare solution levels;
-- define evidence before implementation;
-- author project skills for repeated procedures;
-- author subagents for role boundaries;
-- review and dissent before accepting the patch;
-- extract durable metis, signals, guardrails, outcome updates, or ADRs;
-- salvage learning when the attempt drifts.
+The goal is not implementation advice. The goal is to understand what the implementation would be for.
 
-## Constraints
+## Why real terrain matters
 
-| Constraint | Why it matters |
-|---|---|
-| Use a real existing project | Problem-space exploration needs actual terrain. |
-| Use the Open Horizons skills | The exercise should demonstrate the skills, not provide a parallel prompt-only path. |
-| Teach skill authoring | The loop becomes reusable only when repeated procedures become skills. |
-| Teach subagents | Role boundaries need scoped context and tools, not just prose. |
-| Teach knowledge extraction | Learning must survive as metis, signals, guardrails, outcome updates, or ADRs. |
-| Include multiple solution levels | This is where `Beyond the Nearest Peak` belongs. |
-| Require evidence before implementation | Otherwise the agent can produce polished wrong work. |
-| No customer or private data | Public tutorial must be safe to run. |
-| Voice must stay concrete | No generated tutorial gloss. |
+A one-file exercise is often too shallow. The obvious task is the correct task. There is no real reason to use `/problem-space` or `/problem-statement` beyond ceremony.
 
-## What can go wrong
-
-- The agent ranks technical debt and the human rubber-stamps it.
-- The first plausible fix becomes the plan.
-- Skills become command names instead of reusable procedures.
-- Subagents become extra ceremony instead of real role boundaries.
-- Knowledge extraction becomes hidden memory or generic notes.
-- `/problem-space` becomes ceremony instead of terrain mapping.
-- `/solution-space` compares syntax choices instead of levels of solution.
-- Tests prove implementation details instead of behavior.
-- Dissent becomes theater after the decision is already made.
-- Salvage keeps bad code because time was spent on it.
-
-## Source seed
-
-GitHub's project-improvement tutorial has the right shape:
-
-1. give the agent repo context;
-2. check setup and instructions;
-3. ask it to surface technical debt;
-4. create issues;
-5. delegate one issue;
-6. review the resulting PR.
-
-That is a better seed than a one-file exercise because the choice of work is itself part of the work.
-
-## Why this merits problem-space exploration
-
-A real project has constraints that may be hard, soft, or assumed:
+A real project has constraints that change the right solution level:
 
 - test coverage;
 - CI speed;
@@ -83,53 +47,53 @@ A real project has constraints that may be hard, soft, or assumed:
 - reviewer capacity;
 - data or security risk.
 
-Those constraints change the right solution level.
+Those constraints determine whether the right next move is Band-Aid, Local Optimum, Reframe, or Redesign.
 
-A duplicate notification bug might be:
+## Practice
 
-- a one-line guard;
-- a missing regression test;
-- unclear ownership of event emission;
-- lack of idempotency at the boundary;
-- a design that allows multiple paths to send the same notification.
+Create a problem-space map before selecting a solution.
 
-Those are not the same problem.
+Then write three problem statements:
 
-## Why this merits solution-space exploration
+1. symptom framing;
+2. systems framing;
+3. user or maintainer outcome framing.
 
-`Beyond the Nearest Peak` applies directly.
+Example:
 
-Agents make it cheap to generate possible fixes. That means the human should not settle for the first path that compiles.
+```md
+Symptom framing: Notifications sometimes send twice.
+Systems framing: Notification ownership is split across multiple trigger paths, so no single layer enforces idempotency.
+Maintainer framing: Engineers cannot safely add notification behavior because the current flow does not make ownership or duplicate prevention obvious.
+```
 
-The tutorial should force a fan-out:
+For each framing, name:
 
-- Band-Aid;
-- Local Optimum;
-- Reframe;
-- Redesign.
+- what it improves;
+- what it hides;
+- what solution shapes it makes likely;
+- what evidence would show the framing is wrong.
 
-Then it should force scoring:
+## Artifact
 
-- impact;
-- cost;
-- testability;
-- reviewability;
-- reversibility;
-- blast radius;
-- maintenance burden.
+```text
+problem-space map
+selected problem statement
+```
 
-Then deepen one path.
+## Review check
 
-## First version
+Reject the framing if:
 
-Build one curriculum around a real project-improvement capstone, plus:
+- it only restates the symptom;
+- it hides affected maintainers or users;
+- it treats assumed constraints as facts;
+- it points to only one solution level before `/solution-space`;
+- it does not name evidence that could prove the framing wrong.
 
-- a curriculum map;
-- intent engineering, skill authoring, subagent, and knowledge-extraction sections;
-- a solution-level guide;
-- an agent brief template;
-- skill, subagent, context-pack, and knowledge-artifact templates;
-- an eval/acceptance-check template;
-- one worked technical-debt example.
+## Go deeper
 
-Do not add a full sample app yet. The first review question is whether the curriculum shape lands.
+- [`docs/context-construction.md`](context-construction.md) — what context must exist before problem framing is useful.
+- [`docs/beyond-nearest-peak.md`](beyond-nearest-peak.md) — how problem framing changes the solution altitude.
+- [Documenting Strategy](https://muness.com/posts/documenting-strategy-lessons-from-leading-data-and-eng/) — keeping context, needs, strategy, and tactics connected.
+- [Real-World Application of Strategic Clarity in Platform Leadership](https://muness.com/posts/real-world-application-of-strategic-clarity-in-platform-leadership/) — outcomes, ownership, updates, and feedback loops.
