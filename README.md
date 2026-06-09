@@ -59,6 +59,7 @@ Then use the study path:
 - [`docs/index.md`](docs/index.md) — start here when you need the route through the repo.
 - [`docs/curriculum.md`](docs/curriculum.md) — understand the full sequence.
 - [`docs/tutorial.md`](docs/tutorial.md) — apply the loop to one real project slice.
+- [`docs/context-to-agent-tutorial.md`](docs/context-to-agent-tutorial.md) — second guided path: decide what stays context, what becomes a prompt, and what deserves a skill or subagent boundary.
 - [`docs/further-reading.md`](docs/further-reading.md) — follow source references when the deep dive is not enough.
 
 ## Repo map
@@ -76,6 +77,7 @@ Then use the study path:
 - [`docs/model-fit.md`](docs/model-fit.md) — shape asks around model strengths and supplied context.
 - [`docs/context-construction.md`](docs/context-construction.md) — selective context packs, provenance, constraints, and stop triggers.
 - [`docs/prompt-and-context.md`](docs/prompt-and-context.md) — assemble prompt, context, boundaries, output contract, and reviewer checks.
+- [`docs/context-to-agent-tutorial.md`](docs/context-to-agent-tutorial.md) — guided composition of context construction, prompt assembly, and the skill/subagent promotion decision.
 - [`docs/open-horizons.md`](docs/open-horizons.md) — how the phase skills fit the curriculum.
 
 ### Framing and solution choice

@@ -115,6 +115,7 @@ Give it only the input it needs. If it needs the whole chat to function, the rol
 - [Claude Code Subagents](https://code.claude.com/docs/en/sub-agents) — official mechanics for `.claude/agents/*.md`, tool scopes, and role isolation.
 - [`templates/subagent.md`](../templates/subagent.md) — project subagent template used by this tutorial.
 - [`docs/knowledge-extraction.md`](knowledge-extraction.md) — the extractor role as a concrete subagent use case.
+- [`docs/context-to-agent-tutorial.md`](context-to-agent-tutorial.md) — practice composing context, prompt assembly, skill, and subagent boundaries.
 - [Dissent Mode](https://muness.com/posts/dissent-mode/) — why independent review must be allowed to contradict the main run.
 
 

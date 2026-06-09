@@ -77,6 +77,7 @@ Use delimiters, headings, tables, or XML-style tags when boundaries matter. Sepa
 | Production prompt | Version the prompt builder in code, type dynamic inputs, keep fixtures/evals, and review changes like behavior changes. | Treat prompt text as an unreviewed dashboard setting. |
 
 This is where [Authoring Skills](authoring-skills.md) fits: a skill preserves the repeated procedure. The current facts still belong in the next context pack.
+Use [Context to Agent Tutorial](context-to-agent-tutorial.md) when you need to practice that promotion path end to end.
 
 ## Examples
 

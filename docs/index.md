@@ -24,6 +24,7 @@ If you are new, use this order:
 | Understand the whole curriculum | [Curriculum](curriculum.md) | [Tutorial](tutorial.md) |
 | Work through one real project slice | [Tutorial](tutorial.md) | [Builder playground](../templates/builder-playground.md) |
 | Learn prompt engineering as context assembly | [Prompt and Context Assembly](prompt-and-context.md) | [Prompt assembly template](../templates/prompt-assembly.md) |
+| Turn a one-off prompt into a reusable agent interface | [Context to Agent Tutorial](context-to-agent-tutorial.md) | [Context Construction](context-construction.md) |
 | Stop getting generic model output | [Model-Fit Framing](model-fit.md) | [Context Construction](context-construction.md) |
 | Decide what problem the agent is allowed to solve | [Problem Space](problem-space.md) | [Problem Statement](problem-statement.md) |
 | Avoid the nearest plausible patch | [Beyond the Nearest Peak](beyond-nearest-peak.md) | [Evidence and Evals](evidence-and-evals.md) |
@@ -58,6 +59,7 @@ If you are new, use this order:
 | Slice | Combines | Use when |
 |---|---|---|
 | Prompt and context assembly | Intent Engineering, Model-Fit Framing, Context Construction, and Evidence | You know what you want from the model but not how to assemble the request without dumping context. |
+| Context to agent interface | Context Construction, Prompt and Context Assembly, Authoring Skills, and Authoring Subagents | You have a useful one-off prompt and need to decide what becomes context, prompt, skill, or subagent. |
 
 
 ## Templates map
@@ -81,6 +83,7 @@ If you are new, use this order:
 |---|---|
 | The model output is fluent but generic. | [Model-Fit Framing](model-fit.md), [Context Construction](context-construction.md), and [Prompt and Context Assembly](prompt-and-context.md) |
 | You know the model task and context, but not how to separate instructions, data, examples, and checks. | [Prompt and Context Assembly](prompt-and-context.md) |
+| You keep copy-pasting the same prompt or checklist. | [Context to Agent Tutorial](context-to-agent-tutorial.md) and [Authoring Skills](authoring-skills.md) |
 | The repo has too many possible fixes. | [Problem Space](problem-space.md), then [Problem Statement](problem-statement.md) |
 | The first patch looks plausible but shallow. | [Beyond the Nearest Peak](beyond-nearest-peak.md) |
 | Nobody knows whether the change is correct. | [Evidence and Evals](evidence-and-evals.md) |
