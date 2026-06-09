@@ -8,6 +8,7 @@ Read these when a module is the bottleneck. The curriculum is overview first, th
 - [`docs/intent-engineering.md`](intent-engineering.md) — clarify intent, burst, pause, structure, iterate.
 - [`docs/model-fit.md`](model-fit.md) — shape asks around model strengths and supplied context.
 - [`docs/context-construction.md`](context-construction.md) — construct selective context packs with provenance and stop triggers.
+- [`docs/prompt-and-context.md`](prompt-and-context.md) — assemble prompt wording, selected context, boundaries, output contract, and checks.
 - [`docs/open-horizons.md`](open-horizons.md) — how the full loop applies to LLM development.
 - [`docs/problem-space.md`](problem-space.md) — why problem framing needs real terrain.
 - [`docs/problem-statement.md`](problem-statement.md) — narrow terrain into one selected framing.
@@ -49,7 +50,7 @@ Read these when a module is the bottleneck. The curriculum is overview first, th
 ## What to read when
 
 If your agent rushes to code, read Intent Engineering and Alignment Is the Constraint.  
-If the model gives fluent but generic output, read Model-Fit Framing.
+If the model gives fluent but generic output, read Model-Fit Framing, Context Construction, and Prompt and Context Assembly.
 If problem-space produced a map but not a slice, read Problem Statement.
 If the agent only proposes one fix, read Beyond the Nearest Peak.  
 If the agent ignores needed context, read The Context Stack.  

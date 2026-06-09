@@ -20,6 +20,7 @@ That loop only becomes useful when the learner can preserve the decisions that m
 - **Model-fit framing** turns a vague ask into work the model can actually do: transform supplied context, compare options, critique against criteria, or expose missing context.
 - **Open Horizons skills** make each phase a gate: what is allowed to move forward, what must stop, and what evidence would change the decision.
 - **Context packs** select the project facts a future agent or reviewer needs, with provenance, constraints, landmines, and stop triggers.
+- **Prompt and context assembly** combines the intent note, model-fit note, context pack, output contract, and reviewer checks into one request the model can answer without guessing.
 - **Problem statements** narrow the terrain into one selected slice, rejected alternatives, and an invalidation signal.
 - **Authored skills** capture a repeated local procedure only after the work shows it is worth preserving.
 - **Subagents** create bounded roles when the work needs independent eyes, narrower tools, or isolated context.
@@ -57,6 +58,12 @@ A good artifact is not a note-shaped souvenir. It preserves at least one decisio
 | 14. Dissent (`/dissent`) | Stress the accepted-looking answer, name the assumption that could break, and decide whether to proceed, adjust, or reconsider. | Dissent memo. | [`execution-review-salvage.md`](execution-review-salvage.md#dissent) | [Dissent Mode](https://muness.com/posts/dissent-mode/). |
 | 15. Knowledge extraction | Record the metis, signal, guardrail, outcome update, or ADR that should constrain the next run. | `.oh/` artifact or ADR. | [`knowledge-extraction.md`](knowledge-extraction.md) | [`record` artifact shape](knowledge-extraction.md); [The Context Stack](https://muness.com/posts/the-context-stack/). |
 | 16. Salvage (`/salvage`) | Keep the learning and restart smaller when the run drifts, instead of defending the bad patch because it almost works. | Salvage note and restart plan. | [`execution-review-salvage.md`](execution-review-salvage.md#salvage) | [The Salvage Loop](https://muness.com/posts/the-salvage-loop-keep-learning-drop-the-code/). |
+
+## Cross-curriculum slice
+
+| Slice | Combines | Artifact | Deep dive |
+|---|---|---|---|
+| Prompt and context assembly | Intent Engineering, Model-fit framing, Context construction, and Evidence | Prompt assembly. | [`prompt-and-context.md`](prompt-and-context.md) |
 
 ## Open Horizons corpus applied
 
@@ -116,6 +123,7 @@ The learner improves that slice and leaves behind:
 - an intent note;
 - a model-fit note;
 - a context pack;
+- a prompt assembly;
 - problem-space and problem-statement artifacts;
 - a solution-level comparison;
 - evidence checks;

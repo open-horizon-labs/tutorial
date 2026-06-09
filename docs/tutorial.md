@@ -119,6 +119,21 @@ Artifact:
 context pack
 ```
 
+### Checkpoint: Prompt and context assembly
+
+Read [Prompt and Context Assembly](prompt-and-context.md), then use the [prompt assembly template](../templates/prompt-assembly.md).
+
+This is a slice through the first three steps. It turns the intent note, model-fit note, and context pack into one request with:
+
+- objective;
+- model job;
+- supplied context and provenance;
+- boundaries and refusal behavior;
+- output contract;
+- reviewer checks.
+
+If the assembled prompt still requires the model to infer private context, go back to the context pack before continuing.
+
 ### Step 4: Aim
 
 Run `/aim`.
@@ -469,6 +484,7 @@ You should finish with:
 - intent note;
 - model-fit note;
 - context pack;
+- prompt assembly;
 - aim;
 - problem-space map;
 - selected problem statement;

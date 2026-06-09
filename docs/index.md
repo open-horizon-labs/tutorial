@@ -23,6 +23,7 @@ If you are new, use this order:
 |---|---|---|
 | Understand the whole curriculum | [Curriculum](curriculum.md) | [Tutorial](tutorial.md) |
 | Work through one real project slice | [Tutorial](tutorial.md) | [Builder playground](../templates/builder-playground.md) |
+| Learn prompt engineering as context assembly | [Prompt and Context Assembly](prompt-and-context.md) | [Prompt assembly template](../templates/prompt-assembly.md) |
 | Stop getting generic model output | [Model-Fit Framing](model-fit.md) | [Context Construction](context-construction.md) |
 | Decide what problem the agent is allowed to solve | [Problem Space](problem-space.md) | [Problem Statement](problem-statement.md) |
 | Avoid the nearest plausible patch | [Beyond the Nearest Peak](beyond-nearest-peak.md) | [Evidence and Evals](evidence-and-evals.md) |
@@ -52,6 +53,13 @@ If you are new, use this order:
 | 15. Knowledge extraction | [Knowledge Extraction](knowledge-extraction.md) | [knowledge artifact](../templates/knowledge-artifact.md) |
 | 16. Salvage (`/salvage`) | [Execution, Review, Dissent, and Salvage](execution-review-salvage.md#salvage) | salvage note and restart plan |
 
+## Slices through the curriculum
+
+| Slice | Combines | Use when |
+|---|---|---|
+| Prompt and context assembly | Intent Engineering, Model-Fit Framing, Context Construction, and Evidence | You know what you want from the model but not how to assemble the request without dumping context. |
+
+
 ## Templates map
 
 | Template | Use it when |
@@ -59,6 +67,7 @@ If you are new, use this order:
 | [Builder playground](../templates/builder-playground.md) | choosing the real project slice for the tutorial |
 | [Model-fit note](../templates/model-fit-note.md) | deciding what work the model is suited to do |
 | [Context pack](../templates/context-pack.md) | supplying project facts without dumping the repo |
+| [Prompt assembly](../templates/prompt-assembly.md) | turning model-fit and context-pack artifacts into one checkable request |
 | [Problem statement](../templates/problem-statement.md) | narrowing mapped terrain into the selected slice |
 | [Eval checklist](../templates/eval-checklist.md) | defining checks before delegation |
 | [Agent brief](../templates/agent-brief.md) | handing execution to an agent or future session |
@@ -71,6 +80,7 @@ If you are new, use this order:
 | Symptom | Go here |
 |---|---|
 | The model output is fluent but generic. | [Model-Fit Framing](model-fit.md) and [Context Construction](context-construction.md) |
+| You know the model task and context, but not how to assemble the prompt. | [Prompt and Context Assembly](prompt-and-context.md) |
 | The repo has too many possible fixes. | [Problem Space](problem-space.md), then [Problem Statement](problem-statement.md) |
 | The first patch looks plausible but shallow. | [Beyond the Nearest Peak](beyond-nearest-peak.md) |
 | Nobody knows whether the change is correct. | [Evidence and Evals](evidence-and-evals.md) |

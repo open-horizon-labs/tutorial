@@ -63,6 +63,7 @@ Reject a context pack if:
 
 - [The Context Stack](https://muness.com/posts/the-context-stack/) — context as governed memory, provenance, task identity, and promotion path.
 - [`templates/context-pack.md`](../templates/context-pack.md) — starting point for the artifact.
+- [`docs/prompt-and-context.md`](prompt-and-context.md) — how to turn the context pack into a checkable prompt.
 - [`docs/open-horizons.md`](open-horizons.md) — where the context pack sits in the full loop.
 
 
@@ -72,4 +73,4 @@ Reject a context pack if:
 
 - Previous: [Model-Fit Framing](model-fit.md)
 - Up: [Docs Home](index.md) / [Curriculum](curriculum.md)
-- Next: [Open Horizons Phase Skills](open-horizons.md)
+- Next: [Prompt and Context Assembly](prompt-and-context.md)
