@@ -46,6 +46,8 @@ The prompt is ready when a reviewer can point to each included context item and 
 
 The better prompt is longer because it carries the context boundary, output contract, and refusal behavior. It is still not a context dump: every supplied item has a job.
 
+If you keep assembling the same kind of prompt, do not keep copy-pasting the final ask. Move the repeated procedure into a project skill and leave the run-specific facts in the next context pack.
+
 ## Review check
 
 Reject an assembled prompt if:
@@ -72,6 +74,7 @@ Related curriculum pages and external mechanics:
 - [`docs/model-fit.md`](model-fit.md) — decide what kind of language operation the model should perform.
 - [`docs/context-construction.md`](context-construction.md) — build the selected context the prompt will carry.
 - [`templates/prompt-assembly.md`](../templates/prompt-assembly.md) — starting point for assembling the request.
+- [`docs/authoring-skills.md`](authoring-skills.md) — promote a repeated prompt-assembly procedure into a reusable skill.
 - [Anthropic prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices) — clear instructions, context, examples, structure, and grounding.
 - [OpenAI prompt engineering guide](https://developers.openai.com/api/docs/guides/prompt-engineering) — structured prompts, typed inputs, examples, and evaluation for prompt behavior.
 

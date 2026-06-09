@@ -19,6 +19,17 @@ A skill preserves a **workflow**:
 
 It should be short enough to load and specific enough to change behavior.
 
+## How this fits prompt assembly
+
+Prompt assembly is for one request. Skill authoring is what you do after the same request shape, checklist, or evidence gate keeps recurring.
+
+| Artifact | Lifetime | Carries | Should not carry |
+|---|---|---|---|
+| Prompt assembly | One run or one task | Current objective, selected context, boundaries, output contract, reviewer checks. | A permanent rule for every future task. |
+| Project skill | Repeated workflow | Trigger, inspection steps, constraints, stop conditions, output shape, verification. | Case-specific facts that belong in the next context pack. |
+
+Use the prompt assembly first when the work is still local. Promote it to a skill only when the procedure has proved reusable. The skill should make the next prompt easier to assemble correctly; it should not freeze yesterday's context into a permanent instruction.
+
 ## When to author one
 
 Create a project skill when:
