@@ -18,7 +18,7 @@ You will learn how to:
 1. state intent before asking for output;
 2. reframe tasks so the model transforms supplied context instead of guessing missing facts;
 3. build a context pack instead of dumping context;
-4. assemble a prompt from intent, context, boundaries, output contract, and reviewer checks;
+4. assemble prompts as interfaces: stable instructions, dynamic context, examples, output contract, fixtures, and reviewer checks;
 5. use Open Horizons skills as phase gates;
 6. map problem space before choosing a fix;
 7. narrow the map to a selected problem statement;

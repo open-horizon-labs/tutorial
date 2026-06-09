@@ -1,63 +1,121 @@
 # Prompt and Context Assembly
 
-Prompt engineering in this curriculum means assembling the request so the model can work over supplied reality instead of guessing missing reality.
+Here, prompt engineering means interface design: assemble instructions, data, examples, output shape, and checks so the model can do the work over supplied reality.
 
-Treat it as a slice through the first three modules, not a separate phase that replaces them. Intent names the outcome, model-fit names the language operation, context construction supplies the facts, and prompt assembly turns those pieces into one checkable request.
+Treat this as a slice through the curriculum, not a separate phase that replaces it. Intent names the outcome, model-fit names the language operation, context construction supplies selected facts, and evidence tells you whether the answer is good enough to use.
 
 ```mermaid
 flowchart LR
-    intent[Intent note] --> fit[Model-fit note]
-    fit --> context[Context pack]
-    context --> prompt[Assembled prompt]
-    prompt --> artifact[Checkable artifact]
-    artifact --> review[Review or dissent]
+    intent[Intent + success criteria] --> fit[Model fit]
+    fit --> stable[Stable instructions]
+    context[Selected context pack] --> dynamic[Dynamic context]
+    stable --> prompt[Assembled prompt]
+    dynamic --> prompt
+    examples[Examples and edge cases] --> prompt
+    prompt --> output[Output contract]
+    output --> eval[Fixtures and review checks]
 ```
 
-## The assembly
+## Dissent result
 
-A useful prompt has more than wording. It carries the decision about what context belongs in the request and what the model must refuse to infer.
+The naive version of this page treated a prompt as a short checklist. That misses what mature prompt tutorials emphasize: success criteria before wording, fixed instructions separated from variable data, explicit examples when behavior needs to be stable, context selected under a budget, and evaluation before treating the prompt as reliable.
 
-| Prompt part | Comes from | Job |
+## Prompt as interface
+
+A prompt has two different jobs. Mixing them is where many bad prompts start.
+
+| Layer | What belongs there | Failure if blurred |
 |---|---|---|
-| Objective | Intent note | Say what behavior or decision this output should support. |
-| Model job | Model-fit note | Name the operation: extract, compare, classify, rewrite, critique, generate candidates, or translate. |
-| Supplied context | Context pack | Provide selected facts with provenance, not a repo dump. |
-| Boundary | Context pack and problem framing | Mark what is in scope, out of scope, assumed, or unresolved. |
-| Output contract | Model-fit note or downstream artifact | Say what sections, fields, evidence, and missing-context notes must come back. |
-| Evidence check | Eval checklist or reviewer criteria | Give the reviewer a way to reject fluent but ungrounded output. |
+| Stable instruction | Role or job, task rules, boundaries, refusal behavior, output contract, citation rules, tool rules. | Every run re-explains the procedure differently. |
+| Dynamic context | User request, primary content to transform, retrieved docs, project state, current constraints, examples specific to this run. | The model treats data as instruction or invents facts not supplied. |
 
-## Assembly order
+OpenAI describes this as a function analogy: stable instructions define behavior; user/input messages supply arguments. Anthropic's tutorial makes the same point operationally: separate the fixed prompt skeleton from variable input, and mark where variable data starts and ends.
 
-1. Start with the artifact you need back.
-2. State the model job in one sentence.
-3. Attach only the context needed for that job.
-4. Name the constraints and what the model must not infer.
-5. Require missing context to be surfaced explicitly.
-6. Add the check a reviewer will use.
+## Prompt components
 
-The prompt is ready when a reviewer can point to each included context item and explain why the model needs it.
+Use these components because the task earns them, not because every prompt needs a universal template.
 
-## Example
+| Component | Question it answers | Notes |
+|---|---|---|
+| Success criteria | What would make the output correct? | Start here. Anthropic's guidance puts success criteria and empirical tests before prompt tweaking. |
+| Model fit | What language operation should the model perform? | Extract, classify, compare, critique, rewrite, generate candidates, or translate. |
+| Stable instructions | What rules apply across runs? | Put the task, boundaries, and refusal behavior where they cannot be confused with source data. |
+| Primary content | What text, data, file, or artifact is the model operating on? | Microsoft distinguishes primary content from supporting content; do not blur the thing being transformed with background context. |
+| Supporting context | What facts help interpret the primary content? | Include provenance, authority, freshness, and reason for inclusion. |
+| Examples | What does good look like? | Use few-shot examples when format, tone, edge behavior, or classification boundaries must be consistent. |
+| Output contract | What shape must come back? | Prefer schemas, tables, named sections, required evidence, and missing-context fields over vague prose. |
+| Evaluation | How will failure be caught? | Run fixtures before polishing wording. A good first answer is not proof. |
 
-| Version | Prompt |
+## Context assembly
+
+Context assembly is not “add more context.” It is select, label, budget, and ground.
+
+| Decision | Ask |
 |---|---|
-| Weak | Summarize this meeting and tell me the action items. |
-| Better | Using the transcript, attendee roles, active roadmap aims, prior decisions, and known guardrails in the context pack, produce a decision-preserving meeting note. Separate decisions, proposals, risks, action items, and missing context. Quote the transcript line or timestamp for every commitment. If ownership is ambiguous, list it under missing context instead of assigning an owner. |
+| Select | Which sources are authoritative for this task, and which are irrelevant, stale, redundant, or lower authority? |
+| Label | What is each context item: primary content, supporting content, constraint, example, preference, prior decision, or guardrail? |
+| Prove | What provenance, timestamp, owner, file path, transcript line, or citation should travel with it? |
+| Budget | What must be summarized, omitted, chunked, or moved to a tool call so the prompt still leaves room for answer and review? |
+| Ground | What should the model do when the answer is absent, ambiguous, or contradicted by the supplied context? |
+| Defend | Could user-supplied or retrieved text contain instructions the model must ignore as data? If so, mark it as data and say so. |
 
-The better prompt is longer because it carries the context boundary, output contract, and refusal behavior. It is still not a context dump: every supplied item has a job.
+Use delimiters, headings, tables, or XML-style tags when boundaries matter. Separators earn their place when they make source data, instructions, examples, and requested output visibly different.
 
-If you keep assembling the same kind of prompt, do not keep copy-pasting the final ask. Move the repeated procedure into a project skill and leave the run-specific facts in the next context pack.
+## Assembly flow
+
+1. Define success criteria and a small fixture set before wording the prompt.
+2. Choose the model job and model fit: extraction, comparison, classification, critique, rewrite, generation, or translation.
+3. Split stable instructions from dynamic context.
+4. Identify primary content and supporting context.
+5. Add examples only where they change behavior: normal case, edge case, counterexample, or format pattern.
+6. State the output contract: sections, schema, citation rules, missing-context behavior, and length.
+7. Give the model an out: ask for `insufficient evidence`, `not found`, or clarification instead of fabricated completion.
+8. Run fixtures, inspect failure, change one thing, and rerun.
+
+## One-off, repeated, production
+
+| Situation | What to do | Do not do |
+|---|---|---|
+| One-off prompt | Assemble enough context and checks for this run. | Build a permanent skill from an unproven shape. |
+| Repeated workflow | Promote the reusable procedure into a project skill. | Copy-paste the same final ask with stale run-specific facts. |
+| Production prompt | Version the prompt builder in code, type dynamic inputs, keep fixtures/evals, and review changes like behavior changes. | Treat prompt text as an unreviewed dashboard setting. |
+
+This is where [Authoring Skills](authoring-skills.md) fits: a skill preserves the repeated procedure. The current facts still belong in the next context pack.
+
+## Examples
+
+| Scenario | Naive ask | Better assembly |
+|---|---|---|
+| Meeting notes | Summarize this meeting and tell me the action items. | Use the transcript, attendee roles, active aims, prior decisions, and guardrails. Produce decisions, proposals, risks, action items, missing context, and cited commitments. If ownership is ambiguous, put it under missing context. |
+| Coding help | Fix duplicate notifications. | Given the problem statement, relevant files, current failing behavior, and acceptance checks, propose or implement the smallest boundary-level fix. Cite inspected files, do not change notification copy or timing, and run the duplicate idempotency regression. |
+| Research | Find the best prompt engineering advice. | Use official or primary sources first. Separate claims, examples, and vendor-specific advice. Cite every claim that shapes the recommendation. Mark unsupported claims as not used. |
+
+## Fixture set
+
+Before treating a prompt as reusable, test at least a small set:
+
+| Fixture | What it catches |
+|---|---|
+| Happy path | The obvious case works. |
+| Missing context | The model does not invent absent facts. |
+| Ambiguous input | The model asks, flags uncertainty, or scopes its answer instead of guessing. |
+| Conflicting sources | The model reports conflict and source authority. |
+| Instruction inside data | Retrieved or user-provided content cannot override the stable instructions. |
+| Overlong context | The prompt still selects and budgets instead of drowning the model. |
+| Format edge case | The output contract survives awkward inputs. |
 
 ## Review check
 
 Reject an assembled prompt if:
 
-- it could be pasted into any company and still look complete;
-- it asks the model to know facts not supplied;
-- the context has no provenance;
-- the output shape is vague;
-- missing context has nowhere to appear;
-- correctness can only be judged by vibes after the answer arrives.
+- success criteria are not stated;
+- stable instructions and dynamic data are mixed together;
+- context has no provenance or authority signal;
+- the model is asked to know facts not supplied;
+- there is no rule for absent or conflicting evidence;
+- examples are cherry-picked and do not cover edge cases;
+- the output shape cannot be checked by a person or fixture;
+- the prompt works once but has no failure analysis.
 
 ## Go deeper
 
@@ -68,16 +126,17 @@ Source posts used for this slice:
 - [The Context Stack](https://muness.com/posts/the-context-stack/) — data assembly for a prompt needs provenance, task identity, constraints, guardrails, and promotion paths; dumping more text is not the same as supplying context.
 - [Alignment Is the Constraint](https://muness.com/posts/alignment-is-the-constraint/) — aim, mechanism, feedback, and guardrails belong in the request before speed helps.
 
-Related curriculum pages and external mechanics:
+External prompt-authoring references used to strengthen this page:
 
-- [`docs/intent-engineering.md`](intent-engineering.md) — produce the intent note that anchors the prompt.
-- [`docs/model-fit.md`](model-fit.md) — decide what kind of language operation the model should perform.
-- [`docs/context-construction.md`](context-construction.md) — build the selected context the prompt will carry.
-- [`templates/prompt-assembly.md`](../templates/prompt-assembly.md) — starting point for assembling the request.
-- [`docs/authoring-skills.md`](authoring-skills.md) — promote a repeated prompt-assembly procedure into a reusable skill.
+- [Anthropic prompt engineering overview](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview) — success criteria and empirical tests come before prompt tweaking.
 - [Anthropic prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices) — clear instructions, context, examples, structure, and grounding.
-- [OpenAI prompt engineering guide](https://developers.openai.com/api/docs/guides/prompt-engineering) — structured prompts, typed inputs, examples, and evaluation for prompt behavior.
-
+- [Anthropic interactive tutorial: separating data and instructions](https://github.com/anthropics/prompt-eng-interactive-tutorial/blob/master/Anthropic%201P/04_Separating_Data_and_Instructions.ipynb) — fixed skeleton versus variable user input.
+- [Anthropic interactive tutorial: complex prompts from scratch](https://github.com/anthropics/prompt-eng-interactive-tutorial/blob/master/Anthropic%201P/09_Complex_Prompts_from_Scratch.ipynb) — prompt elements, examples, input data, output formatting, and the warning that not every prompt needs every element.
+- [Anthropic eval guidance](https://platform.claude.com/docs/en/test-and-evaluate/develop-tests) — task-specific success criteria and edge-case evaluation.
+- [OpenAI prompt engineering guide](https://developers.openai.com/api/docs/guides/prompt-engineering) — stable instructions versus dynamic inputs, message formatting, XML/Markdown boundaries, and production prompt builders in code.
+- [Microsoft Azure OpenAI prompt engineering](https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering) — primary content, supporting content, grounding context, giving the model an out, and token-space efficiency.
+- [Google Gemini prompt design strategies](https://ai.google.dev/gemini-api/docs/prompting-strategies) — clear instructions, constraints, response format, few-shot examples, context, prompt components, and iteration.
+- [Anthropic context engineering for agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — context engineering as the discipline of selecting and managing what an agent needs for the task.
 
 ---
 

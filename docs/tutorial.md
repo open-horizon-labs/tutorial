@@ -123,16 +123,16 @@ context pack
 
 Read [Prompt and Context Assembly](prompt-and-context.md), then use the [prompt assembly template](../templates/prompt-assembly.md).
 
-This is a slice through the first three steps. It turns the intent note, model-fit note, and context pack into one request with:
+This is a slice through the early artifacts. It turns the intent note, model-fit note, context pack, and evidence expectations into a request with:
 
-- objective;
-- model job;
-- supplied context and provenance;
-- boundaries and refusal behavior;
-- output contract;
-- reviewer checks.
+- success criteria and fixture cases;
+- stable instructions separated from dynamic context;
+- primary content and supporting context with provenance;
+- examples where behavior needs to be consistent;
+- output contract and missing-context behavior;
+- reviewer checks that can reject fluent but ungrounded output.
 
-If the assembled prompt still requires the model to infer private context, go back to the context pack before continuing.
+If the assembled prompt still requires the model to infer private context, lacks fixtures, or mixes instructions with source data, go back to the context pack before continuing.
 
 ### Step 4: Aim
 

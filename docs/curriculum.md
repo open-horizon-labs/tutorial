@@ -63,7 +63,7 @@ A good artifact is not a note-shaped souvenir. It preserves at least one decisio
 
 | Slice | Combines | Artifact | Deep dive |
 |---|---|---|---|
-| Prompt and context assembly | Intent Engineering, Model-fit framing, Context construction, and Evidence | Prompt assembly. | [`prompt-and-context.md`](prompt-and-context.md) |
+| Prompt and context assembly | Intent Engineering, Model-fit framing, Context construction, and Evidence | Prompt assembly with stable instructions, dynamic context, examples, output contract, fixtures, and reviewer checks. | [`prompt-and-context.md`](prompt-and-context.md) |
 
 ## Open Horizons corpus applied
 
