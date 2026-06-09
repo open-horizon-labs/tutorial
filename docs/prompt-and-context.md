@@ -59,6 +59,15 @@ Reject an assembled prompt if:
 
 ## Go deeper
 
+Source posts used for this slice:
+
+- [LLM Prompt Types](https://muness.com/posts/llm-prompt-types/) — prompt authoring starts by choosing the kind of model-suited operation and pairing it with context and evaluation criteria.
+- [Intent Engineering](https://muness.com/posts/intent-engineering/) — the prompt needs an outcome, not just an activity request.
+- [The Context Stack](https://muness.com/posts/the-context-stack/) — data assembly for a prompt needs provenance, task identity, constraints, guardrails, and promotion paths; dumping more text is not the same as supplying context.
+- [Alignment Is the Constraint](https://muness.com/posts/alignment-is-the-constraint/) — aim, mechanism, feedback, and guardrails belong in the request before speed helps.
+
+Related curriculum pages and external mechanics:
+
 - [`docs/intent-engineering.md`](intent-engineering.md) — produce the intent note that anchors the prompt.
 - [`docs/model-fit.md`](model-fit.md) — decide what kind of language operation the model should perform.
 - [`docs/context-construction.md`](context-construction.md) — build the selected context the prompt will carry.
