@@ -60,7 +60,7 @@ Then use the study path:
 - [`docs/curriculum.md`](docs/curriculum.md) — understand the full sequence.
 - [`docs/tutorial.md`](docs/tutorial.md) — builder loop tutorial: one real project slice from aim through review and learning.
 - [`docs/context-to-agent-tutorial.md`](docs/context-to-agent-tutorial.md) — focused tutorial: decide what stays context, what becomes a prompt, and what deserves a skill or subagent boundary.
-- [`docs/evals-tutorial.md`](docs/evals-tutorial.md) — focused tutorial: turn evidence into fixtures, graders, thresholds, and action policy.
+- [`docs/evals-tutorial.md`](docs/evals-tutorial.md) — focused tutorial: turn evidence into fixtures, harness checks, graders, thresholds, and action policy.
 - [`docs/further-reading.md`](docs/further-reading.md) — follow source references when the deep dive is not enough.
 
 ## Repo map
@@ -71,7 +71,7 @@ Then use the study path:
 - [`docs/curriculum.md`](docs/curriculum.md) — overview curriculum: skills, artifacts, deep dives, and go-deeper references.
 - [`docs/tutorial.md`](docs/tutorial.md) — builder loop tutorial for one real project slice.
 - [`docs/context-to-agent-tutorial.md`](docs/context-to-agent-tutorial.md) — focused path for context, prompt assembly, skill, and subagent boundaries.
-- [`docs/evals-tutorial.md`](docs/evals-tutorial.md) — focused path for eval purpose, fixture set, grader, threshold, and action policy.
+- [`docs/evals-tutorial.md`](docs/evals-tutorial.md) — focused path for eval purpose, fixture set, harness check, grader, threshold, and action policy.
 - [`docs/further-reading.md`](docs/further-reading.md) — source material and follow-up reading.
 
 ### Foundations

@@ -65,7 +65,7 @@ A good artifact is not a note-shaped souvenir. It preserves at least one decisio
 |---|---|---|---|
 | Prompt and context assembly | Intent Engineering, Model-fit framing, Context construction, and Evidence | Prompt assembly with stable instructions, dynamic context, examples, output contract, fixtures, and reviewer checks. | [`prompt-and-context.md`](prompt-and-context.md) |
 | Context to agent interface | Context Construction, Prompt and Context Assembly, Authoring Skills, and Authoring Subagents | Context pack, prompt assembly, and promotion decision for project skill or subagent. | [`context-to-agent-tutorial.md`](context-to-agent-tutorial.md) |
-| Eval design | Evidence and Evals, Agent Briefs, Review, and Knowledge Extraction | Eval objective, fixture set, grader, threshold, action policy, and production signal. | [`evals-tutorial.md`](evals-tutorial.md) |
+| Eval design | Evidence and Evals, Agent Briefs, Review, and Knowledge Extraction | Eval objective, fixture set, harness check, grader, threshold, action policy, and production signal. | [`evals-tutorial.md`](evals-tutorial.md) |
 
 ## Open Horizons corpus applied
 

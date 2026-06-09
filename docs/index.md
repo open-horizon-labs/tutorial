@@ -13,7 +13,7 @@ This curriculum has two jobs:
 |---|---|---|
 | [Builder Loop Tutorial](tutorial.md) | You want one real project slice from intent through execution, review, and learning. | intent, model fit, context, framing, evidence, brief, review, extraction |
 | [Context to Agent Tutorial](context-to-agent-tutorial.md) | A useful prompt or checklist might become a reusable interface. | context construction, prompt assembly, skills, subagents |
-| [Eval Tutorial](evals-tutorial.md) | You need a quality bar, fixture set, grader, threshold, or production signal. | evidence, eval checklist, SLO-style signals, review |
+| [Eval Tutorial](evals-tutorial.md) | You need a quality bar, fixture set, harness check, grader, threshold, or production signal. | evidence, eval checklist, SLO-style signals, review |
 
 The full module-by-module map lives in [Curriculum](curriculum.md). Use this page to choose a path, then open shared materials when the tutorial asks for them.
 

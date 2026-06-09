@@ -22,6 +22,7 @@ flowchart LR
 - a model grader or rubric is being considered;
 - the team disagrees about what “good” means;
 - production failures or review findings should become repeatable cases;
+- recommendations or suggestions can be judged by app state, workflow completion, or user acceptance instead of another LLM.
 - a change needs a quality bar, not just a yes/no test.
 
 Skip this path when a normal regression test or manual reproduction is enough.
@@ -72,16 +73,20 @@ A good fixture is unambiguous enough that two reviewers would make the same pass
 
 ## Step 4: Pick the cheapest reliable grader
 
-Prefer outcome checks over transcript policing. Valid solutions may take paths you did not predict.
+Prefer harness-executed outcome checks over transcript policing or offline LLM-as-judge. Valid solutions may take paths you did not predict, and recommendations are often judged by what the app or user does next.
 
 | Grader | Use when | Watch out for |
 |---|---|---|
 | Code or state check | There is a clear pass/fail outcome. | Brittle checks that reject valid variation. |
+| Harness-executed eval loop | The harness can run the workflow and inspect app, repo, trace, or state changes. | Simulated flows that miss production behavior or user context. |
+| App or user signal | The model gives a recommendation, suggestion, route, or candidate action. | Implicit signals are noisy; high-risk decisions still need explicit review. |
 | Human review | Judgment requires domain expertise. | Cost and inconsistency. Use it to calibrate other graders. |
-| Model grader | The output is open-ended but criteria can be explicit. | Vague rubrics, grader drift, no “insufficient evidence” option. |
+| Model grader | The output is open-ended and cannot be judged reliably by harness, app/user signal, deterministic check, or calibrated human review. | Vague rubrics, grader drift, no “insufficient evidence” option. |
 | Production signal | Real users and real conditions matter after shipping. | Reactive signals without a pre-ship regression suite. |
 
-If a model grader is used, give it a rubric, examples, and a way to say the evidence is insufficient. Periodically compare it with human judgment.
+For recommendation systems and assistant suggestions, ask whether the system already has a judgment signal: accepted recommendation, edited suggestion, applied patch, completed workflow, corrected route, abandoned suggestion, or repeated user override. Those signals usually beat asking another LLM whether the suggestion looked good.
+
+If a model grader is still needed, give it a rubric, examples, and a way to say the evidence is insufficient. Periodically compare it with human judgment and deterministic outcomes.
 
 ## Step 5: Set threshold and action
 
@@ -106,6 +111,7 @@ A failure can mean:
 - the prompt or context is unclear;
 - the task is ambiguous;
 - the grader is unfair;
+- the eval used an offline model judge even though the harness or app could have checked the outcome;
 - the harness hides production behavior;
 - the selected solution level was wrong.
 
@@ -118,6 +124,8 @@ By the end, you should have:
 - eval objective;
 - fixture set;
 - grader choice;
+- harness-executed deterministic loop, if feasible;
+- app or user judgment signal for recommendations and suggestions;
 - threshold and action policy;
 - traces or transcripts to inspect;
 - residual risk;

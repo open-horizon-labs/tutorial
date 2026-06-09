@@ -20,6 +20,23 @@ The SLO framing helps: define the service level indicator, the threshold, and wh
 
 Good evals are small, specific, and tied to the user's purpose. Start with one to three quality dimensions. Add more only when the current checks are stable and useful.
 
+## Harness-first default
+
+Prefer a deterministic eval loop executed by the harness when the system can observe the outcome. Many LLM-assisted workflows ask the model for recommendations, edits, classifications, or next actions. The app, repo, test suite, workflow state, or user can often judge those outputs directly or implicitly.
+
+Examples:
+
+| Model output | Better eval signal than LLM-as-judge |
+|---|---|
+| Suggested code change | Tests, typecheck, build, diff review, changed runtime state. |
+| Recommended next action | User accepted/rejected it, app applied it, downstream task succeeded, or follow-up was abandoned. |
+| Classification or routing | Actual route taken, corrected route, support escalation, or state transition. |
+| Summary or extraction | Deterministic field match where possible, human spot-check for ambiguous fields, provenance coverage. |
+
+Implicit user behavior is a signal, not ground truth. Acceptance can be biased by defaults, abandonment can mean confusion or interruption, and high-risk recommendations still need explicit review or deterministic confirmation.
+
+Use LLM-as-judge when the judgment is genuinely semantic and cannot be reduced to app state, user action, deterministic checks, or calibrated human review. Even then, treat it as a grader with a rubric, calibration set, and failure review, not as proof.
+
 ## What mature eval guides add
 
 | Practice | Why it matters here |
@@ -27,7 +44,7 @@ Good evals are small, specific, and tied to the user's purpose. Start with one t
 | Define the objective first. | Prevents tests that merely prove the patch. |
 | Use a dataset or fixture set. | Makes behavior comparable across prompt, model, or implementation changes. |
 | Include typical, edge, adversarial, and negative cases. | One-sided evals overfit; the system learns when to act but not when to abstain. |
-| Choose the cheapest reliable grader. | Prefer code or state checks when possible, model graders when nuance matters, human review for calibration. |
+| Choose the cheapest reliable grader. | Prefer harness-executed deterministic checks and app/user signals when feasible; use model graders when nuance remains. |
 | Grade outcomes before transcripts. | The agent can take a different valid path; the final state matters most. |
 | Read transcripts and failures. | A low score may reveal a bad agent, ambiguous task, broken grader, or unfair harness. |
 | Separate capability from regression. | Capability evals ask what is newly possible; regression evals protect behavior already won. |
@@ -41,8 +58,9 @@ Use the smallest rung that can catch the failure:
 |---|---|---|
 | Manual check | Automation would be fake or too expensive. | Reproduce a UI flow and capture observed behavior. |
 | Deterministic test | Behavior has a clear pass/fail condition. | Unit, integration, static, build, migration, or state check. |
+| Harness-executed eval loop | The harness can run the workflow and inspect app, repo, log, or state changes. | Prompt or agent proposes a fix; harness applies it, runs tests, checks traces, and verifies state. |
 | Fixture set | A prompt, agent, or workflow must handle repeated scenarios. | Happy path, missing context, ambiguous input, conflicting sources, instruction inside data. |
-| Rubric or model grader | Output quality is open-ended but criteria are explicit. | Grade groundedness, coverage, tone, or reasoning against a rubric. |
+| Rubric or model grader | Output quality is open-ended and app/user/deterministic signals are insufficient. | Grade groundedness, coverage, tone, or reasoning against a calibrated rubric. |
 | Experiment suite | You need to compare versions over a stable dataset. | Run old prompt versus new prompt over the same examples. |
 | Production signal | Real-world quality matters after shipping. | Alert when duplicate-skip records spike or support reports repeat. |
 
@@ -57,6 +75,8 @@ For each selected solution level, ask:
 - What invariant should hold?
 - What fixture set covers normal, edge, negative, and adversarial cases?
 - What grader is cheapest and reliable enough?
+- Can the harness execute the real workflow and assert the outcome before using LLM-as-judge?
+- Can the app or user judge the model's recommendation directly or implicitly?
 - What threshold is good enough for this slice?
 - What trace, transcript, log, or state should be saved for review?
 - What would make the eval misleading?
@@ -83,6 +103,7 @@ Reject evidence if:
 - it has no negative or edge case;
 - it ignores the selected solution level;
 - it uses an LLM grader without a rubric or calibration plan;
+- it uses an LLM grader where a harness-executed deterministic check or app/user signal would be more reliable;
 - it has no threshold or action policy;
 - it omits a manual check when automation is not practical;
 - it treats the agent's confidence as proof.

@@ -71,6 +71,8 @@ The system must reject, prevent, or avoid:
 - [ ] Unit test:
 - [ ] Integration test:
 - [ ] End-to-end or manual reproduction:
+- [ ] Harness-executed workflow assertion:
+- [ ] App/user acceptance, correction, or abandonment signal:
 - [ ] Static check / lint / typecheck:
 - [ ] Build or migration check:
 - [ ] Documentation or runbook update:
@@ -81,9 +83,17 @@ The system must reject, prevent, or avoid:
 | Grader type | Use? | Notes |
 |---|---|---|
 | Code or deterministic state check |  |  |
+| Harness-executed workflow assertion |  |  |
+| App or user signal |  |  |
 | Human review |  |  |
 | Model grader with rubric |  |  |
 | Production signal |  |  |
+
+Before using a model grader:
+
+- [ ] harness cannot execute the workflow and assert the outcome;
+- [ ] app or user signals cannot judge the recommendation directly or implicitly;
+- [ ] deterministic checks would miss the quality dimension that matters;
 
 If using a model grader:
 
@@ -91,6 +101,7 @@ If using a model grader:
 - [ ] grader has a way to return uncertain or insufficient evidence;
 - [ ] sample outputs are calibrated against human judgment;
 - [ ] model grader is not the only proof for high-risk behavior.
+- [ ] model grader is compared with harness/app/user outcomes when those signals exist.
 
 ## Failure modes
 
@@ -103,6 +114,7 @@ The output fails if it:
 - relies on mocks where production behavior matters;
 - hides errors behind broad fallbacks;
 - passes the grader while failing the user-visible outcome;
+- uses LLM-as-judge where harness, app state, or user behavior could judge the outcome;
 - cannot explain what would prove the patch wrong.
 
 ## Human checks
