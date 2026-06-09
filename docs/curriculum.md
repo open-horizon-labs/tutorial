@@ -4,17 +4,16 @@ This curriculum is for builders using LLMs inside existing systems, where there 
 
 The failure mode is familiar: the model produces a decent-looking patch, the chat summary sounds confident, and nobody can tell whether the work actually served the aim. Intent was vague. Context was dumped instead of selected. Evidence came after implementation, if it came at all. Review became vibes. Dissent arrived too late. The next session has to rediscover everything.
 
-The curriculum teaches the main path and the checks that can interrupt it:
+The curriculum uses the same four nested loops as the README, with review, dissent, and salvage available as anytime checks:
 
-| Mode | What happens |
+| Loop | What happens |
 |---|---|
-| Grounding | State intent, fit the work to the model, and build selected context. |
-| Framing | Map problem space, choose the problem statement, and compare solution levels. |
-| Execution | Write evidence, delegate the slice, and build only what the brief allows. |
-| Learning | Extract durable knowledge after meaningful work. |
-| Anytime checks | Invoke review for correctness, dissent for fragile assumptions, and salvage when drift appears. |
+| Ground the ask | State intent, fit the model to the task, supply selected context, and assemble a checkable prompt. |
+| Frame the work | Map the problem space, choose the problem statement, and compare solution levels before implementing. |
+| Execute with evidence | Define checks, delegate one bounded slice, verify behavior, review correctness, and stress fragile assumptions. |
+| Preserve what should survive | Promote repeated procedures, use bounded subagents, extract durable knowledge, and salvage drifting runs. |
 
-That loop only becomes useful when the learner can preserve the decisions that matter:
+Those loops only become useful when the learner can preserve the decisions that matter:
 
 - **Intent Engineering** states the behavior change before asking for output, then uses burst/pause/review instead of a single prompt-and-pray pass.
 - **Model-fit framing** turns a vague ask into work the model can actually do: transform supplied context, compare options, critique against criteria, or expose missing context.
@@ -31,7 +30,7 @@ That loop only becomes useful when the learner can preserve the decisions that m
 
 Use four passes. Do not turn them into homework for its own sake.
 
-1. **Overview pass** — read the table below and understand the sequence of decisions.
+1. **Overview pass** — read the grouped tables below and understand the sequence of decisions.
 2. **Deep-dive pass** — read the linked module when that skill is the active bottleneck.
 3. **Reference pass** — follow Go deeper links when you need source material, official mechanics, or a sharper model.
 4. **Application pass** — use `docs/tutorial.md` for the builder loop, then focused tutorials for context-to-agent composition or eval design.
@@ -40,32 +39,52 @@ A good artifact is not a note-shaped souvenir. It preserves at least one decisio
 
 ## Overview curriculum
 
+### 1. Ground the ask
+
 | Module | Learner can do this | Artifact | Deep dive | Go deeper |
 |---|---|---|---|---|
-| 1. Intent Engineering | Name the behavior change, use the model for a short burst, pause before commitment, and preserve the current understanding. | Intent note. | [`intent-engineering.md`](intent-engineering.md) | [Intent Engineering](https://muness.com/posts/intent-engineering/); [Alignment Is the Constraint](https://muness.com/posts/alignment-is-the-constraint/). |
-| 2. Model-fit framing | Reframe the ask so the model transforms supplied context instead of guessing missing facts. | Model-fit note. | [`model-fit.md`](model-fit.md) | [LLM Prompt Types](https://muness.com/posts/llm-prompt-types/); [Anthropic context engineering](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents). |
-| 3. Context construction | Build a selective context pack with provenance, constraints, landmines, and stop triggers instead of dumping the repo. | Context pack. | [`context-construction.md`](context-construction.md) | [The Context Stack](https://muness.com/posts/the-context-stack/). |
-| 4. Open Horizons phase skills | Use `/aim`, `/problem-space`, `/problem-statement`, `/solution-space`, `/execute`, `/review`, `/dissent`, and `/salvage` as gates that decide whether work may continue, stop, narrow, or restart. | Session artifacts. | [`open-horizons.md`](open-horizons.md) | [Open Horizons](https://muness.com/posts/open-horizons/); [Open Horizons Skills](https://github.com/open-horizon-labs/skills). |
-| 5. Problem space (`/problem-space`) | Map terrain: systems, stakeholders, constraints, assumptions, evidence, and blast radius. | Problem-space map. | [`problem-space.md`](problem-space.md) | [Documenting Strategy](https://muness.com/posts/documenting-strategy-lessons-from-leading-data-and-eng/); [Real-World Strategic Clarity](https://muness.com/posts/real-world-application-of-strategic-clarity-in-platform-leadership/). |
-| 6. Problem statement (`/problem-statement`) | Narrow the map to one selected framing, name rejected framings, and define the evidence that would prove the framing wrong. | Selected problem statement. | [`problem-statement.md`](problem-statement.md) | [`problem-space.md`](problem-space.md); [Documenting Strategy](https://muness.com/posts/documenting-strategy-lessons-from-leading-data-and-eng/). |
-| 7. Solution search (`/solution-space`) | Generate multiple solution levels, score them against the aim, and reject the nearest plausible patch when it does not change the failure mode. | Solution-space comparison with selected level. | [`beyond-nearest-peak.md`](beyond-nearest-peak.md) | [Beyond the Nearest Peak](https://muness.com/posts/beyond-the-nearest-peak/). |
-| 8. Evidence | Define checks before implementation, including the tempting patch that should fail if the problem is deeper. | Evidence checklist. | [`evidence-and-evals.md`](evidence-and-evals.md); [`evals-tutorial.md`](evals-tutorial.md) | [Implementing SLOs for Data Quality](https://muness.com/posts/implementing-slos-for-data-quality/); [OpenAI evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices); [Anthropic agent evals](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents). |
-| 9. Agent brief | Turn aim, mechanism, feedback, guardrails, and selected solution level into an execution contract. | Agent brief. | [`agent-briefs.md`](agent-briefs.md) | [`strategy-clarity.md`](strategy-clarity.md); [Alignment Is the Constraint](https://muness.com/posts/alignment-is-the-constraint/). |
-| 10. Skill authoring | Author a `SKILL.md` when the current project exposes a repeated procedure worth preserving. | Project skill. | [`authoring-skills.md`](authoring-skills.md) | [Claude Code Skills](https://code.claude.com/docs/en/skills). |
-| 11. Subagent authoring | Author a specialized role when the work needs independent judgment, scoped tools, or isolated context. | Project subagent. | [`subagents.md`](subagents.md) | [Claude Code Subagents](https://code.claude.com/docs/en/sub-agents). |
-| 12. Execution (`/execute`) | Delegate one bounded implementation slice, keep the stop triggers visible, and detect drift before it compounds. | Patch or stopped execution report. | [`execution-review-salvage.md`](execution-review-salvage.md#execute) | [`/execute`](skill://execute); [The Salvage Loop](https://muness.com/posts/the-salvage-loop-keep-learning-drop-the-code/). |
-| 13. Verification and review (`/review`) | Check the work against evidence and aim, not the agent's summary or your desire for the patch to be done. | Review findings. | [`execution-review-salvage.md`](execution-review-salvage.md#review) | [`/review`](skill://review); [Dissent Mode](https://muness.com/posts/dissent-mode/). |
-| 14. Dissent (`/dissent`) | Stress the accepted-looking answer, name the assumption that could break, and decide whether to proceed, adjust, or reconsider. | Dissent memo. | [`execution-review-salvage.md`](execution-review-salvage.md#dissent) | [Dissent Mode](https://muness.com/posts/dissent-mode/). |
-| 15. Knowledge extraction | Record the metis, signal, guardrail, outcome update, or ADR that should constrain the next run. | `.oh/` artifact or ADR. | [`knowledge-extraction.md`](knowledge-extraction.md) | [`record` artifact shape](knowledge-extraction.md); [The Context Stack](https://muness.com/posts/the-context-stack/). |
-| 16. Salvage (`/salvage`) | Keep the learning and restart smaller when the run drifts, instead of defending the bad patch because it almost works. | Salvage note and restart plan. | [`execution-review-salvage.md`](execution-review-salvage.md#salvage) | [The Salvage Loop](https://muness.com/posts/the-salvage-loop-keep-learning-drop-the-code/). |
+| Intent Engineering | Name the behavior change, use the model for a short burst, pause before commitment, and preserve the current understanding. | Intent note. | [`intent-engineering.md`](intent-engineering.md) | [Intent Engineering](https://muness.com/posts/intent-engineering/); [Alignment Is the Constraint](https://muness.com/posts/alignment-is-the-constraint/). |
+| Model-fit framing | Reframe the ask so the model transforms supplied context instead of guessing missing facts. | Model-fit note. | [`model-fit.md`](model-fit.md) | [LLM Prompt Types](https://muness.com/posts/llm-prompt-types/); [Anthropic context engineering](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents). |
+| Context construction | Build a selective context pack with provenance, constraints, landmines, and stop triggers instead of dumping the repo. | Context pack. | [`context-construction.md`](context-construction.md) | [The Context Stack](https://muness.com/posts/the-context-stack/). |
+| Prompt and context assembly | Combine stable instructions, dynamic context, examples when needed, output contract, missing-evidence behavior, and reviewer checks. | Prompt assembly. | [`prompt-and-context.md`](prompt-and-context.md) | [LLM Prompt Types](https://muness.com/posts/llm-prompt-types/); [The Context Stack](https://muness.com/posts/the-context-stack/). |
 
-## Cross-curriculum slice
+### 2. Frame the work
 
-| Slice | Combines | Artifact | Deep dive |
+| Module | Learner can do this | Artifact | Deep dive | Go deeper |
+|---|---|---|---|---|
+| Open Horizons phase skills | Use `/aim`, `/problem-space`, `/problem-statement`, `/solution-space`, `/execute`, `/review`, `/dissent`, and `/salvage` as gates that decide whether work may continue, stop, narrow, or restart. | Session artifacts. | [`open-horizons.md`](open-horizons.md) | [Open Horizons](https://muness.com/posts/open-horizons/); [Open Horizons Skills](https://github.com/open-horizon-labs/skills). |
+| Problem space (`/problem-space`) | Map terrain: systems, stakeholders, constraints, assumptions, evidence, and blast radius. | Problem-space map. | [`problem-space.md`](problem-space.md) | [Documenting Strategy](https://muness.com/posts/documenting-strategy-lessons-from-leading-data-and-eng/); [Real-World Strategic Clarity](https://muness.com/posts/real-world-application-of-strategic-clarity-in-platform-leadership/). |
+| Problem statement (`/problem-statement`) | Narrow the map to one selected framing, name rejected framings, and define the evidence that would prove the framing wrong. | Selected problem statement. | [`problem-statement.md`](problem-statement.md) | [`problem-space.md`](problem-space.md); [Documenting Strategy](https://muness.com/posts/documenting-strategy-lessons-from-leading-data-and-eng/). |
+| Solution search (`/solution-space`) | Generate multiple solution levels, score them against the aim, and reject the nearest plausible patch when it does not change the failure mode. | Solution-space comparison with selected level. | [`beyond-nearest-peak.md`](beyond-nearest-peak.md) | [Beyond the Nearest Peak](https://muness.com/posts/beyond-the-nearest-peak/). |
+
+### 3. Execute with evidence
+
+| Module | Learner can do this | Artifact | Deep dive | Go deeper |
+|---|---|---|---|---|
+| Evidence and evals | Define checks before implementation, including the tempting patch that should fail if the problem is deeper. | Evidence checklist. | [`evidence-and-evals.md`](evidence-and-evals.md); [`evals-tutorial.md`](evals-tutorial.md) | [Implementing SLOs for Data Quality](https://muness.com/posts/implementing-slos-for-data-quality/); [OpenAI evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices); [Anthropic agent evals](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents). |
+| Agent brief | Turn aim, mechanism, feedback, guardrails, and selected solution level into an execution contract. | Agent brief. | [`agent-briefs.md`](agent-briefs.md) | [`strategy-clarity.md`](strategy-clarity.md); [Alignment Is the Constraint](https://muness.com/posts/alignment-is-the-constraint/). |
+| Execution (`/execute`) | Delegate one bounded implementation slice, keep the stop triggers visible, and detect drift before it compounds. | Patch or stopped execution report. | [`execution-review-salvage.md`](execution-review-salvage.md#execute) | [`/execute`](skill://execute); [The Salvage Loop](https://muness.com/posts/the-salvage-loop-keep-learning-drop-the-code/). |
+| Verification and review (`/review`) | Check the work against evidence and aim, not the agent's summary or your desire for the patch to be done. | Review findings. | [`execution-review-salvage.md`](execution-review-salvage.md#review) | [`/review`](skill://review); [Dissent Mode](https://muness.com/posts/dissent-mode/). |
+| Dissent (`/dissent`) | Stress the accepted-looking answer, name the assumption that could break, and decide whether to proceed, adjust, or reconsider. | Dissent memo. | [`execution-review-salvage.md`](execution-review-salvage.md#dissent) | [Dissent Mode](https://muness.com/posts/dissent-mode/). |
+
+### 4. Preserve what should survive
+
+Skill and subagent authoring are listed here because their job is preservation. They are not mandatory after every run; promote only when a procedure or bounded role has proved reusable.
+
+| Module | Learner can do this | Artifact | Deep dive | Go deeper |
+|---|---|---|---|---|
+| Skill authoring | Author a `SKILL.md` when the current project exposes a repeated procedure worth preserving. | Project skill. | [`authoring-skills.md`](authoring-skills.md) | [Claude Code Skills](https://code.claude.com/docs/en/skills). |
+| Subagent authoring | Author a specialized role when the work needs independent judgment, scoped tools, or isolated context. | Project subagent. | [`subagents.md`](subagents.md) | [Claude Code Subagents](https://code.claude.com/docs/en/sub-agents). |
+| Knowledge extraction | Record the metis, signal, guardrail, outcome update, or ADR that should constrain the next run. | `.oh/` artifact or ADR. | [`knowledge-extraction.md`](knowledge-extraction.md) | [`record` artifact shape](knowledge-extraction.md); [The Context Stack](https://muness.com/posts/the-context-stack/). |
+| Salvage (`/salvage`) | Keep the learning and restart smaller when the run drifts, instead of defending the bad patch because it almost works. | Salvage note and restart plan. | [`execution-review-salvage.md`](execution-review-salvage.md#salvage) | [The Salvage Loop](https://muness.com/posts/the-salvage-loop-keep-learning-drop-the-code/). |
+
+## Focused tutorials
+
+| Tutorial | Combines | Artifact | Deep dive |
 |---|---|---|---|
-| Prompt and context assembly | Intent Engineering, Model-fit framing, Context construction, and Evidence | Prompt assembly with stable instructions, dynamic context, examples, output contract, fixtures, and reviewer checks. | [`prompt-and-context.md`](prompt-and-context.md) |
-| Context to agent interface | Context Construction, Prompt and Context Assembly, Authoring Skills, and Authoring Subagents | Context pack, prompt assembly, and promotion decision for project skill or subagent. | [`context-to-agent-tutorial.md`](context-to-agent-tutorial.md) |
-| Eval design | Evidence and Evals, Agent Briefs, Review, and Knowledge Extraction | Eval objective, fixture set, harness check, grader, threshold, action policy, and production signal. | [`evals-tutorial.md`](evals-tutorial.md) |
+| Builder loop | Ground the ask, frame the work, execute with evidence, and preserve what should survive. | Builder-loop artifact set. | [`tutorial.md`](tutorial.md) |
+| Context to agent interface | Context Construction, Prompt and Context Assembly, Authoring Skills, and Authoring Subagents. | Context pack, prompt assembly, and promotion decision for project skill or subagent. | [`context-to-agent-tutorial.md`](context-to-agent-tutorial.md) |
+| Eval design | Evidence and Evals, Agent Briefs, Review, and Knowledge Extraction. | Eval objective, fixture set, harness check, grader, threshold, action policy, and production signal. | [`evals-tutorial.md`](evals-tutorial.md) |
 
 ## Open Horizons corpus applied
 
