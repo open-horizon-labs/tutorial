@@ -16,10 +16,6 @@ flowchart LR
     output --> eval[Fixtures and review checks]
 ```
 
-## Dissent result
-
-The naive version of this page treated a prompt as a short checklist. That misses what mature prompt tutorials emphasize: success criteria before wording, fixed instructions separated from variable data, explicit examples when behavior needs to be stable, context selected under a budget, and evaluation before treating the prompt as reliable.
-
 ## Prompt as interface
 
 A prompt has two different jobs. Mixing them is where many bad prompts start.
@@ -119,14 +115,14 @@ Reject an assembled prompt if:
 
 ## Go deeper
 
-Source posts used for this slice:
+Source posts for this slice:
 
 - [LLM Prompt Types](https://muness.com/posts/llm-prompt-types/) — prompt authoring starts by choosing the kind of model-suited operation and pairing it with context and evaluation criteria.
 - [Intent Engineering](https://muness.com/posts/intent-engineering/) — the prompt needs an outcome, not just an activity request.
 - [The Context Stack](https://muness.com/posts/the-context-stack/) — data assembly for a prompt needs provenance, task identity, constraints, guardrails, and promotion paths; dumping more text is not the same as supplying context.
 - [Alignment Is the Constraint](https://muness.com/posts/alignment-is-the-constraint/) — aim, mechanism, feedback, and guardrails belong in the request before speed helps.
 
-External prompt-authoring references used to strengthen this page:
+External prompt-authoring references:
 
 - [Anthropic prompt engineering overview](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview) — success criteria and empirical tests come before prompt tweaking.
 - [Anthropic prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices) — clear instructions, context, examples, structure, and grounding.
