@@ -70,13 +70,15 @@ Those are different runs.
 
 Use [`templates/problem-statement.md`](../templates/problem-statement.md).
 
-Produce:
+Produce a selected problem statement that preserves:
 
-- selected problem statement;
-- rejected framings;
-- invalidation signal;
-- scope boundary;
-- handoff to solution-space.
+| Field | Why it matters |
+|---|---|
+| Selected framing | Names the problem this run will solve. |
+| Rejected framings | Prevents old framings from sneaking back in. |
+| Invalidation signal | Gives review and dissent a way to prove the framing wrong. |
+| Scope boundary | Keeps execution from expanding silently. |
+| Handoff to solution-space | Defines what solution levels should be compared. |
 
 ## What Good Looks Like
 

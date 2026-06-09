@@ -69,6 +69,7 @@ Then use the study path:
 
 - [`docs/index.md`](docs/index.md) — docs home: choose between focused tutorial paths and shared materials.
 - [`docs/curriculum.md`](docs/curriculum.md) — overview curriculum: skills, artifacts, deep dives, and go-deeper references.
+- [`docs/artifact-contracts.md`](docs/artifact-contracts.md) — what each artifact must preserve, who consumes it, and how to reject weak notes.
 - [`docs/tutorial.md`](docs/tutorial.md) — builder loop tutorial for one real project slice.
 - [`docs/context-to-agent-tutorial.md`](docs/context-to-agent-tutorial.md) — focused path for context, prompt assembly, skill, and subagent boundaries.
 - [`docs/evals-tutorial.md`](docs/evals-tutorial.md) — focused path for eval purpose, fixture set, harness check, grader, threshold, and action policy.
@@ -100,6 +101,7 @@ Then use the study path:
 ### Durable learning
 
 - [`docs/knowledge-extraction.md`](docs/knowledge-extraction.md) — metis, signals, guardrails, outcome updates, ADRs.
+- [`docs/artifact-contracts.md`](docs/artifact-contracts.md) — contracts for builder-loop, interface, and durable-learning artifacts.
 
 ### Templates
 

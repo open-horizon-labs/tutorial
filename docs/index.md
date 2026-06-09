@@ -25,13 +25,14 @@ The full module-by-module map lives in [Curriculum](curriculum.md). Use this pag
 | Framing | [Open Horizons Phase Skills](open-horizons.md), [Problem Space](problem-space.md), [Problem Statement](problem-statement.md), [Beyond the Nearest Peak](beyond-nearest-peak.md) |
 | Evidence and delegation | [Evidence and Evals](evidence-and-evals.md), [Agent Briefs](agent-briefs.md), [Strategy Clarity](strategy-clarity.md) |
 | Reusable interfaces | [Authoring Skills](authoring-skills.md), [Authoring Subagents](subagents.md), [Context to Agent Tutorial](context-to-agent-tutorial.md) |
-| Execution and learning | [Execution, Review, Dissent, and Salvage](execution-review-salvage.md), [Knowledge Extraction](knowledge-extraction.md) |
+| Execution and learning | [Artifact Contracts](artifact-contracts.md), [Execution, Review, Dissent, and Salvage](execution-review-salvage.md), [Knowledge Extraction](knowledge-extraction.md) |
 | Sources | [Further Reading](further-reading.md) |
 
 ## Templates
 
 | Need | Template |
 |---|---|
+| Know what each artifact must preserve | [Artifact contracts](artifact-contracts.md) |
 | Choose a project slice | [Builder playground](../templates/builder-playground.md) |
 | Supply selected context | [Context pack](../templates/context-pack.md) |
 | Assemble a prompt | [Prompt assembly](../templates/prompt-assembly.md) |

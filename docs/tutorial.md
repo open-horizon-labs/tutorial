@@ -25,7 +25,7 @@ Use a project with:
 
 ## How to use the deep dives
 
-Start with [`curriculum.md`](curriculum.md). It is the overview map: module, artifact, deep dive, and go-deeper path.
+Start with [`curriculum.md`](curriculum.md) for the overview map and [`artifact-contracts.md`](artifact-contracts.md) for what each output must preserve.
 
 During the tutorial, read the deep dive when that skill becomes active. Do not read everything as homework first; use the references when the work needs them.
 
@@ -52,11 +52,7 @@ Then do a short model burst:
 
 Pause before committing to any path.
 
-Artifact:
-
-```text
-intent note
-```
+Produce: **intent note**. It must preserve the desired behavior change, burst findings, pause questions, and what would prove this is the wrong task. The next consumer is model-fit framing, context construction, and `/aim`.
 
 ### Step 2: Model-fit framing
 
@@ -80,11 +76,7 @@ Write down:
 
 If the answer needs private organizational context, provide it or mark the task not ready.
 
-Artifact:
-
-```text
-model-fit note
-```
+Produce: **model-fit note**. It must preserve the model task, language operation, required context, refusal-to-infer boundary, output contract, and reviewer check.
 
 ### Step 3: Context pack
 
@@ -107,11 +99,7 @@ Include:
 
 This is The Context Stack applied to coding work: context should be inspectable, editable, provenance-backed, and small enough to use.
 
-Artifact:
-
-```text
-context pack
-```
+Produce: **context pack**. It must preserve selected sources with provenance, constraints, evidence available now, landmines, and stop/dissent/salvage triggers.
 
 ### Checkpoint: Prompt and context assembly
 
@@ -127,6 +115,8 @@ This is a slice through the early artifacts. It turns the intent note, model-fit
 - reviewer checks that can reject fluent but ungrounded output.
 
 If the assembled prompt still requires the model to infer private context, lacks fixtures, or mixes instructions with source data, go back to the context pack before continuing.
+
+Produce: **prompt assembly**. It must preserve success criteria, stable instructions, dynamic context, primary/supporting content, examples if needed, output contract, missing-evidence behavior, and reviewer checks.
 
 ### Step 4: Aim
 
@@ -146,11 +136,7 @@ The output should name:
 
 Do not let “clean up technical debt” pass as an aim. Simplicity is usually a mechanism, not the outcome.
 
-Artifact:
-
-```text
-aim statement
-```
+Produce: **aim statement**. It must preserve outcome, current state, desired state, mechanism, assumptions, feedback signal, and guardrails.
 
 ### Step 5: Problem space
 
@@ -171,11 +157,7 @@ Map:
 
 This step maps terrain before implementation advice has a chance to narrow the frame.
 
-Artifact:
-
-```text
-problem-space map
-```
+Produce: **problem-space map**. It must preserve systems, actors, repeated symptoms, constraints, assumptions to test, evidence, prior attempts, and blast radius.
 
 ### Step 6: Problem statement
 
@@ -202,11 +184,7 @@ Example:
 | Systems | Notification ownership is split across multiple trigger paths, so no single layer enforces idempotency. |
 | Maintainer | Engineers cannot safely add notification behavior because the current flow does not make ownership or duplicate prevention obvious. |
 
-Artifact:
-
-```text
-selected problem statement
-```
+Produce: **selected problem statement**. It must preserve the chosen framing, rejected framings, scope boundary, invalidation signal, and handoff question for `/solution-space`.
 
 ### Step 7: Solution search
 
@@ -238,11 +216,7 @@ Then score each option against the same criteria:
 
 Only deepen the option that survives scoring.
 
-Artifact:
-
-```text
-solution-space comparison and selected level
-```
+Produce: **solution-space comparison with selected level**. It must preserve options at each solution level, scoring criteria, rejected paths, selected level, and why that level serves the aim.
 
 ### Step 8: Evidence before delegation
 
@@ -258,7 +232,7 @@ Define checks before `/execute`:
 - action if the check fails;
 - residual risk after checks pass.
 
-Artifact: evidence checklist.
+Produce: **evidence and eval checklist**. It must preserve the eval objective, old behavior that should fail, invariant, fixtures, grader or harness check, threshold, action policy, and residual risk.
 
 ### Step 9: Agent brief
 
@@ -280,11 +254,7 @@ The brief should include:
 
 The brief is the execution contract.
 
-Artifact:
-
-```text
-agent brief
-```
+Produce: **agent brief**. It must preserve purpose, aim, selected framing, selected solution level, mechanism, feedback, guardrails, inspection context, behavior contract, checks, stop conditions, and review checklist.
 
 ### Optional checkpoint: promote reusable interfaces
 
@@ -292,7 +262,7 @@ If the run surfaced a repeated prompt shape, checklist, evidence gate, or role b
 
 Do not make skill or subagent authoring mandatory for this tutorial. Promote only when the workflow or role has proved reusable.
 
-Artifact if needed: project skill, subagent, or a note explaining why the interface stays one-off.
+Produce, only if earned: **project skill**, **subagent**, or a note explaining why the interface stays one-off. A promotion artifact must preserve the reusable procedure or bounded role, not the stale facts from this run.
 
 ## Part 2: Apply the loop to code
 
@@ -312,11 +282,7 @@ The agent should:
 
 Do not let execution expand into a rewrite just because the agent can produce one.
 
-Artifact:
-
-```text
-patch or stopped execution report
-```
+Produce: **patch or stopped execution report**. It must preserve changed files, behavior changed, checks run with observed results, remaining failures, and the reason for stopping if stopped.
 
 ### Step 11: Review
 
@@ -336,11 +302,7 @@ Check:
 
 If there are no findings, name the residual risk. There is always residual risk.
 
-Artifact:
-
-```text
-review findings
-```
+Produce: **review findings**. They must preserve accepted behavior, findings, evidence checked, residual risk, follow-up required, and whether the selected solution level still holds.
 
 ### Step 12: Dissent
 
@@ -359,11 +321,7 @@ Look for:
 
 Dissent is not theater. If it finds a real issue, revise the brief or patch.
 
-Artifact:
-
-```text
-dissent memo
-```
+Produce: **dissent memo**. It must preserve the steel-man, contrary evidence, pre-mortem, hidden assumptions, recommendation, and confidence after dissent.
 
 ### Step 13: Knowledge extraction
 
@@ -381,11 +339,7 @@ Choose the right artifact:
 
 This is where the run becomes future context.
 
-Artifact:
-
-```text
-.oh/metis/*, .oh/signals/*, .oh/guardrails/*, .oh/outcomes/*, or docs/ADRs/*
-```
+Produce: **durable knowledge artifact**. It must preserve the smallest future-relevant learning: metis, signal, guardrail, outcome update, or ADR, with evidence and provenance.
 
 ### Step 14: Salvage if needed
 
@@ -409,11 +363,7 @@ Keep:
 
 Drop the draft if keeping it would make the system worse.
 
-Artifact:
-
-```text
-salvage note and restart plan
-```
+Produce: **salvage note and restart plan**. It must preserve original aim, why the run was salvaged, learnings, guardrails, missing context, reusable fragments, and the smaller restart path.
 
 ## Builder output
 
@@ -423,7 +373,7 @@ You should finish with:
 - model-fit note;
 - context pack;
 - prompt assembly;
-- aim;
+- aim statement;
 - problem-space map;
 - selected problem statement;
 - solution-space comparison;

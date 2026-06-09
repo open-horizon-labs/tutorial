@@ -39,7 +39,7 @@ Before giving it to `/execute`, ask:
 
 ## Artifact
 
-Use [`templates/agent-brief.md`](../templates/agent-brief.md) and produce a brief with this shape:
+Use [`templates/agent-brief.md`](../templates/agent-brief.md). The brief is an execution contract, not an implementation wish list. It must preserve this shape:
 
 | Section | Purpose |
 |---|---|
@@ -54,7 +54,7 @@ Use [`templates/agent-brief.md`](../templates/agent-brief.md) and produce a brie
 | Stop conditions | when to stop instead of guessing |
 | Review checklist | how a reviewer can reject the work |
 
-The brief is consumed by `/execute`, `/review`, `/dissent`, and knowledge extraction. A reviewer should be able to reject the work using only this artifact plus the diff.
+The brief is consumed by `/execute`, `/review`, `/dissent`, and knowledge extraction. A reviewer should be able to reject the work using only this artifact plus the diff; otherwise, the brief lacks enough specificity.
 
 ## Review check
 

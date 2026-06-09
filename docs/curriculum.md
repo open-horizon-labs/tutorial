@@ -36,7 +36,7 @@ Use four passes. Do not turn them into homework for its own sake.
 3. **Reference pass** — follow Go deeper links when you need source material, official mechanics, or a sharper model.
 4. **Application pass** — use `docs/tutorial.md` for the builder loop, then focused tutorials for context-to-agent composition or eval design.
 
-A good artifact is not a note-shaped souvenir. It preserves at least one decision, one assumption or evidence check, and the next consumer: another skill, subagent, reviewer, maintainer, or future session. If an artifact cannot do that, shrink it or merge it.
+A good artifact is not a note-shaped souvenir. It preserves at least one decision, one assumption or evidence check, and the next consumer: another skill, subagent, reviewer, maintainer, or future session. Use [Artifact Contracts](artifact-contracts.md) as the standard. If an artifact cannot change the next action, shrink it, merge it, or delete it.
 
 ## Overview curriculum
 

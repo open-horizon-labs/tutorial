@@ -91,7 +91,7 @@ For each selected solution level, ask:
 
 ## Artifact
 
-Produce an evidence checklist. It should travel into the agent brief and review.
+Use [`templates/eval-checklist.md`](../templates/eval-checklist.md). The checklist must preserve eval objective, old behavior that should fail, invariant, fixture set, harness/app/user/model grader choice, threshold, action policy, and residual risk. It travels into the agent brief and review.
 
 ## Review check
 

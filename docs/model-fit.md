@@ -66,14 +66,16 @@ Supplied context makes the transcript checkable against roles, aims, projects, g
 
 Use [`templates/model-fit-note.md`](../templates/model-fit-note.md).
 
-A model-fit note should answer:
+A model-fit note must answer:
 
-- What task are we asking the model to perform?
-- Which model strength does that task use?
-- What context must be supplied?
-- What should the model refuse to infer?
-- What output shape should it produce?
-- What evidence lets a reviewer check it?
+| Field | Why it matters |
+|---|---|
+| Model task | Names the operation instead of asking for generic help. |
+| Model strength | Shows why an LLM is appropriate for this slice. |
+| Required context | Prevents guessing from missing facts. |
+| Must-not-infer boundary | Makes absence of evidence explicit. |
+| Output contract | Gives the next reviewer a shape to check. |
+| Reviewer check | Names how the output can be rejected. |
 
 ## Practice
 

@@ -82,7 +82,7 @@ Then hand the map to [`problem-statement.md`](problem-statement.md), where you c
 
 ## Artifact
 
-Produce a problem-space map. It should be readable enough that a reviewer can see why the chosen problem statement follows from the terrain.
+Produce a problem-space map. It must preserve systems, actors, repeated symptoms, constraints, assumptions to test, evidence, prior attempts, and blast radius. A reviewer should be able to see why the chosen problem statement follows from the terrain.
 
 ## What Good Looks Like
 

@@ -86,14 +86,14 @@ Drop the draft if keeping it makes the system worse.
 
 ## Artifact
 
-Produce the artifact that matches where the run stopped:
+Produce the artifact that matches where the run stopped. Each one must preserve observed evidence, residual risk, and the next action.
 
-| Stop point | Artifact |
-|---|---|
-| Execution completes | execution report |
-| Review finds issues | review findings |
-| Acceptance needs stress-testing | dissent memo |
-| Run stops converging | salvage note and restart plan |
+| Stop point | Artifact | Must preserve |
+|---|---|---|
+| Execution completes | execution report | changed files, behavior changed, commands run, observed results, remaining risk |
+| Review finds issues | review findings | accepted behavior, findings, evidence checked, required follow-up |
+| Acceptance needs stress-testing | dissent memo | steel-man, contrary evidence, pre-mortem, hidden assumptions, recommendation |
+| Run stops converging | salvage note and restart plan | why salvaged, learnings, guardrails, missing context, smaller restart path |
 
 ## Review check
 

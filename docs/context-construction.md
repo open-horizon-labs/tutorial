@@ -35,18 +35,18 @@ Keep the pack short enough that a reviewer can challenge it.
 
 ## Artifact
 
-```text
-context pack
-```
+Use [`templates/context-pack.md`](../templates/context-pack.md). A context pack must preserve:
 
-The context pack should be reusable by:
+| Field | Why it matters |
+|---|---|
+| Task identity | Keeps later skills from solving the wrong problem. |
+| Selected sources with provenance | Lets reviewers challenge authority and freshness. |
+| Hard, soft, and assumed constraints | Separates rules from preferences and assumptions. |
+| Evidence available now | Grounds the run in observable reality. |
+| Landmines and prior attempts | Prevents repeated dead ends. |
+| Stop, dissent, and salvage triggers | Names when the agent must pause instead of improvising. |
 
-- `/aim` to clarify outcome;
-- `/problem-space` to map terrain;
-- `/problem-statement` to choose the slice;
-- `/solution-space` to compare solution levels;
-- `/execute` to avoid guessing;
-- `/review` and `/dissent` to check drift.
+The pack is consumed by `/aim`, `/problem-space`, `/problem-statement`, `/solution-space`, `/execute`, `/review`, and `/dissent`.
 
 ## Review check
 
