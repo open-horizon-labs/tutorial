@@ -2,7 +2,7 @@
 
 Use this tutorial when a one-off prompt starts becoming an interface the next session should reuse.
 
-The main tutorial teaches the whole Open Horizons loop. This path teaches one narrower composition: turn selected context into a checkable prompt, then decide what should become a skill and what should become a subagent.
+The builder tutorial applies the development loop to one project slice. This path teaches a narrower composition: turn selected context into a checkable prompt, then decide what should become a skill and what should become a subagent.
 
 ```mermaid
 flowchart LR

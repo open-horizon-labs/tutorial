@@ -33,6 +33,9 @@ Read these when a module is the bottleneck. The curriculum is overview first, th
 - [Anthropic: Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — context as a finite attention resource.
 - [Anthropic prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices) — clear instructions, context, examples, structure, and grounding.
 - [OpenAI prompt engineering guide](https://developers.openai.com/api/docs/guides/prompt-engineering) — structured prompts, typed inputs, examples, and evaluation for prompt behavior.
+- [OpenAI evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices) — eval objective, dataset, metrics, iteration, and continuous evaluation.
+- [Anthropic: Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) — agent tasks, trials, graders, transcripts, outcomes, and suite maintenance.
+- [Implementing SLOs for Data Quality](https://muness.com/posts/implementing-slos-for-data-quality/) — SLI, SLO, error budget, and policy framing for quality.
 
 ## Later
 

@@ -1,18 +1,12 @@
-# Tutorial: Build the LLM Development Loop
+# Builder Loop Tutorial
 
-This exercise teaches the skills an LLM developer should know, then applies the Open Horizons corpus to those skills.
+Use this tutorial for one real project slice: clarify the aim, frame the problem, choose a solution level, define evidence, delegate the work, review it, and preserve what the next session needs.
 
-The tutorial follows a main path, with checks that can interrupt any step:
+This is one guided path. Use [Context to Agent Tutorial](context-to-agent-tutorial.md) when the question is whether a prompt or checklist should become a skill or subagent. Use [Eval Tutorial](evals-tutorial.md) when the evidence needs fixtures, graders, thresholds, or production signals.
 
-| Mode | What happens |
-|---|---|
-| Grounding | State intent, fit the work to the model, and build selected context. |
-| Framing | Map problem space, choose the problem statement, and compare solution levels. |
-| Execution | Write evidence, delegate the slice, and build only what the brief allows. |
-| Learning | Extract durable knowledge after meaningful work. |
-| Anytime checks | Invoke review for correctness, dissent for fragile assumptions, and salvage when drift appears. |
+Review, dissent, and salvage can interrupt any step. They are checks, not final ceremony.
 
-Use a real project with enough texture that there is more than one plausible solution. If all you have is a blank repo, stop. The point is judgment in an existing system.
+Use a real project with enough texture that there is more than one plausible solution. If all you have is a blank repo, stop. Judgment needs an existing system.
 
 ## Required setup
 
@@ -252,34 +246,19 @@ solution-space comparison and selected level
 
 ### Step 8: Evidence before delegation
 
-Read [Evidence and Evals](evidence-and-evals.md), then use the [eval checklist template](../templates/eval-checklist.md).
+Read [Evidence and Evals](evidence-and-evals.md), then use the [eval checklist template](../templates/eval-checklist.md). If the check needs a fixture set, grader, threshold, or production signal, run the [Eval Tutorial](evals-tutorial.md).
 
-Define checks before `/execute`.
+Define checks before `/execute`:
 
-Evidence may include:
+- old behavior that should now fail;
+- invariant that should hold;
+- positive, negative, and edge cases;
+- grader or command that proves the behavior;
+- threshold good enough for this slice;
+- action if the check fails;
+- residual risk after checks pass.
 
-- unit tests;
-- integration tests;
-- regression tests for the specific symptom;
-- static checks;
-- build or lint commands;
-- migration checks;
-- docs updated where behavior changed;
-- manual reproduction when automation is not practical;
-- review criteria tied to the selected solution level.
-
-A useful check is specific enough to fail.
-
-| Version | Check |
-|---|---|
-| Weak | The notification system should be cleaner. |
-| Better | Given two identical notification events with the same idempotency key, the system sends one notification and records the duplicate as skipped. |
-
-Artifact:
-
-```text
-evidence checklist
-```
+Artifact: evidence checklist.
 
 ### Step 9: Agent brief
 
@@ -307,58 +286,17 @@ Artifact:
 agent brief
 ```
 
-### Step 10: Author a project skill
+### Optional checkpoint: promote reusable interfaces
 
-Read [Authoring Skills](authoring-skills.md), then use the [project skill template](../templates/project-skill.md) to encode one reusable procedure discovered during the run.
+If the run surfaced a repeated prompt shape, checklist, evidence gate, or role boundary, pause here and use [Context to Agent Tutorial](context-to-agent-tutorial.md).
 
-Good candidates:
+Do not make skill or subagent authoring mandatory for this tutorial. Promote only when the workflow or role has proved reusable.
 
-- a fragile test command sequence;
-- a repeated review checklist;
-- a recurring bug-class check;
-- a project-specific release verification;
-- a salvage/restart procedure.
-
-Do not author a skill for generic advice. The skill should preserve local procedure.
-
-Artifact:
-
-```text
-.claude/skills/<skill-name>/SKILL.md
-```
-
-### Step 11: Author a subagent
-
-Read [Authoring Subagents](subagents.md), then use the [subagent template](../templates/subagent.md) to encode one role boundary.
-
-Good candidates:
-
-- independent reviewer;
-- codebase scout;
-- test-gap hunter;
-- migration planner;
-- release checker;
-- domain validator;
-- knowledge extractor.
-
-The role should have:
-
-- input contract;
-- tool limits;
-- process;
-- stop conditions;
-- output format;
-- anti-patterns.
-
-Artifact:
-
-```text
-.claude/agents/<name>.md
-```
+Artifact if needed: project skill, subagent, or a note explaining why the interface stays one-off.
 
 ## Part 2: Apply the loop to code
 
-### Step 12: Execute one slice
+### Step 10: Execute one slice
 
 Read [Execution, Review, Dissent, and Salvage](execution-review-salvage.md), then run `/execute` with the agent brief.
 
@@ -380,7 +318,7 @@ Artifact:
 patch or stopped execution report
 ```
 
-### Step 13: Review
+### Step 11: Review
 
 Use the review section in [Execution, Review, Dissent, and Salvage](execution-review-salvage.md#review), then run `/review`.
 
@@ -404,7 +342,7 @@ Artifact:
 review findings
 ```
 
-### Step 14: Dissent
+### Step 12: Dissent
 
 Use the dissent section in [Execution, Review, Dissent, and Salvage](execution-review-salvage.md#dissent), then run `/dissent`.
 
@@ -427,7 +365,7 @@ Artifact:
 dissent memo
 ```
 
-### Step 15: Knowledge extraction
+### Step 13: Knowledge extraction
 
 Read [Knowledge Extraction](knowledge-extraction.md), then use the [knowledge artifact template](../templates/knowledge-artifact.md) to record what should survive the session.
 
@@ -449,7 +387,7 @@ Artifact:
 .oh/metis/*, .oh/signals/*, .oh/guardrails/*, .oh/outcomes/*, or docs/ADRs/*
 ```
 
-### Step 16: Salvage if needed
+### Step 14: Salvage if needed
 
 Use the salvage section in [Execution, Review, Dissent, and Salvage](execution-review-salvage.md#salvage), then run `/salvage` if the attempt went sideways.
 
@@ -477,7 +415,7 @@ Artifact:
 salvage note and restart plan
 ```
 
-## Capstone output
+## Builder output
 
 You should finish with:
 
@@ -491,8 +429,7 @@ You should finish with:
 - solution-space comparison;
 - evidence checklist;
 - agent brief;
-- project skill;
-- subagent;
+- project skill or subagent only if a reusable procedure or role boundary emerged;
 - patch or stopped execution report;
 - review findings;
 - dissent memo;

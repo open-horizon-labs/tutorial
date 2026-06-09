@@ -34,7 +34,7 @@ Use four passes. Do not turn them into homework for its own sake.
 1. **Overview pass** — read the table below and understand the sequence of decisions.
 2. **Deep-dive pass** — read the linked module when that skill is the active bottleneck.
 3. **Reference pass** — follow Go deeper links when you need source material, official mechanics, or a sharper model.
-4. **Application pass** — use `docs/tutorial.md` to apply the loop to one real project slice.
+4. **Application pass** — use `docs/tutorial.md` for the builder loop, then focused tutorials for context-to-agent composition or eval design.
 
 A good artifact is not a note-shaped souvenir. It preserves at least one decision, one assumption or evidence check, and the next consumer: another skill, subagent, reviewer, maintainer, or future session. If an artifact cannot do that, shrink it or merge it.
 
@@ -49,7 +49,7 @@ A good artifact is not a note-shaped souvenir. It preserves at least one decisio
 | 5. Problem space (`/problem-space`) | Map terrain: systems, stakeholders, constraints, assumptions, evidence, and blast radius. | Problem-space map. | [`problem-space.md`](problem-space.md) | [Documenting Strategy](https://muness.com/posts/documenting-strategy-lessons-from-leading-data-and-eng/); [Real-World Strategic Clarity](https://muness.com/posts/real-world-application-of-strategic-clarity-in-platform-leadership/). |
 | 6. Problem statement (`/problem-statement`) | Narrow the map to one selected framing, name rejected framings, and define the evidence that would prove the framing wrong. | Selected problem statement. | [`problem-statement.md`](problem-statement.md) | [`problem-space.md`](problem-space.md); [Documenting Strategy](https://muness.com/posts/documenting-strategy-lessons-from-leading-data-and-eng/). |
 | 7. Solution search (`/solution-space`) | Generate multiple solution levels, score them against the aim, and reject the nearest plausible patch when it does not change the failure mode. | Solution-space comparison with selected level. | [`beyond-nearest-peak.md`](beyond-nearest-peak.md) | [Beyond the Nearest Peak](https://muness.com/posts/beyond-the-nearest-peak/). |
-| 8. Evidence | Define checks before implementation, including the tempting patch that should fail if the problem is deeper. | Evidence checklist. | [`evidence-and-evals.md`](evidence-and-evals.md) | [Phoenix eval workflow](https://arize.com/docs/phoenix/cookbook/ai-engineering-workflows/iterative-evaluation-and-experimentation-workflow-python); [Dissent Mode](https://muness.com/posts/dissent-mode/). |
+| 8. Evidence | Define checks before implementation, including the tempting patch that should fail if the problem is deeper. | Evidence checklist. | [`evidence-and-evals.md`](evidence-and-evals.md); [`evals-tutorial.md`](evals-tutorial.md) | [Implementing SLOs for Data Quality](https://muness.com/posts/implementing-slos-for-data-quality/); [OpenAI evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices); [Anthropic agent evals](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents). |
 | 9. Agent brief | Turn aim, mechanism, feedback, guardrails, and selected solution level into an execution contract. | Agent brief. | [`agent-briefs.md`](agent-briefs.md) | [`strategy-clarity.md`](strategy-clarity.md); [Alignment Is the Constraint](https://muness.com/posts/alignment-is-the-constraint/). |
 | 10. Skill authoring | Author a `SKILL.md` when the current project exposes a repeated procedure worth preserving. | Project skill. | [`authoring-skills.md`](authoring-skills.md) | [Claude Code Skills](https://code.claude.com/docs/en/skills). |
 | 11. Subagent authoring | Author a specialized role when the work needs independent judgment, scoped tools, or isolated context. | Project subagent. | [`subagents.md`](subagents.md) | [Claude Code Subagents](https://code.claude.com/docs/en/sub-agents). |
@@ -65,6 +65,7 @@ A good artifact is not a note-shaped souvenir. It preserves at least one decisio
 |---|---|---|---|
 | Prompt and context assembly | Intent Engineering, Model-fit framing, Context construction, and Evidence | Prompt assembly with stable instructions, dynamic context, examples, output contract, fixtures, and reviewer checks. | [`prompt-and-context.md`](prompt-and-context.md) |
 | Context to agent interface | Context Construction, Prompt and Context Assembly, Authoring Skills, and Authoring Subagents | Context pack, prompt assembly, and promotion decision for project skill or subagent. | [`context-to-agent-tutorial.md`](context-to-agent-tutorial.md) |
+| Eval design | Evidence and Evals, Agent Briefs, Review, and Knowledge Extraction | Eval objective, fixture set, grader, threshold, action policy, and production signal. | [`evals-tutorial.md`](evals-tutorial.md) |
 
 ## Open Horizons corpus applied
 
@@ -115,11 +116,11 @@ Knowledge extraction preserves **learning** when the next session should not hav
 
 Skills, subagents, and extraction exist to preserve judgment across sessions: the procedure, the role boundary, the evidence, and the learning that should change the next run. Open Horizons-shaped paperwork is failure in a nicer outfit.
 
-## Capstone
+## Apply to a real slice
 
 Use a real project with enough texture for judgment: tests, more than one subsystem, a known annoyance or recurring failure, and enough history that the debt is not hypothetical. If the project is blank, the exercise has no terrain. Pick a smaller real slice instead.
 
-The learner improves that slice and leaves behind:
+The learner improves that slice and leaves behind the artifacts the run actually earned:
 
 - an intent note;
 - a model-fit note;
@@ -129,11 +130,10 @@ The learner improves that slice and leaves behind:
 - a solution-level comparison;
 - evidence checks;
 - an agent brief;
-- a project skill encoding one observed reusable procedure;
-- a subagent encoding one independent role boundary;
 - a patch or stopped execution report;
 - review and dissent findings;
 - one durable knowledge artifact;
+- a project skill or subagent only if the run exposed a reusable procedure or role boundary;
 - a salvage note if the run drifted.
 
 The next-session test is the standard: a new agent or maintainer should be able to read the artifacts, recover the aim, constraints, chosen framing, evidence checks, role boundaries, and failure modes, then continue the same project slice without rediscovering the whole problem. If the artifacts do not make that possible, the curriculum produced paperwork, not learning.
