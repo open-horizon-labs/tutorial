@@ -13,24 +13,16 @@ The curriculum has two layers:
 
 ## What you learn
 
-You will learn how to:
+Think of the curriculum as four nested loops:
 
-1. state intent before asking for output;
-2. reframe tasks so the model transforms supplied context instead of guessing missing facts;
-3. build a context pack instead of dumping context;
-4. assemble prompts as interfaces: stable instructions, dynamic context, examples, output contract, fixtures, and reviewer checks;
-5. use Open Horizons skills as phase gates;
-6. map problem space before choosing a fix;
-7. narrow the map to a selected problem statement;
-8. search across solution levels before implementing;
-9. write evidence checks before delegation;
-10. author project skills for repeated procedures;
-11. author subagents for bounded roles;
-12. delegate one implementation slice;
-13. invoke review when correctness needs an external check;
-14. use dissent when an accepted-looking answer rests on fragile assumptions;
-15. extract durable knowledge into `.oh/` artifacts;
-16. salvage learning as soon as the run drifts.
+| Loop | You learn to | Produces |
+|---|---|---|
+| **Ground the ask** | State intent, fit the model to the task, supply selected context, and assemble a checkable prompt. | Prompt/context assembly. |
+| **Frame the work** | Map the problem space, choose the problem statement, and compare solution levels before implementing. | Selected framing and solution level. |
+| **Execute with evidence** | Define checks, delegate one bounded slice, review correctness, and use dissent when assumptions are fragile. | Verified change or stopped execution report. |
+| **Preserve what should survive** | Promote repeated procedures, use subagents for bounded roles, extract durable knowledge, and salvage drifting runs. | Future context: skills, subagents, `.oh/` artifacts, or restart plan. |
+
+The detailed module-by-module path lives in [`docs/curriculum.md`](docs/curriculum.md).
 
 ## Why skills, subagents, and extraction
 
